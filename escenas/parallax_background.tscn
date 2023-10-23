@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh3e2hoso8fli"]
+
+[ext_resource type="Texture2D" uid="uid://bo0ypxxx027pt" path="res://rec/free-city-backgrounds-pixel-art/city 2/1.png" id="1_de5n7"]
+[ext_resource type="Texture2D" uid="uid://bioa0og6osakh" path="res://rec/free-city-backgrounds-pixel-art/city 2/2.png" id="2_21byc"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+texture_filter = 1
+
+[node name="back" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(-36, -10)
+scale = Vector2(2.22917, 2.27778)
+texture = ExtResource("1_de5n7")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+
+[node name="ed" type="Sprite2D" parent="ParallaxLayer2"]
+texture_filter = 1
+position = Vector2(-16, 170)
+scale = Vector2(2.03125, 2.09259)
+texture = ExtResource("2_21byc")
+centered = false
