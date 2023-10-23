@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://da5rhvg682uo4"]
+[gd_scene load_steps=3 format=3 uid="uid://da5rhvg682uo4"]
 
 [ext_resource type="FontFile" uid="uid://0vo8rbultw43" path="res://rec/inconsolata/Inconsolata-Regular.ttf" id="1_du3ko"]
+[ext_resource type="PackedScene" uid="uid://dh3e2hoso8fli" path="res://escenas/fondoMenu.tscn" id="2_gq7ra"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -52,3 +53,5 @@ text = "SALIR
 "
 flat = true
 icon_alignment = 1
+
+[node name="fondo_menu" parent="." instance=ExtResource("2_gq7ra")]
