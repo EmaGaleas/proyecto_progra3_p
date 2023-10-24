@@ -61,12 +61,14 @@ icon_alignment = 1
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = -567.0
-offset_top = -338.0
-offset_right = 573.0
-offset_bottom = -204.0
+offset_left = -571.0
+offset_top = -328.0
+offset_right = 566.0
+offset_bottom = -197.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_gem1r")
 theme_override_font_sizes/font_size = 155
 text = "CRACKER RUNNER"
 horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxBotones/salir" to="fondo_menu" method="_on_salir_pressed"]

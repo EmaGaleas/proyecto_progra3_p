@@ -20,6 +20,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	scroll_offset.x-=45*delta
+
+
+func _on_salir_pressed():
+	get_tree().quit() # Replace with function body.
 "
 
 [node name="fondo_menu" type="ParallaxBackground"]
