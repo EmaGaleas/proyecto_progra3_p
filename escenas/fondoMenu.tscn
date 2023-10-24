@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://dh3e2hoso8fli"]
 
-[ext_resource type="Texture2D" uid="uid://bo0ypxxx027pt" path="res://rec/free-city-backgrounds-pixel-art/city 2/1.png" id="1_yckbm"]
-[ext_resource type="Texture2D" uid="uid://bioa0og6osakh" path="res://rec/free-city-backgrounds-pixel-art/city 2/2.png" id="2_26baj"]
-[ext_resource type="Texture2D" uid="uid://g2bbg06yn2nn" path="res://rec/free-city-backgrounds-pixel-art/city 2/3.png" id="3_6mues"]
-[ext_resource type="Texture2D" uid="uid://cbift4bu4mkvs" path="res://rec/free-city-backgrounds-pixel-art/city 2/4.png" id="4_2edcg"]
-[ext_resource type="Texture2D" uid="uid://fsttw17vlckx" path="res://rec/free-city-backgrounds-pixel-art/city 2/5.png" id="5_2kpjc"]
-[ext_resource type="Texture2D" uid="uid://doqfgqul03nq7" path="res://rec/free-city-backgrounds-pixel-art/city 2/6.png" id="6_sugsi"]
+[ext_resource type="Texture2D" uid="uid://8rgml50nho2h" path="res://rec/fondos_sprites/1.png" id="2_2alru"]
+[ext_resource type="Texture2D" uid="uid://c81xqd5f3xops" path="res://rec/fondos_sprites/3.png" id="3_g4usj"]
+[ext_resource type="Texture2D" uid="uid://vhn3lxq2s1sa" path="res://rec/fondos_sprites/2.png" id="4_1u40h"]
+[ext_resource type="Texture2D" uid="uid://bh3isunlre166" path="res://rec/fondos_sprites/4.png" id="5_8uq1t"]
+[ext_resource type="Texture2D" uid="uid://fsttw17vlckx" path="res://rec/fondos_sprites/city 2/5.png" id="6_svl6v"]
+[ext_resource type="Texture2D" uid="uid://doqfgqul03nq7" path="res://rec/fondos_sprites/city 2/6.png" id="7_7n2ce"]
 [ext_resource type="Texture2D" uid="uid://byvd0uyhsjgxy" path="res://rec/FONDO.png" id="7_xbdad"]
 
 [sub_resource type="GDScript" id="GDScript_yfp41"]
@@ -21,9 +21,6 @@ func _ready():
 func _process(delta):
 	scroll_offset.x-=45*delta
 
-
-func _on_salir_pressed():
-	get_tree().quit() # Replace with function body.
 "
 
 [node name="fondo_menu" type="ParallaxBackground"]
@@ -48,40 +45,40 @@ motion_mirroring = Vector2(1400, 0)
 [node name="back2" type="Sprite2D" parent="ParallaxLayer"]
 position = Vector2(1, 0.999998)
 scale = Vector2(2.44097, 2.75617)
-texture = ExtResource("1_yckbm")
+texture = ExtResource("2_2alru")
 centered = false
 
 [node name="ed" type="Sprite2D" parent="ParallaxLayer"]
 texture_filter = 1
-position = Vector2(1, 4)
-scale = Vector2(2.43056, 2.77469)
-texture = ExtResource("2_26baj")
+position = Vector2(6, 302)
+scale = Vector2(1.77778, 1.78086)
+texture = ExtResource("3_g4usj")
 centered = false
 
 [node name="ed2" type="Sprite2D" parent="ParallaxLayer"]
 texture_filter = 1
-position = Vector2(1, 3)
-scale = Vector2(2.43229, 2.76543)
-texture = ExtResource("3_6mues")
+position = Vector2(42, 172)
+scale = Vector2(2.00347, 2.16358)
+texture = ExtResource("4_1u40h")
 centered = false
 
 [node name="ed3" type="Sprite2D" parent="ParallaxLayer"]
 texture_filter = 1
 position = Vector2(1, 3.99998)
 scale = Vector2(2.43576, 2.76543)
-texture = ExtResource("4_2edcg")
+texture = ExtResource("5_8uq1t")
 centered = false
 
 [node name="ed4" type="Sprite2D" parent="ParallaxLayer"]
 texture_filter = 1
 position = Vector2(1, 3.99998)
 scale = Vector2(2.43576, 2.76852)
-texture = ExtResource("5_2kpjc")
+texture = ExtResource("6_svl6v")
 centered = false
 
 [node name="ed5" type="Sprite2D" parent="ParallaxLayer"]
 texture_filter = 1
 position = Vector2(1, 3.99998)
 scale = Vector2(2.50174, 2.76852)
-texture = ExtResource("6_sugsi")
+texture = ExtResource("7_7n2ce")
 centered = false

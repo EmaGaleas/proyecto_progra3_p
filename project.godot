@@ -15,10 +15,6 @@ run/main_scene="res://escenas/fondoMenu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-MenuSong="*res://escenas/menu_song.tscn"
-
 [display]
 
 window/size/viewport_width=1400

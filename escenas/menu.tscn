@@ -1,9 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://da5rhvg682uo4"]
+[gd_scene load_steps=6 format=3 uid="uid://da5rhvg682uo4"]
 
 [ext_resource type="FontFile" uid="uid://0vo8rbultw43" path="res://rec/inconsolata/Inconsolata-Regular.ttf" id="1_du3ko"]
 [ext_resource type="FontFile" uid="uid://bd4lsheapt1xh" path="res://rec/game_set/GameSetDemoRegular.ttf" id="2_gem1r"]
 [ext_resource type="PackedScene" uid="uid://dh3e2hoso8fli" path="res://escenas/fondoMenu.tscn" id="2_gq7ra"]
 [ext_resource type="AudioStream" uid="uid://c2kfs42wk3yym" path="res://rec/musica/Super Bowl.mp3" id="4_qijyp"]
+
+[sub_resource type="GDScript" id="GDScript_1flmm"]
+script/source = "extends Control
+
+#papa
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_jugar_pressed():
+	get_tree().change_scene_to_file(\"res://escenas/storyLine1.tscn\")
+
+
+func _on_salir_pressed():
+	get_tree().quit() # Replace with function body.
+"
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -16,6 +38,7 @@ offset_top = -1.0
 offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = SubResource("GDScript_1flmm")
 
 [node name="VBoxBotones" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -35,7 +58,7 @@ alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 0, 0.866667)
-theme_override_colors/font_hover_color = Color(1, 0.34902, 0.670588, 1)
+theme_override_colors/font_hover_color = Color(0.666667, 0.886275, 0, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 0, 0.866667)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 0, 0.866667)
 theme_override_fonts/font = ExtResource("1_du3ko")
@@ -48,7 +71,7 @@ icon_alignment = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 0, 0, 0.901961)
-theme_override_colors/font_hover_color = Color(0, 0.0862745, 0.156863, 0.901961)
+theme_override_colors/font_hover_color = Color(0.666667, 0.886275, 0, 1)
 theme_override_colors/font_focus_color = Color(1, 0, 0, 0.901961)
 theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 0.901961)
 theme_override_fonts/font = ExtResource("1_du3ko")
@@ -76,4 +99,5 @@ horizontal_alignment = 1
 stream = ExtResource("4_qijyp")
 autoplay = true
 
-[connection signal="pressed" from="VBoxBotones/salir" to="fondo_menu" method="_on_salir_pressed"]
+[connection signal="pressed" from="VBoxBotones/jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="VBoxBotones/salir" to="." method="_on_salir_pressed"]

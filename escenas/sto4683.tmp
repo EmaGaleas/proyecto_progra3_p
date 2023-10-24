@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://cc5kx3keu2xc3"]
+
+[ext_resource type="FontFile" uid="uid://bd4lsheapt1xh" path="res://rec/game_set/GameSetDemoRegular.ttf" id="1_85qnq"]
+[ext_resource type="Texture2D" uid="uid://byvd0uyhsjgxy" path="res://rec/FONDO.png" id="2_jbqd3"]
+[ext_resource type="VideoStream" path="res://rec/musica/cyber1111.ogv" id="3_050cl"]
+
+[sub_resource type="GDScript" id="GDScript_ls0up"]
+script/source = "extends ParallaxBackground
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+()
+
+
+func _on_ahorcado_pressed():
+	get_tree().change_scene_to_file(\"res://escenas/menu.tscn\")
+"
+
+[node name="storyLine1" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = SubResource("GDScript_ls0up")
+
+[node name="video1" type="VideoStreamPlayer" parent="ParallaxBackground"]
+offset_right = 1408.0
+offset_bottom = 752.0
+stream = ExtResource("3_050cl")
+autoplay = true
+
+[node name="ahorcado" type="Button" parent="ParallaxBackground"]
+offset_left = 902.0
+offset_top = 749.0
+offset_right = 1398.0
+offset_bottom = 897.0
+theme_override_colors/font_pressed_color = Color(0.831373, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.831373, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(0.831373, 1, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.831373, 1, 0, 1)
+theme_override_fonts/font = ExtResource("1_85qnq")
+theme_override_font_sizes/font_size = 90
+text = "JUGAR / SKIP"
+
+[node name="Fondo" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(447, 1106)
+scale = Vector2(0.70625, 0.991667)
+texture = ExtResource("2_jbqd3")
+
+[connection signal="finished" from="ParallaxBackground/video1" to="ParallaxBackground" method="_on_video_1_finished"]
+[connection signal="pressed" from="ParallaxBackground/ahorcado" to="ParallaxBackground" method="_on_ahorcado_pressed"]
