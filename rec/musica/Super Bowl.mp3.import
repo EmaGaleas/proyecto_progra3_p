@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Super Bowl.mp3-058f334568e2a3d7f8f83ef20f646d
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

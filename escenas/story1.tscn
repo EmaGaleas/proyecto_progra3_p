@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://b26krt6a5nqj5"]
+
+[ext_resource type="FontFile" uid="uid://bd4lsheapt1xh" path="res://rec/game_set/GameSetDemoRegular.ttf" id="1_sq5gt"]
+[ext_resource type="Texture2D" uid="uid://byvd0uyhsjgxy" path="res://rec/FONDO.png" id="2_s87ax"]
+
+[node name="story1" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1008.0
+offset_top = 845.0
+offset_right = 1399.0
+offset_bottom = 899.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.819608, 0.0745098, 0.509804, 1)
+theme_override_colors/font_hover_color = Color(0.819608, 0.0745098, 0.509804, 1)
+theme_override_colors/font_focus_color = Color(0.819608, 0.0745098, 0.509804, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.819608, 0.0745098, 0.509804, 1)
+theme_override_fonts/font = ExtResource("1_sq5gt")
+theme_override_font_sizes/font_size = 48
+text = "JUGAR / SALTAR"
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 1398.0
+offset_bottom = 845.0
+
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(505.5, 1098)
+scale = Vector2(0.788281, 0.702778)
+texture = ExtResource("2_s87ax")
