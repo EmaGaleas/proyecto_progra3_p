@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://743hpxhvdqn4"]
+
+[ext_resource type="AudioStream" uid="uid://c2kfs42wk3yym" path="res://rec/musica/Super Bowl.mp3" id="1_uoy7x"]
+
+[node name="menu_song" type="AudioStreamPlayer"]
+stream = ExtResource("1_uoy7x")
+autoplay = true
