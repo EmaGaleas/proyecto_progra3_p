@@ -7,7 +7,7 @@
 
 [sub_resource type="GDScript" id="GDScript_1flmm"]
 script/source = "extends Control
-
+#cositas pasaran para bien
 #papa
 # Called when the node enters the scene tree for the first time.
 func _ready():
