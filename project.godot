@@ -10,8 +10,7 @@ config_version=5
 
 [application]
 
-config/name="proyecto1_progra3"
-run/main_scene="res://escenas/fondoMenu.tscn"
+config/name="Proyecto Progra 3 P"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
