@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1yt07knn5r5w"]
+
+[ext_resource type="Script" path="res://escenas/ahorcado.gd" id="1_o05od"]
+[ext_resource type="Texture2D" uid="uid://vv7y1hksc5mx" path="res://rec/fondo_lvl1.png" id="2_vfyye"]
+[ext_resource type="AudioStream" uid="uid://db8huk2pbcmfo" path="res://rec/musica/timer_ahorcado.mp3" id="3_fe015"]
+[ext_resource type="FontFile" uid="uid://hn41tvtbb0bj" path="res://rec/inconsolata/Inconsolata-Bold.ttf" id="4_uf55b"]
+
+[node name="ahorcado" type="Node2D"]
+script = ExtResource("1_o05od")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="FondoLvl1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(697, 449.25)
+scale = Vector2(1.68029, 1.60053)
+texture = ExtResource("2_vfyye")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_fe015")
+volume_db = -14.054
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="timer_mostrar" type="Label" parent="."]
+offset_left = 963.0
+offset_top = 78.0
+offset_right = 1136.0
+offset_bottom = 161.0
+theme_override_fonts/font = ExtResource("4_uf55b")
+theme_override_font_sizes/font_size = 40
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://da5rhvg682uo4"]
 
-[ext_resource type="FontFile" uid="uid://0vo8rbultw43" path="res://rec/inconsolata/Inconsolata-Regular.ttf" id="1_du3ko"]
-[ext_resource type="FontFile" uid="uid://bd4lsheapt1xh" path="res://rec/game_set/GameSetDemoRegular.ttf" id="2_gem1r"]
+[ext_resource type="FontFile" uid="uid://0vo8rbultw43" path="res://rec/inconsolata_tipografia/Inconsolata-Regular.ttf" id="1_pr7bc"]
 [ext_resource type="PackedScene" uid="uid://dh3e2hoso8fli" path="res://escenas/fondoMenu.tscn" id="2_gq7ra"]
+[ext_resource type="FontFile" uid="uid://bd4lsheapt1xh" path="res://rec/game_set_tipografia/GameSetDemoRegular.ttf" id="3_td3xn"]
 [ext_resource type="AudioStream" uid="uid://c2kfs42wk3yym" path="res://rec/musica/Super Bowl.mp3" id="4_qijyp"]
 
 [sub_resource type="GDScript" id="GDScript_1flmm"]
@@ -61,7 +61,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 0, 0.866667)
 theme_override_colors/font_hover_color = Color(0.666667, 0.886275, 0, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 0, 0.866667)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 0, 0.866667)
-theme_override_fonts/font = ExtResource("1_du3ko")
+theme_override_fonts/font = ExtResource("1_pr7bc")
 theme_override_font_sizes/font_size = 50
 text = "COMENZAR"
 flat = true
@@ -74,7 +74,7 @@ theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.666667, 0.886275, 0, 1)
 theme_override_colors/font_focus_color = Color(1, 0, 0, 0.901961)
 theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 0.901961)
-theme_override_fonts/font = ExtResource("1_du3ko")
+theme_override_fonts/font = ExtResource("1_pr7bc")
 theme_override_font_sizes/font_size = 40
 text = "SALIR
 "
@@ -83,20 +83,21 @@ icon_alignment = 1
 
 [node name="fondo_menu" parent="." instance=ExtResource("2_gq7ra")]
 
-[node name="Label" type="Label" parent="."]
+[node name="lbl_nombre" type="Label" parent="."]
 layout_mode = 0
 offset_left = -571.0
 offset_top = -440.0
 offset_right = 566.0
 offset_bottom = -197.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_gem1r")
+theme_override_fonts/font = ExtResource("3_td3xn")
 theme_override_font_sizes/font_size = 170
 text = "CRACKER RUNNER"
 horizontal_alignment = 1
 
 [node name="cancion menu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_qijyp")
+volume_db = -9.5
 autoplay = true
 
 [connection signal="pressed" from="VBoxBotones/jugar" to="." method="_on_jugar_pressed"]

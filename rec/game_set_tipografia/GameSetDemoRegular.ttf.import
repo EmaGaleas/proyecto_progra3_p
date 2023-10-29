@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://hn41tvtbb0bj"
-path="res://.godot/imported/Inconsolata-Bold.ttf-e0f8dbfa56c3418341ff49fd735ae5b4.fontdata"
+uid="uid://bd4lsheapt1xh"
+path="res://.godot/imported/GameSetDemoRegular.ttf-074f34d2442de0d4724dcfe3b894421f.fontdata"
 
 [deps]
 
-source_file="res://rec/inconsolata/Inconsolata-Bold.ttf"
-dest_files=["res://.godot/imported/Inconsolata-Bold.ttf-e0f8dbfa56c3418341ff49fd735ae5b4.fontdata"]
+source_file="res://rec/game_set_tipografia/GameSetDemoRegular.ttf"
+dest_files=["res://.godot/imported/GameSetDemoRegular.ttf-074f34d2442de0d4724dcfe3b894421f.fontdata"]
 
 [params]
 

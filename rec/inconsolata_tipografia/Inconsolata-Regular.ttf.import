@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://0vo8rbultw43"
-path="res://.godot/imported/Inconsolata-Regular.ttf-e1927e381d1e2948b3542d5ca089d000.fontdata"
+path="res://.godot/imported/Inconsolata-Regular.ttf-5d8909668a0e3755fe783e7be9ce45e5.fontdata"
 
 [deps]
 
-source_file="res://rec/inconsolata/Inconsolata-Regular.ttf"
-dest_files=["res://.godot/imported/Inconsolata-Regular.ttf-e1927e381d1e2948b3542d5ca089d000.fontdata"]
+source_file="res://rec/inconsolata_tipografia/Inconsolata-Regular.ttf"
+dest_files=["res://.godot/imported/Inconsolata-Regular.ttf-5d8909668a0e3755fe783e7be9ce45e5.fontdata"]
 
 [params]
 

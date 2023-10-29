@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cc5kx3keu2xc3"]
+[gd_scene load_steps=7 format=3 uid="uid://cc5kx3keu2xc3"]
 
-[ext_resource type="FontFile" uid="uid://bd4lsheapt1xh" path="res://rec/game_set/GameSetDemoRegular.ttf" id="1_85qnq"]
+[ext_resource type="FontFile" uid="uid://bd4lsheapt1xh" path="res://rec/game_set_tipografia/GameSetDemoRegular.ttf" id="2_ij025"]
 [ext_resource type="Texture2D" uid="uid://byvd0uyhsjgxy" path="res://rec/FONDO.png" id="2_jbqd3"]
 [ext_resource type="VideoStream" path="res://rec/musica/cyber1111.ogv" id="3_050cl"]
+[ext_resource type="FontFile" uid="uid://0vo8rbultw43" path="res://rec/inconsolata_tipografia/Inconsolata-Regular.ttf" id="4_wn7wd"]
 
 [sub_resource type="GDScript" id="GDScript_10btn"]
 script/source = "extends Node2D
@@ -60,7 +61,7 @@ theme_override_colors/font_pressed_color = Color(0.831373, 1, 0, 1)
 theme_override_colors/font_hover_color = Color(0.666667, 0.886275, 0, 1)
 theme_override_colors/font_focus_color = Color(0.831373, 1, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.831373, 1, 0, 1)
-theme_override_fonts/font = ExtResource("1_85qnq")
+theme_override_fonts/font = ExtResource("2_ij025")
 theme_override_font_sizes/font_size = 90
 text = "JUGAR / SKIP"
 
@@ -68,6 +69,18 @@ text = "JUGAR / SKIP"
 position = Vector2(447, 1106)
 scale = Vector2(0.70625, 0.991667)
 texture = ExtResource("2_jbqd3")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 14.0
+offset_top = 756.0
+offset_right = 891.0
+offset_bottom = 891.0
+theme_override_fonts/font = ExtResource("4_wn7wd")
+theme_override_font_sizes/font_size = 26
+text = "Se te han dado ciertas pistas para robar informacion de la empresa 
+WHIZCO. Debes adivinar la clave para acceder a ella con lo que
+te dieron. Tienes 2 minutos y 3 intentos ¡SUERTE!...o te atraparan"
+vertical_alignment = 1
 
 [connection signal="finished" from="video1" to="video1" method="_on_finished"]
 [connection signal="pressed" from="ahorcado" to="." method="_on_ahorcado_pressed"]
