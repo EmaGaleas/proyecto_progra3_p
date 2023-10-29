@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://n60anile6b8w"]
+[gd_scene load_steps=35 format=3 uid="uid://n60anile6b8w"]
 
 [ext_resource type="Script" path="res://escenas/player_lvl_2.gd" id="1_1rrvx"]
 [ext_resource type="Texture2D" uid="uid://7cgrtr61ojxu" path="res://rec/personaje/Punk/saltar_caer/1_caer.png" id="1_c5w2y"]
@@ -22,6 +22,9 @@
 [ext_resource type="Texture2D" uid="uid://fagnex65erhg" path="res://rec/personaje/Punk/muere/5_death.png" id="19_bapix"]
 [ext_resource type="Texture2D" uid="uid://cg6uqrs6t0tgp" path="res://rec/personaje/Punk/saltar_caer/1_jump.png" id="20_bqo2a"]
 [ext_resource type="Texture2D" uid="uid://ds7kr2kkdy64y" path="res://rec/personaje/Punk/saltar_caer/2_jump.png" id="21_qusss"]
+[ext_resource type="AudioStream" uid="uid://dreb6ly1xkxni" path="res://rec/musica/sonido_correr.mp3" id="23_37qu6"]
+[ext_resource type="AudioStream" uid="uid://yrw0mtidd2rr" path="res://rec/musica/sonidoSalto.mp3" id="24_vblh3"]
+[ext_resource type="AudioStream" uid="uid://b201anejvhy2e" path="res://rec/musica/sonidoViento.mp3" id="25_hny1w"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uikl8"]
 animations = [{
@@ -202,3 +205,22 @@ autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_l50if")
 }
+
+[node name="correr" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-0.999998, -2.98023e-06)
+scale = Vector2(4.47059, 4)
+stream = ExtResource("23_37qu6")
+volume_db = -5.0
+pitch_scale = 2.0
+
+[node name="saltar" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-0.999998, -2.98023e-06)
+scale = Vector2(4.47059, 4)
+stream = ExtResource("24_vblh3")
+volume_db = 10.0
+
+[node name="default" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("25_hny1w")
+autoplay = true
+
+[connection signal="finished" from="default" to="." method="_on_default_finished"]
