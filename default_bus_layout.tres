@@ -1,0 +1,21 @@
+[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://dfx8pj3rhop4w"]
+
+[sub_resource type="AudioEffectSpectrumAnalyzer" id="AudioEffectSpectrumAnalyzer_1aox6"]
+resource_name = "SpectrumAnalyzer"
+
+[sub_resource type="AudioEffectDelay" id="AudioEffectDelay_rgbxg"]
+resource_name = "Delay"
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_vye2v"]
+resource_name = "Distortion"
+
+[resource]
+bus/0/solo = true
+bus/0/mute = true
+bus/0/volume_db = 1.25825
+bus/0/effect/0/effect = SubResource("AudioEffectSpectrumAnalyzer_1aox6")
+bus/0/effect/0/enabled = false
+bus/0/effect/1/effect = SubResource("AudioEffectDelay_rgbxg")
+bus/0/effect/1/enabled = false
+bus/0/effect/2/effect = SubResource("AudioEffectDistortion_vye2v")
+bus/0/effect/2/enabled = true
