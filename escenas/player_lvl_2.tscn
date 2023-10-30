@@ -182,6 +182,7 @@ scale = Vector2(4.47059, 4)
 sprite_frames = SubResource("SpriteFrames_uikl8")
 animation = &"correr"
 autoplay = "default"
+frame = 1
 flip_h = true
 script = SubResource("GDScript_q8yaf")
 
@@ -210,5 +211,7 @@ volume_db = 10.0
 [node name="default" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("25_hny1w")
 autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="finished" from="default" to="." method="_on_default_finished"]
