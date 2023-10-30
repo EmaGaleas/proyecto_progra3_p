@@ -1,12 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://ob6lkivhflpe"]
+[gd_scene load_steps=19 format=3 uid="uid://ob6lkivhflpe"]
 
 [ext_resource type="PackedScene" uid="uid://n60anile6b8w" path="res://escenas/player_lvl_2.tscn" id="1_k6sol"]
 [ext_resource type="Script" path="res://escenas/level_2.gd" id="1_pcpio"]
 [ext_resource type="Texture2D" uid="uid://buaj6sh45fe0q" path="res://rec/fondos_sprites/Civilized-no-bg.png" id="2_n2y0a"]
-[ext_resource type="Texture2D" uid="uid://df5t36wh3xhy3" path="res://rec/fondos_sprites/lvl2/op2.png" id="3_rgxh0"]
 [ext_resource type="Texture2D" uid="uid://d12ecbewjdca3" path="res://rec/fondos_sprites/lvl2/7 (1).png" id="4_0ai70"]
+[ext_resource type="Texture2D" uid="uid://coqp3377ii5sj" path="res://rec/fondos_sprites/lvl2/az1 (3).png" id="4_75w53"]
+[ext_resource type="Texture2D" uid="uid://bkw7h0o1uha5h" path="res://rec/fondos_sprites/lvl2/az1 (1).png" id="5_6f34x"]
 [ext_resource type="Texture2D" uid="uid://lwi74iw6qxcb" path="res://rec/fondos_sprites/lvl2/11.png" id="5_qnjnb"]
 [ext_resource type="Texture2D" uid="uid://xqqdxigd2k4a" path="res://rec/fondos_sprites/lvl2/2 (2).png" id="6_0ac4k"]
+[ext_resource type="Texture2D" uid="uid://bo6sa3hbvviue" path="res://rec/fondos_sprites/lvl2/az1 (2).png" id="6_lhlec"]
+[ext_resource type="Texture2D" uid="uid://cr55dsgsaqlxp" path="res://rec/fondos_sprites/lvl2/az1 (4).png" id="6_vma1i"]
 [ext_resource type="Texture2D" uid="uid://7prkobd246sk" path="res://rec/fondos_sprites/lvl2/3.png" id="7_p0gvc"]
 [ext_resource type="Texture2D" uid="uid://dcigip2ohn1th" path="res://rec/fondos_sprites/lvl2/4.png" id="8_3v7or"]
 [ext_resource type="Texture2D" uid="uid://ciq38li3cs5rc" path="res://rec/fondos_sprites/lvl2/8 (2).png" id="9_yguya"]
@@ -58,22 +61,67 @@ motion_mirroring = Vector2(10500, 0)
 [node name="fondo4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(6383, 1220)
 scale = Vector2(33.5032, 10.6832)
-texture = ExtResource("3_rgxh0")
-
-[node name="fondo1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(2932, 409.5)
-scale = Vector2(5.02083, 3.25617)
-texture = ExtResource("3_rgxh0")
+texture = ExtResource("4_75w53")
 
 [node name="fondo2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(-67.9999, 412)
 scale = Vector2(5.78819, 3.26852)
-texture = ExtResource("3_rgxh0")
+texture = ExtResource("4_75w53")
+
+[node name="fondo9" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-67.9999, 412)
+scale = Vector2(5.78819, 3.26852)
+texture = ExtResource("5_6f34x")
+
+[node name="fondo11" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-67.9995, 276.25)
+scale = Vector2(5.78819, 4.10648)
+texture = ExtResource("6_lhlec")
 
 [node name="fondo3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(5995, 414)
 scale = Vector2(5.78819, 3.26852)
-texture = ExtResource("3_rgxh0")
+texture = ExtResource("4_75w53")
+
+[node name="fondo6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-296.5, 364)
+scale = Vector2(5.78993, 3.53704)
+texture = ExtResource("6_vma1i")
+
+[node name="fondo1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(2932, 409.5)
+scale = Vector2(5.02083, 3.25617)
+texture = ExtResource("4_75w53")
+
+[node name="fondo10" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(2932, 409.5)
+scale = Vector2(5.02083, 3.25617)
+texture = ExtResource("5_6f34x")
+
+[node name="fondo12" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(2860.5, 413)
+scale = Vector2(5.2691, 3.23457)
+texture = ExtResource("6_lhlec")
+
+[node name="fondo5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(2864.5, 360.5)
+scale = Vector2(5.3559, 3.55864)
+texture = ExtResource("6_vma1i")
+
+[node name="fondo7" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(5787, 353)
+scale = Vector2(5.3559, 3.55864)
+texture = ExtResource("6_vma1i")
+
+[node name="fondo8" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(5787, 353)
+scale = Vector2(5.3559, 3.55864)
+texture = ExtResource("5_6f34x")
+
+[node name="fondo13" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(5787, 353)
+scale = Vector2(5.3559, 3.55864)
+texture = ExtResource("6_lhlec")
 
 [node name="7(1)" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(-1119.75, 589.5)
