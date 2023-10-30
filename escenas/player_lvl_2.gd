@@ -16,7 +16,8 @@ func _physics_process(delta):
 		is_jumping = true
 	else:
 		is_jumping=false
-		
+	if position.y >= 812:
+		get_tree().change_scene_to_file("res://escenas/menu.tscn")
 	if Input.is_action_just_pressed("move_up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		$Spriteidle.play("saltar")
