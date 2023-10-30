@@ -30,17 +30,6 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_c5w2y")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_dmsu0")
-}],
-"loop": true,
-"name": &"caer",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": ExtResource("3_t3t5b")
 }, {
 "duration": 1.0,
@@ -191,9 +180,8 @@ script = ExtResource("1_1rrvx")
 position = Vector2(-0.999998, -2.98023e-06)
 scale = Vector2(4.47059, 4)
 sprite_frames = SubResource("SpriteFrames_uikl8")
-animation = &"saltar"
+animation = &"correr"
 autoplay = "default"
-frame = 1
 flip_h = true
 script = SubResource("GDScript_q8yaf")
 

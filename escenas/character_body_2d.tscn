@@ -1,5 +1,178 @@
-[gd_scene format=3 uid="uid://dh7fw7gtmsnlh"]
+[gd_scene load_steps=34 format=3 uid="uid://dh7fw7gtmsnlh"]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[ext_resource type="Script" path="res://escenas/character_body_2d.gd" id="1_6krgb"]
+[ext_resource type="Texture2D" uid="uid://c6ra5f02rgphj" path="res://rec/personaje/Cyborg/correr/1_r.png" id="1_d0mln"]
+[ext_resource type="Texture2D" uid="uid://dgn3ml7nw8eyq" path="res://rec/personaje/Cyborg/correr/2_r.png" id="2_b8215"]
+[ext_resource type="Texture2D" uid="uid://c24kc6khv8nhn" path="res://rec/personaje/Cyborg/correr/3_r.png" id="3_gftfa"]
+[ext_resource type="Texture2D" uid="uid://ccgn2e1o1obbg" path="res://rec/personaje/Cyborg/correr/4_r.png" id="4_h1b21"]
+[ext_resource type="Texture2D" uid="uid://1jhsoghh7e76" path="res://rec/personaje/Cyborg/correr/5_r.png" id="5_4fcl0"]
+[ext_resource type="Texture2D" uid="uid://cm5cdo05i6y3m" path="res://rec/personaje/Cyborg/correr/6_r.png" id="6_w5wyn"]
+[ext_resource type="Texture2D" uid="uid://e4vplwbky6tu" path="res://rec/personaje/Cyborg/idle/1_id.png" id="7_vtcga"]
+[ext_resource type="Texture2D" uid="uid://bxb6unmngyjxi" path="res://rec/personaje/Cyborg/idle/2_id.png" id="8_1kmrs"]
+[ext_resource type="Texture2D" uid="uid://bmmwgclojvtue" path="res://rec/personaje/Cyborg/idle/3_id.png" id="9_7yfwn"]
+[ext_resource type="Texture2D" uid="uid://ropp87mt126s" path="res://rec/personaje/Cyborg/idle/4_id.png" id="10_yp4hy"]
+[ext_resource type="Texture2D" uid="uid://oxk6244wwku" path="res://rec/personaje/Cyborg/saltar_caer/1_dj.png" id="11_7c1md"]
+[ext_resource type="Texture2D" uid="uid://bd2ohxs35p665" path="res://rec/personaje/Cyborg/saltar_caer/2_dj.png" id="12_bs72e"]
+[ext_resource type="Texture2D" uid="uid://04j83so5uca" path="res://rec/personaje/Cyborg/saltar_caer/3_dj.png" id="13_fxk6s"]
+[ext_resource type="Texture2D" uid="uid://2tgmacg1bgmk" path="res://rec/personaje/Cyborg/saltar_caer/4_dj.png" id="14_jqg1i"]
+[ext_resource type="Texture2D" uid="uid://ctgwhdy354trv" path="res://rec/personaje/Cyborg/saltar_caer/5_dj.png" id="15_khpuu"]
+[ext_resource type="Texture2D" uid="uid://cfgpe6fsclr4y" path="res://rec/personaje/Cyborg/saltar_caer/6_dj.png" id="16_cp8xh"]
+[ext_resource type="Texture2D" uid="uid://cbq11rtlvl6pq" path="res://rec/personaje/Cyborg/golpeado/1_g.png" id="17_r6wjf"]
+[ext_resource type="Texture2D" uid="uid://c6ei5crkns6dg" path="res://rec/personaje/Cyborg/golpeado/2_g.png" id="18_lqua2"]
+[ext_resource type="Texture2D" uid="uid://dg24fnwfatsje" path="res://rec/personaje/Cyborg/morir/1_d.png" id="19_w0efr"]
+[ext_resource type="Texture2D" uid="uid://bs2wshq476pgg" path="res://rec/personaje/Cyborg/morir/2_d.png" id="20_gw7mp"]
+[ext_resource type="Texture2D" uid="uid://xlndfq1gsvjp" path="res://rec/personaje/Cyborg/morir/3_d.png" id="21_eqqaq"]
+[ext_resource type="Texture2D" uid="uid://ryrl6gcp5lva" path="res://rec/personaje/Cyborg/morir/4_d.png" id="22_7lwms"]
+[ext_resource type="Texture2D" uid="uid://f5i58lx5ys6g" path="res://rec/personaje/Cyborg/morir/5_d.png" id="23_vq7d1"]
+[ext_resource type="Texture2D" uid="uid://bjt3prjoxa7bt" path="res://rec/personaje/Cyborg/saltar_caer/1_j.png" id="24_grl78"]
+[ext_resource type="Texture2D" uid="uid://dk6jdny1fwf30" path="res://rec/personaje/Cyborg/saltar_caer/2_j.png" id="25_7bal3"]
+[ext_resource type="Texture2D" uid="uid://dkps8v4hqtd2i" path="res://rec/personaje/Cyborg/saltar_caer/3_j.png" id="26_x2fpk"]
+[ext_resource type="Texture2D" uid="uid://dn05xfn0px62w" path="res://rec/personaje/Cyborg/saltar_caer/4_j.png" id="27_cm5x0"]
+[ext_resource type="AudioStream" uid="uid://dreb6ly1xkxni" path="res://rec/musica/sonido_correr.mp3" id="28_rel80"]
+[ext_resource type="AudioStream" uid="uid://yrw0mtidd2rr" path="res://rec/musica/sonidoSalto.mp3" id="29_asg0a"]
+[ext_resource type="AudioStream" uid="uid://ciduqqgay6ndw" path="res://rec/musica/sonido_cyber.mp3" id="31_dpejf"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[sub_resource type="SpriteFrames" id="SpriteFrames_4brmw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_d0mln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_b8215")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gftfa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h1b21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4fcl0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_w5wyn")
+}],
+"loop": true,
+"name": &"correr",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_vtcga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1kmrs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7yfwn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_yp4hy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_7c1md")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_bs72e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_fxk6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_jqg1i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_khpuu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_cp8xh")
+}],
+"loop": true,
+"name": &"doble_salto",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_r6wjf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_lqua2")
+}],
+"loop": true,
+"name": &"lastimado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_w0efr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_gw7mp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_eqqaq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_7lwms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_vq7d1")
+}],
+"loop": true,
+"name": &"muere",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_grl78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_7bal3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_x2fpk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_cm5x0")
+}],
+"loop": true,
+"name": &"saltar",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5hcqb"]
+size = Vector2(19, 35)
+
+[node name="cyber_personaje" type="CharacterBody2D"]
+script = ExtResource("1_6krgb")
+
+[node name="Spritecyber" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4brmw")
+autoplay = "default"
+frame = 1
+frame_progress = 0.839237
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_5hcqb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="correr" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("28_rel80")
+volume_db = -5.0
+pitch_scale = 2.0
+
+[node name="saltar" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("29_asg0a")
+volume_db = 10.0
+
+[node name="default" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("31_dpejf")
+autoplay = true
