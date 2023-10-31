@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1yt07knn5r5w"]
+[gd_scene load_steps=10 format=3 uid="uid://b1yt07knn5r5w"]
 
 [ext_resource type="Script" path="res://escenas/ahorcado.gd" id="1_o05od"]
 [ext_resource type="Texture2D" uid="uid://vv7y1hksc5mx" path="res://rec/fondo_lvl1.png" id="2_vfyye"]
@@ -6,6 +6,18 @@
 [ext_resource type="AudioStream" uid="uid://c2kfs42wk3yym" path="res://rec/musica/Super Bowl.mp3" id="4_kg57e"]
 [ext_resource type="FontFile" uid="uid://hn41tvtbb0bj" path="res://rec/inconsolata_tipografia/Inconsolata-Bold.ttf" id="4_lb1uf"]
 [ext_resource type="FontFile" uid="uid://0vo8rbultw43" path="res://rec/inconsolata_tipografia/Inconsolata-Regular.ttf" id="5_pvhnb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_soj8k"]
+font = ExtResource("5_pvhnb")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_j0tjr"]
+font = ExtResource("4_lb1uf")
+font_size = 31
+
+[sub_resource type="LabelSettings" id="LabelSettings_fu0tr"]
+font = ExtResource("4_lb1uf")
+font_size = 29
 
 [node name="ahorcado" type="Node2D"]
 script = ExtResource("1_o05od")
@@ -42,17 +54,6 @@ text = "00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="label_palabra" type="Label" parent="."]
-offset_left = 388.0
-offset_top = 452.0
-offset_right = 1012.0
-offset_bottom = 582.0
-theme_override_fonts/font = ExtResource("4_lb1uf")
-theme_override_font_sizes/font_size = 100
-text = "12letrasmax."
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="label_pista" type="Label" parent="."]
 offset_left = 966.0
 offset_top = 721.0
@@ -61,30 +62,55 @@ offset_bottom = 883.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_pvhnb")
 theme_override_font_sizes/font_size = 30
-text = "size 30 pixeles, 
-prob- hasta aqui
-caben unas 4 
-lineas, para pista
+text = "PISTA: 
 "
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="btn_siNohayIngresoLetraEnGodot" type="Button" parent="."]
-offset_left = 291.0
-offset_top = 598.0
-offset_right = 1124.0
-offset_bottom = 684.0
-text = "boton para ingersar por si se ocupa o no se si habra detector en godot"
 
 [node name="label_intentos" type="Label" parent="."]
 offset_left = 173.0
 offset_top = 214.0
-offset_right = 414.0
+offset_right = 303.0
 offset_bottom = 267.0
 theme_override_fonts/font = ExtResource("4_lb1uf")
 theme_override_font_sizes/font_size = 25
-text = "Intentos: 3"
+text = "Intentos: "
 vertical_alignment = 1
+
+[node name="label_numIntentos" type="Label" parent="."]
+offset_left = 294.0
+offset_top = 218.0
+offset_right = 325.0
+offset_bottom = 264.0
+text = "6"
+label_settings = SubResource("LabelSettings_soj8k")
+
+[node name="label_ingresarLetra" type="Label" parent="."]
+offset_left = 380.0
+offset_top = 456.0
+offset_right = 745.0
+offset_bottom = 493.0
+text = "INGRESE LA PALABRA -->"
+label_settings = SubResource("LabelSettings_j0tjr")
+
+[node name="label_palabra" type="Label" parent="."]
+offset_left = 382.0
+offset_top = 495.0
+offset_right = 1012.0
+offset_bottom = 575.0
+label_settings = SubResource("LabelSettings_fu0tr")
+justification_flags = 3
+
+[node name="label_adivinar" type="LineEdit" parent="."]
+offset_left = 745.0
+offset_top = 456.0
+offset_right = 932.0
+offset_bottom = 490.0
+
+[node name="Aceptar" type="Button" parent="."]
+offset_left = 898.0
+offset_top = 584.0
+offset_right = 1012.0
+offset_bottom = 640.0
+text = "ACEPTAR"
 
 [connection signal="finished" from="audioTimer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
