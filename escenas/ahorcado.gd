@@ -1,7 +1,7 @@
 extends Node2D
 
 var palabras:= ["SOPA", "FUTBOL", "CAMALEON", "DESIERTO", "HOLA", "ADIOS", "CUELLO", "BUENRETO"]
-var hint:= ["SE COME Y ES\nLIQUIDO", "UN DEPORTE\nFAMOSO", "UN ANIMAL \n'INVISIBLE'", "TIENES SED\nPERO NO HAY AGUA", "FORMA DE\nSALUDO", "FORMA DE\nDESPEDIDA", "PARTE DEL \nCUERPO", "PROYECTO \nDEL ING \nERICK"]
+var hint:= ["SE COME Y ES\nLIQUIDO", "UN DEPORTE\nFAMOSO", "UN ANIMAL \n'INVISIBLE'", "TIENES SED\nPERO NO HAY AGUA", "FORMA DE\nSALUDO", "FORMA DE\nDESPEDIDA", "PARTE DEL \nCUERPO SUPERIOR", "PROYECTO \nDEL ING \nERICK"]
 var ultimaPalabra:= ""
 var palabraAdivinada:= ""
 var intentos: int = 3
@@ -11,7 +11,7 @@ func _ready():
 	timerReset()
 	_palabraRandom()
 	_pista()
-	_botonPresionado()
+	#_botonPresionado()
 	get_node("label_numIntentos").text = str(intentos)
 	pass # Replace with function body.
 
@@ -42,19 +42,23 @@ func _pista():
 		get_node("label_pista").text = "PISTA: "+hint[6]
 	elif(palabraRandom == palabras[7]):
 		get_node("label_pista").text = "PISTA: "+hint[7]
-
+#funciona mejor on aceptar pressed
 func _botonPresionado():
-	if get_node("Aceptar").pressed:
+	if get_node("Aceptar").pressed || Input.is_action_just_pressed("ingrear_ahorcado"):
 			palabraAdivinada = get_node("label_adivinar").text
+			print(palabraAdivinada)
+			print(palabraRandom)
 			if palabraAdivinada == palabraRandom:
 				get_node("label_palabra").text ="CORRECT PASSWORD. \nEN UNOS SEGUNDOS TENDRAS LA INFORMACION QUE NECESITAS"
+				
 				get_tree().change_scene_to_file("res://escenas/level_2.tscn")
-			elif palabraAdivinada != palabraRandom:
-				intentos-1
+			elif palabraAdivinada != palabraRandom && intentos!=0:
+				intentos=intentos-1
+				get_node("label_palabra").text ="INCORRECT PASSWORD."
 				get_node("label_numIntentos").text = str(intentos)
 			elif intentos == 0:
 				get_tree().change_scene_to_file("res://escenas/menu.tscn")
-	pass
+	
 
 
 func _on_audio_stream_player_finished():
@@ -85,3 +89,21 @@ func timerReset():
 	sec=Dsec
 	min=Dmin
 
+
+
+func _on_aceptar_pressed():
+	if get_node("Aceptar").pressed || Input.is_action_just_pressed("ingrear_ahorcado"):
+			palabraAdivinada = get_node("label_adivinar").text.to_upper()
+			#print(palabraAdivinada)
+			#print(palabraRandom)
+			if palabraAdivinada == palabraRandom:
+				#este mensaje se mostrara en historia despues
+				get_node("label_palabra").text ="CORRECT PASSWORD. \nEN UNOS SEGUNDOS TENDRAS LA INFORMACION QUE NECESITAS"
+				get_tree().change_scene_to_file("res://escenas/level_2.tscn")
+			elif palabraAdivinada != palabraRandom:
+				intentos=intentos-1
+				get_node("label_palabra").text ="INCORRECT PASSWORD."
+				get_node("label_numIntentos").text = str(intentos)
+			elif intentos == 0:
+				get_tree().change_scene_to_file("res://escenas/menu.tscn")
+	

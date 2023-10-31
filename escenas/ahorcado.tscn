@@ -114,3 +114,4 @@ text = "ACEPTAR"
 
 [connection signal="finished" from="audioTimer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Aceptar" to="." method="_on_aceptar_pressed"]
