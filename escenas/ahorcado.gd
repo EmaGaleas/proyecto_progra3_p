@@ -44,7 +44,7 @@ func _pista():
 		get_node("label_pista").text = "PISTA: "+hint[7]
 
 func _botonPresionado():
-	if get_node("Aceptar").is_action_pressed:
+	if get_node("Aceptar").pressed:
 			palabraAdivinada = get_node("label_adivinar").text
 			if palabraAdivinada == palabraRandom:
 				get_node("label_palabra").text ="CORRECT PASSWORD. \nEN UNOS SEGUNDOS TENDRAS LA INFORMACION QUE NECESITAS"
