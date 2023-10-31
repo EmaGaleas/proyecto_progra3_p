@@ -80,30 +80,33 @@ offset_left = 294.0
 offset_top = 218.0
 offset_right = 325.0
 offset_bottom = 264.0
-text = "6"
+text = "3"
 label_settings = SubResource("LabelSettings_soj8k")
 
 [node name="label_ingresarLetra" type="Label" parent="."]
-offset_left = 380.0
-offset_top = 456.0
-offset_right = 745.0
-offset_bottom = 493.0
-text = "INGRESE LA PALABRA -->"
+offset_left = 556.0
+offset_top = 416.0
+offset_right = 844.0
+offset_bottom = 453.0
+text = "INGRESE LA PALABRA"
 label_settings = SubResource("LabelSettings_j0tjr")
 
 [node name="label_palabra" type="Label" parent="."]
-offset_left = 382.0
-offset_top = 495.0
-offset_right = 1012.0
-offset_bottom = 575.0
+offset_left = 513.0
+offset_top = 580.0
+offset_right = 911.0
+offset_bottom = 640.0
 label_settings = SubResource("LabelSettings_fu0tr")
+horizontal_alignment = 1
 justification_flags = 3
 
 [node name="label_adivinar" type="LineEdit" parent="."]
-offset_left = 745.0
-offset_top = 456.0
-offset_right = 932.0
-offset_bottom = 490.0
+offset_left = 400.0
+offset_top = 458.0
+offset_right = 997.0
+offset_bottom = 567.0
+theme_override_font_sizes/font_size = 70
+alignment = 1
 
 [node name="Aceptar" type="Button" parent="."]
 offset_left = 898.0

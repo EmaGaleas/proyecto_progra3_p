@@ -90,7 +90,7 @@ func timerReset():
 	min=Dmin
 
 
-
+#aqui es donde sirve al darle click
 func _on_aceptar_pressed():
 	if get_node("Aceptar").pressed || Input.is_action_just_pressed("ingrear_ahorcado"):
 			palabraAdivinada = get_node("label_adivinar").text.to_upper()
