@@ -52,12 +52,12 @@ func _botonPresionado():
 				get_node("label_palabra").text ="CORRECT PASSWORD. \nEN UNOS SEGUNDOS TENDRAS LA INFORMACION QUE NECESITAS"
 				
 				get_tree().change_scene_to_file("res://escenas/level_2.tscn")
-			elif palabraAdivinada != palabraRandom && intentos!=0:
-				intentos=intentos-1
+			elif intentos < 0:
+				get_tree().change_scene_to_file("res://escenas/menu.tscn")
+			elif palabraAdivinada != palabraRandom and intentos >= 1:
 				get_node("label_palabra").text ="INCORRECT PASSWORD."
 				get_node("label_numIntentos").text = str(intentos)
-			elif intentos == 0:
-				get_tree().change_scene_to_file("res://escenas/menu.tscn")
+			intentos= intentos - 1
 	
 
 
@@ -100,10 +100,9 @@ func _on_aceptar_pressed():
 				#este mensaje se mostrara en historia despues
 				get_node("label_palabra").text ="CORRECT PASSWORD. \nEN UNOS SEGUNDOS TENDRAS LA INFORMACION QUE NECESITAS"
 				get_tree().change_scene_to_file("res://escenas/level_2.tscn")
-			elif palabraAdivinada != palabraRandom:
-				intentos=intentos-1
+			elif intentos <= 0:
+				get_tree().change_scene_to_file("res://escenas/menu.tscn")
+			elif palabraAdivinada != palabraRandom and intentos >= 1:
 				get_node("label_palabra").text ="INCORRECT PASSWORD."
 				get_node("label_numIntentos").text = str(intentos)
-			elif intentos == 0:
-				get_tree().change_scene_to_file("res://escenas/menu.tscn")
-	
+			intentos=intentos - 1
