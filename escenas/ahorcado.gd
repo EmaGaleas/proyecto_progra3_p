@@ -4,7 +4,7 @@ var palabras:= ["SOPA", "FUTBOL", "CAMALEON", "DESIERTO", "HOLA", "ADIOS", "CUEL
 var hint:= ["SE COME Y ES\nLIQUIDO", "UN DEPORTE\nFAMOSO", "UN ANIMAL \n'INVISIBLE'", "TIENES SED\nPERO NO HAY AGUA", "FORMA DE\nSALUDO", "FORMA DE\nDESPEDIDA", "PARTE DEL \nCUERPO", "PROYECTO \nDEL ING \nERICK"]
 var ultimaPalabra:= ""
 var palabraAdivinada:= ""
-var intentos: int = 6
+var intentos: int = 3
 var palabraRandom = palabras[randi() % palabras.size()]
 # Called when the node enters the scene tree for the first time.
 func _ready():
