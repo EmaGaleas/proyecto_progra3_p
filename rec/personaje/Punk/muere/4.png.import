@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4g2mxk7yojlx"
-path="res://.godot/imported/Punk_death.png-3b0471b328e030a9aff8bc8a3febd47a.ctex"
+uid="uid://bgb286nfn57q2"
+path="res://.godot/imported/4.png-15e01ce1ee1776a4412ac8533d48a48a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://rec/Punk_death.png"
-dest_files=["res://.godot/imported/Punk_death.png-3b0471b328e030a9aff8bc8a3febd47a.ctex"]
+source_file="res://rec/personaje/Punk/muere/4.png"
+dest_files=["res://.godot/imported/4.png-15e01ce1ee1776a4412ac8533d48a48a.ctex"]
 
 [params]
 

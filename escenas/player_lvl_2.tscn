@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://n60anile6b8w"]
+[gd_scene load_steps=32 format=3 uid="uid://n60anile6b8w"]
 
 [ext_resource type="Script" path="res://escenas/player_lvl_2.gd" id="1_1rrvx"]
 [ext_resource type="Texture2D" uid="uid://7cgrtr61ojxu" path="res://rec/personaje/Punk/saltar_caer/1_caer.png" id="1_c5w2y"]
@@ -15,10 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bxc8bl38t3shl" path="res://rec/personaje/Punk/default/4_idle.png" id="12_84c7o"]
 [ext_resource type="Texture2D" uid="uid://bg7chckcw4fv2" path="res://rec/personaje/Punk/punk golpeado/1_hurt.png" id="13_6rmdw"]
 [ext_resource type="Texture2D" uid="uid://0mmdedww8g5m" path="res://rec/personaje/Punk/punk golpeado/2_hurt.png" id="14_oxdu2"]
-[ext_resource type="Texture2D" uid="uid://dq7k3hvbgt8dr" path="res://rec/personaje/Punk/muere/1_death.png" id="15_2pvgm"]
-[ext_resource type="Texture2D" uid="uid://c763sflsvr2xp" path="res://rec/personaje/Punk/muere/2_death.png" id="16_rtibu"]
-[ext_resource type="Texture2D" uid="uid://8u6cttn23b1r" path="res://rec/personaje/Punk/muere/3_death.png" id="17_cw0c1"]
-[ext_resource type="Texture2D" uid="uid://jp5bvqk81cih" path="res://rec/personaje/Punk/muere/4_death.png" id="18_764fu"]
+[ext_resource type="Texture2D" uid="uid://bgb286nfn57q2" path="res://rec/personaje/Punk/muere/4.png" id="17_0x020"]
 [ext_resource type="Texture2D" uid="uid://fagnex65erhg" path="res://rec/personaje/Punk/muere/5_death.png" id="19_bapix"]
 [ext_resource type="Texture2D" uid="uid://cg6uqrs6t0tgp" path="res://rec/personaje/Punk/saltar_caer/1_jump.png" id="20_bqo2a"]
 [ext_resource type="Texture2D" uid="uid://ds7kr2kkdy64y" path="res://rec/personaje/Punk/saltar_caer/2_jump.png" id="21_qusss"]
@@ -81,16 +78,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("15_2pvgm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_rtibu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_cw0c1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_764fu")
+"texture": ExtResource("17_0x020")
 }, {
 "duration": 1.0,
 "texture": ExtResource("19_bapix")
@@ -122,7 +110,7 @@ script/source = "extends AnimatedSprite2D
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7gunn"]
-size = Vector2(76, 135.5)
+size = Vector2(61, 110)
 
 [sub_resource type="Animation" id="Animation_yud5t"]
 length = 0.001
@@ -177,16 +165,15 @@ _data = {
 script = ExtResource("1_1rrvx")
 
 [node name="Spriteidle" type="AnimatedSprite2D" parent="."]
-position = Vector2(-0.999998, -2.98023e-06)
-scale = Vector2(4.47059, 4)
+scale = Vector2(3.52941, 3.20588)
 sprite_frames = SubResource("SpriteFrames_uikl8")
-animation = &"muere"
 autoplay = "default"
 frame = 1
 flip_h = true
 script = SubResource("GDScript_q8yaf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_7gunn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
