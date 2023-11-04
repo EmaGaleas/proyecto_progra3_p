@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://dcvi3jbgcprqq"]
+
+[ext_resource type="Script" path="res://escenas/delorianS.gd" id="1_p2ly3"]
+[ext_resource type="Texture2D" uid="uid://txo60j40e8mp" path="res://rec/personaje/delorian/1_d.png" id="2_gy21r"]
+[ext_resource type="Texture2D" uid="uid://dfuqp368sxcd5" path="res://rec/personaje/delorian/2_d.png" id="3_gxpyy"]
+[ext_resource type="Texture2D" uid="uid://d0q7ohj4jrdmt" path="res://rec/personaje/delorian/3_d.png" id="4_c2kvy"]
+[ext_resource type="Texture2D" uid="uid://bvfgesv0xavm4" path="res://rec/personaje/delorian/4_d.png" id="5_26qqf"]
+[ext_resource type="Texture2D" uid="uid://b6tnokb1rhhji" path="res://rec/personaje/delorian/5_d.png" id="6_51gur"]
+[ext_resource type="Texture2D" uid="uid://dkndkt0sxicd5" path="res://rec/personaje/delorian/6_d.png" id="7_tm46r"]
+[ext_resource type="Texture2D" uid="uid://b7q51xisry203" path="res://rec/personaje/delorian/7_d.png" id="8_dv86k"]
+[ext_resource type="AudioStream" uid="uid://c46wjjdte7ghc" path="res://rec/musica/deloreanAudio.mp3" id="9_c1tfu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_73dc1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gy21r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gxpyy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c2kvy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_26qqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_51gur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_tm46r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dv86k")
+}],
+"loop": false,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1gw3"]
+size = Vector2(215, 98)
+
+[node name="delorianS" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_p2ly3")
+
+[node name="del" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.90735e-06, -1)
+scale = Vector2(1.71774, 1.5625)
+sprite_frames = SubResource("SpriteFrames_73dc1")
+frame = 2
+frame_progress = 0.648648
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 6)
+shape = SubResource("RectangleShape2D_l1gw3")
+
+[node name="sdd" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_c1tfu")
+volume_db = -2.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="del" to="." method="_on_del_animation_finished"]

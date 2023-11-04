@@ -15,11 +15,6 @@ func _ready():
 	get_node("label_numIntentos").text = str(intentos)
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func _palabraRandom():
 	while palabraRandom == ultimaPalabra:
 		palabraRandom = palabras[randi() % palabras.size()]

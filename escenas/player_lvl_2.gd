@@ -7,9 +7,11 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var audioSalto = $saltar
 @onready var audioCorrer = $correr
 @onready var audioDefault = $default
+@onready var mu = $muere
 var is_running = false
 var is_jumping = false
 var muere=false
+var audio=true
 
 func _physics_process(delta):
 	if not is_on_floor() and !muere:
@@ -17,8 +19,10 @@ func _physics_process(delta):
 		is_jumping = true
 	elif !muere:
 		is_jumping=false
-	if position.y >= 795 and!muere:
+	if position.y >= 780 and!muere:
 		muere=true
+		mu.pitch_scale=1
+		mu.play()
 		$Spriteidle.play("muere")
 	if position.y >= 1000:
 		get_tree().change_scene_to_file("res://escenas/menu.tscn")
@@ -46,9 +50,7 @@ func _physics_process(delta):
 		if not Input.is_action_pressed("move_up") and is_on_floor() and !muere:
 			$Spriteidle.play("default")
 			audioCorrer.stop()
-		elif position.y >= 795 :
-			$Spriteidle.play("muere")
-		elif !muere:
+		elif !muere and position.y <790:
 			$Spriteidle.play("saltar")
 			
 	

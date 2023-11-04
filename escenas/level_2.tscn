@@ -1,9 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://ob6lkivhflpe"]
+[gd_scene load_steps=27 format=3 uid="uid://ob6lkivhflpe"]
 
 [ext_resource type="PackedScene" uid="uid://n60anile6b8w" path="res://escenas/player_lvl_2.tscn" id="1_k6sol"]
 [ext_resource type="Script" path="res://escenas/level_2.gd" id="1_pcpio"]
 [ext_resource type="Texture2D" uid="uid://b3mr4jht7x3f6" path="res://rec/fondos_sprites/edificio.png" id="2_2q4rh"]
 [ext_resource type="Texture2D" uid="uid://buaj6sh45fe0q" path="res://rec/fondos_sprites/Civilized-no-bg.png" id="2_n2y0a"]
+[ext_resource type="PackedScene" uid="uid://dcvi3jbgcprqq" path="res://escenas/delorianS.tscn" id="2_ta414"]
 [ext_resource type="Texture2D" uid="uid://d12ecbewjdca3" path="res://rec/fondos_sprites/lvl2/7 (1).png" id="4_0ai70"]
 [ext_resource type="Texture2D" uid="uid://coqp3377ii5sj" path="res://rec/fondos_sprites/lvl2/az1 (3).png" id="4_75w53"]
 [ext_resource type="Texture2D" uid="uid://byvd0uyhsjgxy" path="res://rec/FONDO.png" id="4_dfvn0"]
@@ -20,6 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://d4jo5m8j6aiig" path="res://rec/fondos_sprites/lvl2/7 (2).png" id="12_sl4u7"]
 [ext_resource type="Texture2D" uid="uid://doqfgqul03nq7" path="res://rec/fondos_sprites/city 2/6.png" id="16_vtbuu"]
 [ext_resource type="AudioStream" uid="uid://ciduqqgay6ndw" path="res://rec/musica/sonido_cyber.mp3" id="19_axfof"]
+[ext_resource type="Script" path="res://escenas/fondolvl.gd" id="21_g333e"]
+[ext_resource type="PackedScene" uid="uid://om1w5lstlntq" path="res://escenas/drone_security.tscn" id="23_x13mp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_efmwn"]
 texture = ExtResource("2_2q4rh")
@@ -43,6 +46,18 @@ sources/1 = SubResource("TileSetAtlasSource_s8ojd")
 [node name="level2" type="Node2D"]
 script = ExtResource("1_pcpio")
 
+[node name="drone_security" parent="." instance=ExtResource("23_x13mp")]
+position = Vector2(170, 263)
+
+[node name="delorianS" parent="." instance=ExtResource("2_ta414")]
+position = Vector2(16860, 78)
+
+[node name="sonido" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_axfof")
+volume_db = -9.022
+autoplay = true
+script = ExtResource("21_g333e")
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ebr5g")
 collision_animatable = true
@@ -55,7 +70,7 @@ position = Vector2(32, 300)
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="azul2" type="Sprite2D" parent="ParallaxBackground"]
-position = Vector2(6695.96, 1220)
+position = Vector2(6615, 1217)
 scale = Vector2(32.4165, 10.6832)
 texture = ExtResource("4_dfvn0")
 
@@ -197,9 +212,4 @@ position = Vector2(5525.5, 564.875)
 scale = Vector2(6.24826, 3.01929)
 texture = ExtResource("16_vtbuu")
 
-[node name="fondolvl" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("19_axfof")
-volume_db = -14.644
-autoplay = true
-
-[connection signal="finished" from="fondolvl" to="." method="_on_fondolvl_finished"]
+[connection signal="finished" from="sonido" to="." method="_on_fondolvl_finished"]
