@@ -167,6 +167,7 @@ _data = {
 }
 
 [node name="player_normal" type="CharacterBody2D"]
+collision_layer = 3
 script = ExtResource("1_1rrvx")
 
 [node name="Spriteidle" type="AnimatedSprite2D" parent="."]
@@ -194,13 +195,12 @@ position = Vector2(-0.999998, -2.98023e-06)
 scale = Vector2(4.47059, 4)
 stream = ExtResource("23_37qu6")
 volume_db = -5.0
-pitch_scale = 2.0
 
 [node name="saltar" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-0.999998, -2.98023e-06)
 scale = Vector2(4.47059, 4)
 stream = ExtResource("24_vblh3")
-volume_db = 10.0
+volume_db = 8.0
 
 [node name="default" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("25_hny1w")
