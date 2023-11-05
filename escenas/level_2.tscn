@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ob6lkivhflpe"]
+[gd_scene load_steps=25 format=3 uid="uid://ob6lkivhflpe"]
 
 [ext_resource type="PackedScene" uid="uid://n60anile6b8w" path="res://escenas/player_lvl_2.tscn" id="1_k6sol"]
 [ext_resource type="Script" path="res://escenas/level_2.gd" id="1_pcpio"]
@@ -20,7 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://drwf27jlnffpq" path="res://rec/fondos_sprites/lvl2/6 (1).png" id="11_jr5gr"]
 [ext_resource type="Texture2D" uid="uid://d4jo5m8j6aiig" path="res://rec/fondos_sprites/lvl2/7 (2).png" id="12_sl4u7"]
 [ext_resource type="Texture2D" uid="uid://doqfgqul03nq7" path="res://rec/fondos_sprites/city 2/6.png" id="16_vtbuu"]
-[ext_resource type="FontFile" uid="uid://hn41tvtbb0bj" path="res://rec/inconsolata_tipografia/Inconsolata-Bold.ttf" id="22_t4n4h"]
 [ext_resource type="PackedScene" uid="uid://om1w5lstlntq" path="res://escenas/drone_security.tscn" id="23_x13mp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_efmwn"]
@@ -54,10 +53,11 @@ position = Vector2(456, 180)
 [node name="delorianS" parent="." instance=ExtResource("2_ta414")]
 position = Vector2(16860, 78)
 
-[node name="player_normal" parent="." instance=ExtResource("1_k6sol")]
+[node name="player_lvl_2" parent="." instance=ExtResource("1_k6sol")]
 position = Vector2(166, 393)
 
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2(1, 0)
 tile_set = SubResource("TileSet_ebr5g")
 collision_animatable = true
 format = 2
@@ -249,12 +249,3 @@ position = Vector2(9638, -12)
 position = Vector2(11895, 148)
 
 [node name="ParallaxLayer2" type="CanvasLayer" parent="."]
-
-[node name="label" type="Label" parent="ParallaxLayer2"]
-offset_left = 13.0
-offset_right = 296.0
-offset_bottom = 56.0
-theme_override_fonts/font = ExtResource("22_t4n4h")
-theme_override_font_sizes/font_size = 50
-text = "Toques: 0 "
-horizontal_alignment = 2

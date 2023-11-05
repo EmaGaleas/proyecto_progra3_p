@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cc5kx3keu2xc3"]
+[gd_scene load_steps=8 format=3 uid="uid://cc5kx3keu2xc3"]
 
 [ext_resource type="FontFile" uid="uid://bd4lsheapt1xh" path="res://rec/game_set_tipografia/GameSetDemoRegular.ttf" id="2_ij025"]
 [ext_resource type="Texture2D" uid="uid://byvd0uyhsjgxy" path="res://rec/FONDO.png" id="2_jbqd3"]
 [ext_resource type="VideoStream" path="res://rec/musica/cyber1111.ogv" id="3_050cl"]
 [ext_resource type="FontFile" uid="uid://0vo8rbultw43" path="res://rec/inconsolata_tipografia/Inconsolata-Regular.ttf" id="4_wn7wd"]
+[ext_resource type="AudioStream" uid="uid://bpp6glv6c3v3b" path="res://rec/musica/suspenso.mp3" id="5_c12fq"]
 
 [sub_resource type="GDScript" id="GDScript_10btn"]
 script/source = "extends Node2D
@@ -70,6 +71,12 @@ text = "Se te han dado ciertas pistas para robar informacion de la empresa
 WHIZCO. Debes adivinar la clave para acceder a ella con lo que
 te dieron. Tienes 2 minutos y 3 intentos ¡SUERTE!...o te atraparan"
 vertical_alignment = 1
+
+[node name="audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_c12fq")
+volume_db = -10.0
+pitch_scale = 0.75
+autoplay = true
 
 [connection signal="finished" from="video1" to="video1" method="_on_finished"]
 [connection signal="pressed" from="ahorcado" to="." method="_on_ahorcado_pressed"]
