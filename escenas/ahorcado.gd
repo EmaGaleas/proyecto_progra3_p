@@ -48,7 +48,7 @@ func _botonPresionado():
 				
 				get_tree().change_scene_to_file("res://escenas/level_2.tscn")
 			elif intentos < 0:
-				get_tree().change_scene_to_file("res://escenas/ahorcado_pierde.tscn")
+				get_tree().change_scene_to_file("res://escenas/menu.tscn")
 			elif palabraAdivinada != palabraRandom and intentos >= 1:
 				get_node("label_palabra").text ="INCORRECT PASSWORD."
 				get_node("label_numIntentos").text = str(intentos)
@@ -57,7 +57,7 @@ func _botonPresionado():
 
 
 func _on_audio_stream_player_finished():
-	get_tree().change_scene_to_file("res://escenas/ahorcado_pierde.tscn")
+	get_tree().change_scene_to_file("res://escenas/menu.tscn")
 
 var sec=0
 var min=0
@@ -76,7 +76,7 @@ func _on_timer_timeout():
 	else:
 		$timer_mostrar.text="0"+str(min)+":"+str(sec)
 	if sec==-1 && min==0:
-		get_tree().change_scene_to_file("res://escenas/ahorcado_pierde.tscn")
+		get_tree().change_scene_to_file("res://escenas/menu.tscn")
 		
 	pass # Replace with function body.
 	
@@ -94,9 +94,9 @@ func _on_aceptar_pressed():
 			if palabraAdivinada == palabraRandom:
 				#este mensaje se mostrara en historia despues
 				get_node("label_palabra").text ="CORRECT PASSWORD. \nEN UNOS SEGUNDOS TENDRAS LA INFORMACION QUE NECESITAS"
-				get_tree().change_scene_to_file("res://escenas/ahorcado_gana.tscn")
+				get_tree().change_scene_to_file("res://escenas/level_2.tscn")
 			elif intentos <= 1:
-				get_tree().change_scene_to_file("res://escenas/ahorcado_pierde.tscn")
+				get_tree().change_scene_to_file("res://escenas/menu.tscn")
 			elif palabraAdivinada != palabraRandom and intentos >= 1:
 				intentos=intentos - 1
 				get_node("label_palabra").text ="INCORRECT PASSWORD."
