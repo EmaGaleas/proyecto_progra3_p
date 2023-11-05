@@ -13,8 +13,6 @@ var is_jumping = false
 var muere=false
 var audio=true
 
-var currenthealth=100
-
 func _physics_process(delta):
 	if not is_on_floor() and !muere:
 		velocity.y += gravity * delta
@@ -60,13 +58,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
 
-
 func _on_default_finished():
 	audioDefault.play() # Replace with function body.
 	
 
-
-func _on_area_2d_body_exited(body):
-	currenthealth-=25
-	$Spriteidle.play("lastimado")
-	$salud.value=currenthealth

@@ -25,7 +25,7 @@ func _on_detect_body_exited(body):
 
 
 func _on_impacto_dentro_body_entered(body):
-	if toques==4:
+	if toques==3:
 		get_tree().change_scene_to_file("res://escenas/menu.tscn")
 	pass
 	
@@ -36,8 +36,7 @@ func _on_audiodrone_finished():
 
 
 func _on_impacto_dentro_body_exited(body):
-	
 	toques=toques+1
-	if toques==4:
+	if toques==3:
 		get_tree().change_scene_to_file("res://escenas/menu.tscn")
 	pass
