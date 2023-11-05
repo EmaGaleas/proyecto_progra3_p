@@ -129,9 +129,15 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_g7n3p")
 
 [node name="impacto_dentro" type="Area2D" parent="."]
+light_mask = 7
+visibility_layer = 7
 position = Vector2(-0.5, -2)
+collision_layer = 6
+collision_mask = 6
 
 [node name="figura" type="CollisionShape2D" parent="impacto_dentro"]
+light_mask = 3
+visibility_layer = 3
 position = Vector2(1.5, -0.5)
 shape = SubResource("RectangleShape2D_631sc")
 

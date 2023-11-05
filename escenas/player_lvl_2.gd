@@ -12,6 +12,7 @@ var is_running = false
 var is_jumping = false
 var muere=false
 var audio=true
+var salud=125
 
 func _physics_process(delta):
 	if not is_on_floor() and !muere:
@@ -62,3 +63,8 @@ func _on_default_finished():
 	audioDefault.play() # Replace with function body.
 	
 
+func _on_area_2d_body_entered(body):
+	salud-=25
+	$Spriteidle.play("lastimado")
+	$salud.value=salud
+	pass
