@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://dafmhgy7spqyb"]
+
+[ext_resource type="VideoStream" path="res://rec/musica/ahorcado pierde.ogv" id="1_4yf2q"]
+[ext_resource type="FontFile" uid="uid://bd4lsheapt1xh" path="res://rec/game_set_tipografia/GameSetDemoRegular.ttf" id="2_dbrrw"]
+[ext_resource type="Texture2D" uid="uid://byvd0uyhsjgxy" path="res://rec/FONDO.png" id="3_i3yf0"]
+[ext_resource type="FontFile" uid="uid://0vo8rbultw43" path="res://rec/inconsolata_tipografia/Inconsolata-Regular.ttf" id="4_u5cda"]
+
+[sub_resource type="GDScript" id="GDScript_18tm3"]
+script/source = "extends VideoStreamPlayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+func _on_finished():
+	play()
+
+
+func _on_ahorcado_pressed():
+	get_tree().change_scene_to_file(\"res://escenas/menu.tscn\")
+"
+
+[node name="ahorcadoPierde" type="Node2D"]
+
+[node name="video1" type="VideoStreamPlayer" parent="."]
+offset_right = 1408.0
+offset_bottom = 752.0
+stream = ExtResource("1_4yf2q")
+autoplay = true
+expand = true
+script = SubResource("GDScript_18tm3")
+
+[node name="ahorcado" type="Button" parent="."]
+offset_left = 902.0
+offset_top = 749.0
+offset_right = 1398.0
+offset_bottom = 897.0
+theme_override_colors/font_pressed_color = Color(0.831373, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.666667, 0.886275, 0, 1)
+theme_override_colors/font_focus_color = Color(0.831373, 1, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.831373, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_dbrrw")
+theme_override_font_sizes/font_size = 90
+text = "VOLVER A MENU"
+
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(450.5, 1106)
+scale = Vector2(0.711719, 0.991667)
+texture = ExtResource("3_i3yf0")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 14.0
+offset_top = 756.0
+offset_right = 891.0
+offset_bottom = 891.0
+theme_override_fonts/font = ExtResource("4_u5cda")
+theme_override_font_sizes/font_size = 26
+text = "¡TE HAN ATRAPADO!
+No has logrado adivinar la palabra, vuelve con la mente fría.
+Intentalo de nuevo."
+vertical_alignment = 1
+
+[connection signal="finished" from="video1" to="video1" method="_on_finished"]
+[connection signal="pressed" from="ahorcado" to="video1" method="_on_ahorcado_pressed"]
