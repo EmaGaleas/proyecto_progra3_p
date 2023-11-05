@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://pp760v07k66g"]
+[gd_scene load_steps=7 format=3 uid="uid://pp760v07k66g"]
 
 [ext_resource type="VideoStream" path="res://rec/musica/ahorcado gana.ogv" id="1_tbfxw"]
 [ext_resource type="FontFile" uid="uid://bd4lsheapt1xh" path="res://rec/game_set_tipografia/GameSetDemoRegular.ttf" id="2_mpj4n"]
 [ext_resource type="Texture2D" uid="uid://byvd0uyhsjgxy" path="res://rec/FONDO.png" id="3_vnhd0"]
 [ext_resource type="FontFile" uid="uid://0vo8rbultw43" path="res://rec/inconsolata_tipografia/Inconsolata-Regular.ttf" id="4_fxqbs"]
+[ext_resource type="AudioStream" uid="uid://dy23rqxnvosrx" path="res://rec/musica/suspenso.mp3" id="5_048es"]
 
 [sub_resource type="GDScript" id="GDScript_gq1bl"]
 script/source = "extends VideoStreamPlayer
@@ -62,6 +63,12 @@ corre todo lo que puedas pero si te tocan los drones 4 veces te
 atrapan o si caes mueres.
 CONSEJO: corre sin parar tras que inicies"
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_048es")
+volume_db = -6.0
+pitch_scale = 0.9
+autoplay = true
 
 [connection signal="finished" from="video1" to="video1" method="_on_finished"]
 [connection signal="pressed" from="ahorcado" to="video1" method="_on_ahorcado_pressed"]
