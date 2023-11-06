@@ -151,6 +151,17 @@ stream = ExtResource("8_844i2")
 volume_db = -5.0
 autoplay = true
 
+[node name="Timer" type="Timer" parent="."]
+
+[node name="time" type="Label" parent="."]
+offset_left = -19.0
+offset_top = -73.0
+offset_right = 21.0
+offset_bottom = -50.0
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+
 [connection signal="body_entered" from="detect" to="." method="_on_detect_body_entered"]
 [connection signal="body_exited" from="detect" to="." method="_on_detect_body_exited"]
 [connection signal="body_entered" from="impacto_dentro" to="." method="_on_impacto_dentro_body_entered"]

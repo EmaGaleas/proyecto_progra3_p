@@ -63,8 +63,8 @@ func _on_default_finished():
 	audioDefault.play() # Replace with function body.
 	
 
-func _on_area_2d_body_entered(body):
-	salud-=25
+func barraDevida():
+	salud-=5
 	$Spriteidle.play("lastimado")
 	$salud.value=salud
 	pass

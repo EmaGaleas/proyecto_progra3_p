@@ -179,9 +179,8 @@ script = ExtResource("1_1rrvx")
 position = Vector2(-2.38419e-07, -1)
 scale = Vector2(3.23529, 2.80882)
 sprite_frames = SubResource("SpriteFrames_uikl8")
-animation = &"muere"
+animation = &"lastimado"
 autoplay = "default"
-frame = 1
 flip_h = true
 script = SubResource("GDScript_q8yaf")
 
