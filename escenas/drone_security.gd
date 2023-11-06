@@ -31,11 +31,10 @@ func _on_audiodrone_finished():
 	
 
 var sec=0
-var impacto=false
 
 func _on_impacto_dentro_body_entered(body):
+	VariablesGlobales.menosVida()
 	im = true
-	impacto=true
 	$time.visible = true
 	sec=4
 	set_process(true)

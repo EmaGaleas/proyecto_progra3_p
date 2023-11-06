@@ -12,9 +12,11 @@ var is_running = false
 var is_jumping = false
 var muere=false
 var audio=true
-var salud=125
+var h=1
+
 
 func _physics_process(delta):
+	barraDevida()
 	if not is_on_floor() and !muere:
 		velocity.y += gravity * delta
 		is_jumping = true
@@ -62,9 +64,15 @@ func _physics_process(delta):
 func _on_default_finished():
 	audioDefault.play() # Replace with function body.
 	
-
 func barraDevida():
-	salud-=5
-	$Spriteidle.play("lastimado")
-	$salud.value=salud
-	pass
+	h=VariablesGlobales.salud
+	$salud.value=h
+	if VariablesGlobales.salud==0:
+		mu.pitch_scale=3
+		mu.play()
+		get_tree().change_scene_to_file("res://escenas/menu.tscn")
+		
+		
+		
+
+	

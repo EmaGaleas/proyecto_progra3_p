@@ -59,8 +59,8 @@ offset_bottom = 891.0
 theme_override_fonts/font = ExtResource("4_fxqbs")
 theme_override_font_sizes/font_size = 26
 text = "Haz logrado robar la informacion PERO TE ESTAN SIGUIENDO...salta y 
-corre todo lo que puedas pero si te tocan los drones 4 veces te
-atrapan o si caes mueres.
+corre todo lo que puedas pero si te tocan los drones 4 veces o se 
+te pega por mas de 5 segundos te atrapan. Si caes mueres.
 CONSEJO: corre sin parar tras que inicies"
 vertical_alignment = 1
 
