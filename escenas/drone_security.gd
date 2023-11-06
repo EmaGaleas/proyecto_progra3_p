@@ -36,7 +36,7 @@ func _on_impacto_dentro_body_entered(body):
 	VariablesGlobales.menosVida()
 	im = true
 	$time.visible = true
-	sec=4
+	sec=5
 	set_process(true)
 
 func _process(delta):
@@ -50,6 +50,6 @@ func _process(delta):
 func _on_impacto_dentro_body_exited(body):
 	im=false
 	$time.visible=false
-	sec=4
+	sec=5
 	set_process(false)
 
