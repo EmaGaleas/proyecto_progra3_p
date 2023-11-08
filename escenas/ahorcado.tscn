@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b1yt07knn5r5w"]
+[gd_scene load_steps=11 format=3 uid="uid://b1yt07knn5r5w"]
 
 [ext_resource type="Script" path="res://escenas/ahorcado.gd" id="1_o05od"]
 [ext_resource type="Texture2D" uid="uid://vv7y1hksc5mx" path="res://rec/fondo_lvl1.png" id="2_vfyye"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://c2kfs42wk3yym" path="res://rec/musica/Super Bowl.mp3" id="4_kg57e"]
 [ext_resource type="FontFile" uid="uid://hn41tvtbb0bj" path="res://rec/inconsolata_tipografia/Inconsolata-Bold.ttf" id="4_lb1uf"]
 [ext_resource type="FontFile" uid="uid://0vo8rbultw43" path="res://rec/inconsolata_tipografia/Inconsolata-Regular.ttf" id="5_pvhnb"]
+[ext_resource type="AudioStream" uid="uid://dy23rqxnvosrx" path="res://rec/musica/suspenso.mp3" id="7_n3ma2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_soj8k"]
 font = ExtResource("5_pvhnb")
@@ -115,6 +116,12 @@ offset_right = 1012.0
 offset_bottom = 640.0
 text = "ACEPTAR"
 
+[node name="fondo2_0" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_n3ma2")
+volume_db = -18.0
+autoplay = true
+
 [connection signal="finished" from="audioTimer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Aceptar" to="." method="_on_aceptar_pressed"]
+[connection signal="finished" from="fondo2_0" to="." method="_on_fondo_2_0_finished"]

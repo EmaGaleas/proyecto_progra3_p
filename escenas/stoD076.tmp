@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://c2a5xovw7ug3w"]
+
+[ext_resource type="Script" path="res://escenas/story_lvl2.gd" id="1_negnp"]
+[ext_resource type="VideoStream" path="res://rec/musica/runner1_pasado.ogv" id="1_wsmdq"]
+[ext_resource type="FontFile" uid="uid://bd4lsheapt1xh" path="res://rec/game_set_tipografia/GameSetDemoRegular.ttf" id="2_dmuro"]
+[ext_resource type="Texture2D" uid="uid://byvd0uyhsjgxy" path="res://rec/FONDO.png" id="3_g0hku"]
+[ext_resource type="FontFile" uid="uid://0vo8rbultw43" path="res://rec/inconsolata_tipografia/Inconsolata-Regular.ttf" id="4_cpla4"]
+[ext_resource type="AudioStream" uid="uid://dy23rqxnvosrx" path="res://rec/musica/suspenso.mp3" id="5_qd5me"]
+
+[sub_resource type="GDScript" id="GDScript_6iyu8"]
+script/source = "extends VideoStreamPlayer
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+		
+
+
+func _on_finished():
+	play()
+
+
+func _on_ahorcado_pressed():
+	get_tree().change_scene_to_file(\"res://escenas/menu.tscn\")
+"
+
+[node name="story_lvl2" type="Node2D"]
+script = ExtResource("1_negnp")
+
+[node name="video1" type="VideoStreamPlayer" parent="."]
+offset_right = 1408.0
+offset_bottom = 752.0
+stream = ExtResource("1_wsmdq")
+expand = true
+script = SubResource("GDScript_6iyu8")
+
+[node name="video2" type="VideoStreamPlayer" parent="."]
+offset_right = 1408.0
+offset_bottom = 752.0
+stream = ExtResource("1_wsmdq")
+expand = true
+script = SubResource("GDScript_6iyu8")
+
+[node name="video3" type="VideoStreamPlayer" parent="."]
+offset_right = 1408.0
+offset_bottom = 752.0
+stream = ExtResource("1_wsmdq")
+expand = true
+script = SubResource("GDScript_6iyu8")
+
+[node name="ahorcado" type="Button" parent="."]
+offset_left = 902.0
+offset_top = 749.0
+offset_right = 1398.0
+offset_bottom = 897.0
+theme_override_colors/font_pressed_color = Color(0.831373, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.666667, 0.886275, 0, 1)
+theme_override_colors/font_focus_color = Color(0.831373, 1, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.831373, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_dmuro")
+theme_override_font_sizes/font_size = 90
+text = "A SOBREVIVIR"
+
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(450.5, 1106)
+scale = Vector2(0.711719, 0.991667)
+texture = ExtResource("3_g0hku")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 14.0
+offset_top = 756.0
+offset_right = 891.0
+offset_bottom = 891.0
+theme_override_fonts/font = ExtResource("4_cpla4")
+theme_override_font_sizes/font_size = 26
+text = "Escapaste de seguridad pero no de los rumores. Un grupo se entero
+que tienes información importante y la quieren a toda costa.
+DEFIENDETE O MUERES."
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qd5me")
+volume_db = -10.0
+pitch_scale = 0.85
+autoplay = true
+
+[connection signal="pressed" from="ahorcado" to="video1" method="_on_ahorcado_pressed"]

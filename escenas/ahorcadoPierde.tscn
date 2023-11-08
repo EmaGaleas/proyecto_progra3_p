@@ -65,7 +65,7 @@ vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_v55m1")
-volume_db = -6.0
+volume_db = -10.0
 pitch_scale = 0.85
 autoplay = true
 

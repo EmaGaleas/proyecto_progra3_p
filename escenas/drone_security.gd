@@ -44,7 +44,8 @@ func _process(delta):
 		sec-= delta
 		$time.text="sec "+str(int(sec))
 		if sec<=0:
-			get_tree().change_scene_to_file("res://escenas/menu.tscn")
+			VariablesGlobales.videoLVL2=1
+			get_tree().change_scene_to_file("res://escenas/story_lvl2.tscn")
 			set_process(false)
 
 func _on_impacto_dentro_body_exited(body):

@@ -102,3 +102,7 @@ func _on_aceptar_pressed():
 				get_node("label_palabra").text ="INCORRECT PASSWORD."
 				get_node("label_numIntentos").text = str(intentos)
 			
+
+
+func _on_fondo_2_0_finished():
+	$fondo2_0.play() # Replace with function body.

@@ -28,7 +28,8 @@ func _physics_process(delta):
 		mu.play()
 		$Spriteidle.play("muere")
 	if position.y >= 1000:
-		get_tree().change_scene_to_file("res://escenas/menu.tscn")
+		VariablesGlobales.videoLVL2=2
+		get_tree().change_scene_to_file("res://escenas/story_lvl2.tscn")
 	if Input.is_action_just_pressed("move_up") and is_on_floor() and !muere:
 		velocity.y = JUMP_VELOCITY
 		$Spriteidle.play("saltar")
@@ -70,9 +71,14 @@ func barraDevida():
 	if VariablesGlobales.salud==0:
 		mu.pitch_scale=3
 		mu.play()
-		get_tree().change_scene_to_file("res://escenas/menu.tscn")
+		VariablesGlobales.videoLVL2=1
+		get_tree().change_scene_to_file("res://escenas/story_lvl2.tscn")
 		
 		
 		
 
 	
+
+
+func _on_fondo_2_0_finished():
+	$fondo2_0.play()

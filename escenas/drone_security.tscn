@@ -148,7 +148,7 @@ shape = SubResource("RectangleShape2D_lbijk")
 
 [node name="audiodrone" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_844i2")
-volume_db = -5.0
+volume_db = -7.0
 autoplay = true
 
 [node name="Timer" type="Timer" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://n60anile6b8w"]
+[gd_scene load_steps=36 format=3 uid="uid://n60anile6b8w"]
 
 [ext_resource type="Script" path="res://escenas/player_lvl_2.gd" id="1_1rrvx"]
 [ext_resource type="Texture2D" uid="uid://7cgrtr61ojxu" path="res://rec/personaje/Punk/saltar_caer/1_caer.png" id="1_c5w2y"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://ds7kr2kkdy64y" path="res://rec/personaje/Punk/saltar_caer/2_jump.png" id="21_qusss"]
 [ext_resource type="AudioStream" uid="uid://dreb6ly1xkxni" path="res://rec/musica/sonido_correr.mp3" id="23_37qu6"]
 [ext_resource type="AudioStream" uid="uid://yrw0mtidd2rr" path="res://rec/musica/sonidoSalto.mp3" id="24_vblh3"]
+[ext_resource type="AudioStream" uid="uid://dy23rqxnvosrx" path="res://rec/musica/suspenso.mp3" id="25_2tqgv"]
 [ext_resource type="AudioStream" uid="uid://b201anejvhy2e" path="res://rec/musica/sonidoViento.mp3" id="25_hny1w"]
 [ext_resource type="AudioStream" uid="uid://xdcnqvs02o78" path="res://rec/musica/deadAudio.mp3" id="26_jfv35"]
 
@@ -181,6 +182,7 @@ scale = Vector2(3.23529, 2.80882)
 sprite_frames = SubResource("SpriteFrames_uikl8")
 animation = &"lastimado"
 autoplay = "default"
+frame = 1
 flip_h = true
 script = SubResource("GDScript_q8yaf")
 
@@ -198,7 +200,7 @@ libraries = {
 position = Vector2(-0.999998, -2.98023e-06)
 scale = Vector2(4.47059, 4)
 stream = ExtResource("23_37qu6")
-volume_db = -5.0
+volume_db = -10.0
 
 [node name="saltar" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-0.999998, -2.98023e-06)
@@ -208,6 +210,7 @@ volume_db = 8.0
 
 [node name="default" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("25_hny1w")
+volume_db = 1.0
 autoplay = true
 
 [node name="muere" type="AudioStreamPlayer2D" parent="."]
@@ -238,4 +241,10 @@ visibility_layer = 2
 position = Vector2(-2, -8)
 shape = SubResource("RectangleShape2D_xr5ne")
 
+[node name="fondo2_0" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("25_2tqgv")
+volume_db = -20.0
+autoplay = true
+
 [connection signal="finished" from="default" to="." method="_on_default_finished"]
+[connection signal="finished" from="fondo2_0" to="." method="_on_fondo_2_0_finished"]
