@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cc5kx3keu2xc3"]
+[gd_scene load_steps=10 format=3 uid="uid://cc5kx3keu2xc3"]
 
+[ext_resource type="VideoStream" path="res://rec/musica/ahorcado pierde.ogv" id="2_fqi5x"]
 [ext_resource type="FontFile" uid="uid://bd4lsheapt1xh" path="res://rec/game_set_tipografia/GameSetDemoRegular.ttf" id="2_ij025"]
 [ext_resource type="Texture2D" uid="uid://byvd0uyhsjgxy" path="res://rec/FONDO.png" id="2_jbqd3"]
 [ext_resource type="VideoStream" path="res://rec/musica/cyber1111.ogv" id="3_050cl"]
+[ext_resource type="VideoStream" path="res://rec/musica/ahorcado gana.ogv" id="3_l4cm2"]
 [ext_resource type="FontFile" uid="uid://0vo8rbultw43" path="res://rec/inconsolata_tipografia/Inconsolata-Regular.ttf" id="4_wn7wd"]
 [ext_resource type="AudioStream" uid="uid://dy23rqxnvosrx" path="res://rec/musica/suspenso.mp3" id="5_yyyg5"]
 
@@ -12,11 +14,48 @@ script/source = "extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	var estado=VariablesGlobales.videoAhorcado
+	if estado==0:
+		get_node(\"sms\").text =\"Se te han dado ciertas pistas para robar informacion de la empresa\\n WHIZCO. Debes adivinar la clave para acceder a ella con lo que\\nte dieron. Tienes 2 minutos y 3 intentos ¡SUERTE!...o te atraparan\"
+		get_node(\"ahorcado\").text=\"A JUGAR\"
+		$video1.play()
+	elif estado==1:
+		get_node(\"sms\").text =\"¡TE HAN ATRAPADO!\\nNo has logrado adivinar la palabra, vuelve con la mente fría.\\nIntentalo de nuevo.\"
+		get_node(\"ahorcado\").text=\"VOLVER AL MENU\"
+		$video2.play()
+	elif estado==2:
+		get_node(\"sms\").text =\"Haz logrado robar la informacion PERO TE ESTAN SIGUIENDO...salta y\\ncorre todo lo que puedas pero si te tocan los drones 4 veces o se\\nte pega por mas de 5 segundos te atrapan. Si caes mueres.\\nCONSEJO: corre sin parar tras que inicies.\"
+		get_node(\"ahorcado\").text=\"A CORRER\"
+		$video3.play()
+	
+		
 
 func _on_ahorcado_pressed():
-	get_tree().change_scene_to_file(\"res://escenas/ahorcado.tscn\")
+	var estado=VariablesGlobales.videoAhorcado
+	if estado==0:
+		VariablesGlobales.videoAhorcado=0
+		get_tree().change_scene_to_file(\"res://escenas/ahorcado.tscn\")
+	elif estado==1:
+		VariablesGlobales.videoAhorcado=0
+		get_tree().change_scene_to_file(\"res://escenas/menu.tscn\")
+	elif estado==2:
+		VariablesGlobales.videoAhorcado=0
+		get_tree().change_scene_to_file(\"res://escenas/level_2.tscn\")
+
+
+func _on_video_1_finished():
+	if VariablesGlobales.videoAhorcado==0:
+		$video1.play()
+
+
+func _on_video_2_finished():
+	if VariablesGlobales.videoAhorcado==1:
+		$video2.play()
+
+
+func _on_video_3_finished():
+	if VariablesGlobales.videoAhorcado==2:
+		$video3.play()
 "
 
 [sub_resource type="GDScript" id="GDScript_44smx"]
@@ -39,7 +78,21 @@ script = SubResource("GDScript_10btn")
 offset_right = 1408.0
 offset_bottom = 752.0
 stream = ExtResource("3_050cl")
-autoplay = true
+expand = true
+script = SubResource("GDScript_44smx")
+
+[node name="video2" type="VideoStreamPlayer" parent="."]
+offset_right = 1408.0
+offset_bottom = 752.0
+stream = ExtResource("2_fqi5x")
+expand = true
+script = SubResource("GDScript_44smx")
+
+[node name="video3" type="VideoStreamPlayer" parent="."]
+offset_right = 1408.0
+offset_bottom = 752.0
+stream = ExtResource("3_l4cm2")
+expand = true
 script = SubResource("GDScript_44smx")
 
 [node name="ahorcado" type="Button" parent="."]
@@ -60,15 +113,15 @@ position = Vector2(447, 1106)
 scale = Vector2(0.70625, 0.991667)
 texture = ExtResource("2_jbqd3")
 
-[node name="Label" type="Label" parent="."]
+[node name="sms" type="Label" parent="."]
 offset_left = 14.0
 offset_top = 756.0
 offset_right = 891.0
 offset_bottom = 891.0
 theme_override_fonts/font = ExtResource("4_wn7wd")
 theme_override_font_sizes/font_size = 26
-text = "Se te han dado ciertas pistas para robar informacion de la empresa 
-WHIZCO. Debes adivinar la clave para acceder a ella con lo que
+text = "Se te han dado ciertas pistas para robar informacion de la empresa\\n 
+WHIZCO. Debes adivinar la clave para acceder a ella con lo que\\n
 te dieron. Tienes 2 minutos y 3 intentos ¡SUERTE!...o te atraparan"
 vertical_alignment = 1
 
@@ -78,5 +131,7 @@ volume_db = -6.0
 pitch_scale = 0.78
 autoplay = true
 
-[connection signal="finished" from="video1" to="video1" method="_on_finished"]
+[connection signal="finished" from="video1" to="." method="_on_video_1_finished"]
+[connection signal="finished" from="video2" to="." method="_on_video_2_finished"]
+[connection signal="finished" from="video3" to="." method="_on_video_3_finished"]
 [connection signal="pressed" from="ahorcado" to="." method="_on_ahorcado_pressed"]
