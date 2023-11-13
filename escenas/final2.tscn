@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://cmypkdk5krodm"]
+
+[ext_resource type="PackedScene" uid="uid://cjiatcdoiiw1f" path="res://escenas/barra_player.tscn" id="1_2kguw"]
+[ext_resource type="Texture2D" uid="uid://cvo12cbejqsw1" path="res://rec/Assets/Assets/background.png" id="1_70dsa"]
+[ext_resource type="PackedScene" uid="uid://bqsprha6tx3j5" path="res://escenas/ball.tscn" id="3_upguy"]
+[ext_resource type="PackedScene" uid="uid://dgc6nrwo4bk5x" path="res://escenas/barraComputer.tscn" id="4_x1l3l"]
+
+[sub_resource type="GDScript" id="GDScript_f7cva"]
+script/source = "extends Node
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1l5g"]
+size = Vector2(24, 936)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbh8d"]
+size = Vector2(1425, 20)
+
+[node name="pong" type="Node"]
+script = SubResource("GDScript_f7cva")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(700.5, 450)
+scale = Vector2(1.09453, 1.25)
+texture = ExtResource("1_70dsa")
+
+[node name="barra" parent="." instance=ExtResource("1_2kguw")]
+position = Vector2(101, 451)
+
+[node name="ball" parent="." instance=ExtResource("3_upguy")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1403, 453)
+shape = SubResource("RectangleShape2D_m1l5g")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-4.5, 442)
+shape = SubResource("RectangleShape2D_m1l5g")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(702.5, 0)
+shape = SubResource("RectangleShape2D_lbh8d")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(702, 900)
+shape = SubResource("RectangleShape2D_lbh8d")
+
+[node name="barraComputer" parent="." instance=ExtResource("4_x1l3l")]
+position = Vector2(1299, 451)
