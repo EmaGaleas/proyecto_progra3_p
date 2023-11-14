@@ -12,9 +12,11 @@ func initializeBall():
 	var x_direction = [-0.5, 0.5]
 	velocity.x = x_direction[randi() % 2]
 	velocity.y = y_direction[randi() % 2]
+	VariablesGlobales.poscionPong=position.y
 
 func _physics_process(delta):
 	var collide = move_and_collide(velocity * speed * delta)
 	if collide:
 		velocity = velocity.bounce(collide.get_normal())
+	VariablesGlobales.poscionPong=position.y
 
