@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const speed = 600
+const speed = 800
 
 func _ready():
 	initializeBall()
@@ -12,11 +12,18 @@ func initializeBall():
 	var x_direction = [-0.5, 0.5]
 	velocity.x = x_direction[randi() % 2]
 	velocity.y = y_direction[randi() % 2]
-	VariablesGlobales.poscionPong=position.y
 
 func _physics_process(delta):
-	var collide = move_and_collide(velocity * speed * delta)
+	
+	if Input.is_action_just_pressed("Resetear_Pong"):
+		position.y=450
+		position.x=700
+		randomize()
+		var y_direction = [-1, 1]
+		var x_direction = [-0.5, 0.5]
+		velocity.x = x_direction[randi() % 2]
+		velocity.y = y_direction[randi() % 2]
+	var collide = move_and_collide(velocity * speed *delta)
 	if collide:
 		velocity = velocity.bounce(collide.get_normal())
-	VariablesGlobales.poscionPong=position.y
 

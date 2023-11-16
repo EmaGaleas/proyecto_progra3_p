@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpgdoaacrd3b3"]
+
+[ext_resource type="PackedScene" uid="uid://dh3e2hoso8fli" path="res://escenas/fondoMenu.tscn" id="1_8m5p0"]
+
+[node name="finalOpciones" type="Node2D"]
+
+[node name="fondo_menu" parent="." instance=ExtResource("1_8m5p0")]

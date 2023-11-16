@@ -1,10 +1,14 @@
 extends CharacterBody2D
 
-const speed=300
+var speed=250
 var player=null
 var playerchase=false
 	
 func _physics_process(delta):
+	if Input.is_action_just_pressed("Resetear_Pong"):
+		position.y=451
+		position.x=1349
+	
 	if playerchase:
 		var direction = position.direction_to(player.position)
 		velocity.y = direction.y * speed

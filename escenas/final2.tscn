@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmypkdk5krodm"]
+[gd_scene load_steps=10 format=3 uid="uid://cmypkdk5krodm"]
 
 [ext_resource type="PackedScene" uid="uid://cjiatcdoiiw1f" path="res://escenas/barra_player.tscn" id="1_2kguw"]
 [ext_resource type="Texture2D" uid="uid://cvo12cbejqsw1" path="res://rec/Assets/Assets/background.png" id="1_70dsa"]
@@ -8,6 +8,9 @@
 [sub_resource type="GDScript" id="GDScript_f7cva"]
 script/source = "extends Node
 
+var puntosPlayer=0
+var puntosPC=0
+var time=true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,10 +20,53 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_area_player_body_entered(body):
+	if time==true:
+		puntosPC=0
+		time=false
+	puntosPC+=1
+	get_node(\"puntosPc\").text = str(puntosPC)
+	if puntosPC>0:
+		VariablesGlobales.tocado()
+	if puntosPC>=7:
+		get_tree().change_scene_to_file(\"res://escenas/menu.tscn\")
+
+
+
+
+func _on_area_pc_body_entered(body):
+	if time==true:
+		puntosPlayer=0
+		time=false
+	puntosPlayer+=1
+	get_node(\"puntosPlayer\").text = str(puntosPlayer)
+	if puntosPlayer>0:
+		VariablesGlobales.tocado()
+	if puntosPlayer>=7:
+		get_tree().change_scene_to_file(\"res://escenas/menu.tscn\")
+	
+
+
+func _on_area_player_body_exited(body):
+	if puntosPlayer>0:
+		VariablesGlobales.destocado()
+
+
+func _on_area_pc_body_exited(body):
+	if puntosPlayer>0:
+		VariablesGlobales.destocado()
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1l5g"]
 size = Vector2(24, 936)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_clxbh"]
+size = Vector2(17, 922)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffl6h"]
+size = Vector2(20, 930)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbh8d"]
 size = Vector2(1425, 20)
@@ -40,15 +86,31 @@ position = Vector2(51, 451)
 collision_layer = 3
 collision_mask = 3
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticPuntos" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="AreaPlayer" type="Area2D" parent="StaticPuntos"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticPuntos/AreaPlayer"]
+position = Vector2(-4.5, 442)
+shape = SubResource("RectangleShape2D_m1l5g")
+
+[node name="AreaPC" type="Area2D" parent="StaticPuntos"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPuntos/AreaPC"]
 position = Vector2(1403, 453)
 shape = SubResource("RectangleShape2D_m1l5g")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-4.5, 442)
-shape = SubResource("RectangleShape2D_m1l5g")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPuntos"]
+position = Vector2(-1.5, 451)
+shape = SubResource("RectangleShape2D_clxbh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticPuntos"]
+position = Vector2(1404, 455)
+shape = SubResource("RectangleShape2D_ffl6h")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
@@ -61,4 +123,33 @@ position = Vector2(702, 900)
 shape = SubResource("RectangleShape2D_lbh8d")
 
 [node name="barraComputer" parent="." instance=ExtResource("4_x1l3l")]
-position = Vector2(1349, 451)
+position = Vector2(1349, 450)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 866.0
+offset_right = 636.0
+offset_bottom = 899.0
+text = "[E] : Aumentar Velocidad 		      	 [R]: Reducir Velocidad           [T]: Posicionar RESET"
+
+[node name="puntosPlayer" type="Label" parent="."]
+offset_left = 550.0
+offset_top = 1.0
+offset_right = 659.0
+offset_bottom = 141.0
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 1
+
+[node name="puntosPc" type="Label" parent="."]
+offset_left = 748.0
+offset_right = 857.0
+offset_bottom = 140.0
+theme_override_font_sizes/font_size = 100
+text = "0"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="StaticPuntos/AreaPlayer" to="." method="_on_area_player_body_entered"]
+[connection signal="body_exited" from="StaticPuntos/AreaPlayer" to="." method="_on_area_player_body_exited"]
+[connection signal="body_entered" from="StaticPuntos/AreaPC" to="." method="_on_area_pc_body_entered"]
+[connection signal="body_exited" from="StaticPuntos/AreaPC" to="." method="_on_area_pc_body_exited"]
