@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b1yt07knn5r5w"]
+[gd_scene load_steps=12 format=3 uid="uid://b1yt07knn5r5w"]
 
 [ext_resource type="Script" path="res://escenas/ahorcado.gd" id="1_o05od"]
 [ext_resource type="Texture2D" uid="uid://vv7y1hksc5mx" path="res://rec/fondo_lvl1.png" id="2_vfyye"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://hn41tvtbb0bj" path="res://rec/inconsolata_tipografia/Inconsolata-Bold.ttf" id="4_lb1uf"]
 [ext_resource type="FontFile" uid="uid://0vo8rbultw43" path="res://rec/inconsolata_tipografia/Inconsolata-Regular.ttf" id="5_pvhnb"]
 [ext_resource type="AudioStream" uid="uid://dy23rqxnvosrx" path="res://rec/musica/suspenso.mp3" id="7_n3ma2"]
+[ext_resource type="AudioStream" uid="uid://dmqacpi5c4xp3" path="res://rec/musica/errorXP.mp3" id="8_u4xi4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_soj8k"]
 font = ExtResource("5_pvhnb")
@@ -118,8 +119,14 @@ text = "ACEPTAR"
 
 [node name="fondo2_0" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_n3ma2")
-volume_db = -18.0
+volume_db = -8.0
+pitch_scale = 0.7
 autoplay = true
+
+[node name="error" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_u4xi4")
+volume_db = 1.0
+pitch_scale = 1.5
 
 [connection signal="finished" from="audioTimer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

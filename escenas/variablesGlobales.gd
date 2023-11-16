@@ -7,6 +7,8 @@ var toquePong=false
 var estadoPong=false
 var fondoFinal=false
 
+var enFinal=false
+
 func menosVida():
 	salud-=25
 	
@@ -21,3 +23,9 @@ func finalVista():
 	
 func menuVista():
 	fondoFinal=false
+
+func final():
+	enFinal=true
+	
+func quedado():
+	enFinal=false

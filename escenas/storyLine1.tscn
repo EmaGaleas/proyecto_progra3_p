@@ -24,7 +24,7 @@ func _ready():
 		get_node(\"ahorcado\").text=\"VOLVER AL MENU\"
 		$video2.play()
 	elif estado==2:
-		get_node(\"sms\").text =\"Haz logrado robar la informacion PERO TE ESTAN SIGUIENDO...salta y\\ncorre todo lo que puedas pero si te tocan los drones 4 veces o se\\nte pega por mas de 5 segundos te atrapan. Si caes mueres.\\nCONSEJO: corre sin parar tras que inicies.\"
+		get_node(\"sms\").text =\"Haz logrado robar la informacion PERO TE ESTAN SIGUIENDO...salta y\\ncorre todo lo que puedas pero si te tocan los drones 4 veces o se\\nte pega por mas de 5 segundos te atrapan. Si caes mueres.\\nCONSEJO:corre sin parar.[E] te aleja al ser seguido...cuidado\"
 		get_node(\"ahorcado\").text=\"A CORRER\"
 		$video3.play()
 	
@@ -32,16 +32,19 @@ func _ready():
 
 func _on_ahorcado_pressed():
 	var estado=VariablesGlobales.videoAhorcado
-	if estado==0:
+	if estado==0 and VariablesGlobales.enFinal==false:
 		VariablesGlobales.videoAhorcado=0
 		get_tree().change_scene_to_file(\"res://escenas/ahorcado.tscn\")
-	elif estado==1:
+	elif estado==1 and VariablesGlobales.enFinal==false:
 		VariablesGlobales.videoAhorcado=0
 		get_tree().change_scene_to_file(\"res://escenas/menu.tscn\")
-	elif estado==2:
+	elif estado==2 and VariablesGlobales.enFinal==false:
 		VariablesGlobales.videoAhorcado=0
 		get_tree().change_scene_to_file(\"res://escenas/level_2.tscn\")
-
+	else:
+		VariablesGlobales.videoAhorcado=0
+		VariablesGlobales.finalVista()
+		get_tree().change_scene_to_file(\"res://escenas/finalOpciones.tscn\")
 
 func _on_video_1_finished():
 	if VariablesGlobales.videoAhorcado==0:

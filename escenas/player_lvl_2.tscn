@@ -243,7 +243,7 @@ shape = SubResource("RectangleShape2D_xr5ne")
 
 [node name="fondo2_0" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("25_2tqgv")
-volume_db = -20.0
+volume_db = -15.0
 autoplay = true
 
 [connection signal="finished" from="default" to="." method="_on_default_finished"]

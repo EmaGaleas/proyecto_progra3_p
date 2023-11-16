@@ -5,12 +5,23 @@ var player=null
 var playerchase=false
 var toques=0
 var im=false
+var bar=false
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("Aumentar_Velocidad"):
+		bar=true
+	else:
+		bar=false
+		
 	if !im:
 		$time.visible=false
-	if playerchase:
+	if playerchase and bar==false:
 		velocity = position.direction_to(player.position) * speed
+	elif playerchase and bar==true:
+		player.position.x += 100
+		player.position.y -= 100
+		velocity = position.direction_to(player.position) * speed
+		bar = false
 	else:
 		velocity = Vector2.ZERO  #no 
 	move_and_slide()

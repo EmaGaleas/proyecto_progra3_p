@@ -31,7 +31,9 @@ func _on_area_player_body_entered(body):
 	if puntosPC>0:
 		VariablesGlobales.tocado()
 	if puntosPC>=7:
-		get_tree().change_scene_to_file(\"res://escenas/menu.tscn\")
+		VariablesGlobales.final()
+		VariablesGlobales.finalVista()
+		get_tree().change_scene_to_file(\"res://escenas/finalOpciones.tscn\")
 
 
 
@@ -45,8 +47,9 @@ func _on_area_pc_body_entered(body):
 	if puntosPlayer>0:
 		VariablesGlobales.tocado()
 	if puntosPlayer>=7:
-		get_tree().change_scene_to_file(\"res://escenas/menu.tscn\")
-	
+		VariablesGlobales.final()
+		VariablesGlobales.finalVista()
+		get_tree().change_scene_to_file(\"res://escenas/finalOpciones.tscn\")
 
 
 func _on_area_player_body_exited(body):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dh3e2hoso8fli"]
+[gd_scene load_steps=12 format=3 uid="uid://dh3e2hoso8fli"]
 
 [ext_resource type="Texture2D" uid="uid://8rgml50nho2h" path="res://rec/fondos_sprites/1.png" id="2_2alru"]
 [ext_resource type="Texture2D" uid="uid://c81xqd5f3xops" path="res://rec/fondos_sprites/3.png" id="3_g4usj"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://doqfgqul03nq7" path="res://rec/fondos_sprites/city 2/6.png" id="7_7n2ce"]
 [ext_resource type="Texture2D" uid="uid://byvd0uyhsjgxy" path="res://rec/FONDO.png" id="7_xbdad"]
 [ext_resource type="Texture2D" uid="uid://bo0ypxxx027pt" path="res://rec/fondos_sprites/city 2/1.png" id="8_3fluh"]
+[ext_resource type="Texture2D" uid="uid://cbift4bu4mkvs" path="res://rec/fondos_sprites/city 2/4.png" id="9_884k5"]
+[ext_resource type="Texture2D" uid="uid://g2bbg06yn2nn" path="res://rec/fondos_sprites/city 2/3.png" id="10_426yj"]
 
 [sub_resource type="GDScript" id="GDScript_yfp41"]
 script/source = "extends ParallaxBackground
@@ -28,6 +30,37 @@ func _process(delta):
 		$inicio.visible=false
 	scroll_offset.x-=45*delta
 
+
+
+func _on_button_pressed():
+	VariablesGlobales.final()
+	get_tree().change_scene_to_file(\"res://escenas/ahorcado.tscn\")
+
+
+func _on_button_2_pressed():
+	VariablesGlobales.final()
+	get_tree().change_scene_to_file(\"res://escenas/level_2.tscn\")
+
+
+func _on_button_3_pressed():
+	VariablesGlobales.final()
+	pass #shooter
+
+
+func _on_button_4_pressed():
+	VariablesGlobales.final()
+	pass
+
+
+func _on_button_5_pressed():
+	VariablesGlobales.final()
+	get_tree().change_scene_to_file(\"res://escenas/final2.tscn\")
+
+
+func _on_button_6_pressed():
+	VariablesGlobales.menuVista()
+	VariablesGlobales.quedado()
+	get_tree().change_scene_to_file(\"res://escenas/menu.tscn\")
 "
 
 [node name="fondo_menu" type="ParallaxBackground"]
@@ -92,7 +125,6 @@ texture = ExtResource("7_7n2ce")
 centered = false
 
 [node name="final" type="ParallaxLayer" parent="."]
-visible = false
 texture_filter = 1
 motion_mirroring = Vector2(1400, 0)
 
@@ -104,28 +136,28 @@ centered = false
 
 [node name="ed" type="Sprite2D" parent="final"]
 texture_filter = 1
-position = Vector2(6, 350)
-scale = Vector2(1.57639, 1.63271)
-texture = ExtResource("3_g4usj")
+position = Vector2(6, 183)
+scale = Vector2(1.57639, 2.14814)
+texture = ExtResource("9_884k5")
 centered = false
 
 [node name="ed3" type="Sprite2D" parent="final"]
 texture_filter = 1
-position = Vector2(1, 250)
-scale = Vector2(2.2934, 2.00617)
-texture = ExtResource("5_8uq1t")
+position = Vector2(1, 330)
+scale = Vector2(2.2934, 1.75926)
+texture = ExtResource("10_426yj")
 centered = false
 
 [node name="ed4" type="Sprite2D" parent="final"]
 texture_filter = 1
-position = Vector2(1, 208)
-scale = Vector2(2.52431, 2.13889)
+position = Vector2(1, 279)
+scale = Vector2(2.52431, 1.91975)
 texture = ExtResource("6_svl6v")
 centered = false
 
 [node name="ed5" type="Sprite2D" parent="final"]
 texture_filter = 1
-position = Vector2(1, 256)
-scale = Vector2(2.4375, 1.99074)
+position = Vector2(1, 261)
+scale = Vector2(2.4375, 1.97531)
 texture = ExtResource("7_7n2ce")
 centered = false

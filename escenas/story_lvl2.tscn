@@ -23,7 +23,11 @@ func _on_finished():
 
 
 func _on_ahorcado_pressed():
-	get_tree().change_scene_to_file(\"res://escenas/menu.tscn\")
+	if VariablesGlobales.enFinal==false:
+		get_tree().change_scene_to_file(\"res://escenas/menu.tscn\")
+	else:
+		VariablesGlobales.finalVista()
+		get_tree().change_scene_to_file(\"res://escenas/finalOpciones.tscn\")
 "
 
 [node name="story_lvl2" type="Node2D"]

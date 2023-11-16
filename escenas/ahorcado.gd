@@ -38,23 +38,6 @@ func _pista():
 	elif(palabraRandom == palabras[7]):
 		get_node("label_pista").text = "PISTA: "+hint[7]
 #funciona mejor on aceptar pressed
-func _botonPresionado():
-	if get_node("Aceptar").pressed || Input.is_action_just_pressed("ingrear_ahorcado"):
-			palabraAdivinada = get_node("label_adivinar").text
-			print(palabraAdivinada)
-			print(palabraRandom)
-			if palabraAdivinada == palabraRandom:
-				get_node("label_palabra").text ="CORRECT PASSWORD. \nEN UNOS SEGUNDOS TENDRAS LA INFORMACION QUE NECESITAS"
-				VariablesGlobales.videoAhorcado=2
-				get_tree().change_scene_to_file("res://escenas/storyLine1.tscn")
-			elif intentos < 0:
-				VariablesGlobales.videoAhorcado=1
-				get_tree().change_scene_to_file("res://escenas/storyLine1.tscn")
-			elif palabraAdivinada != palabraRandom and intentos >= 1:
-				get_node("label_palabra").text ="INCORRECT PASSWORD."
-				get_node("label_numIntentos").text = str(intentos)
-			intentos= intentos - 1
-	
 
 
 func _on_audio_stream_player_finished():
@@ -80,7 +63,7 @@ func _on_timer_timeout():
 	if sec==-1 && min==0:
 		VariablesGlobales.videoAhorcado=1
 		get_tree().change_scene_to_file("res://escenas/storyLine1.tscn")
-		
+			
 	pass # Replace with function body.
 	
 func timerReset():
@@ -102,7 +85,9 @@ func _on_aceptar_pressed():
 			elif intentos <= 1:
 				VariablesGlobales.videoAhorcado=1
 				get_tree().change_scene_to_file("res://escenas/storyLine1.tscn")
+				
 			elif palabraAdivinada != palabraRandom and intentos >= 1:
+				$error.play()
 				intentos=intentos - 1
 				get_node("label_palabra").text ="INCORRECT PASSWORD."
 				get_node("label_numIntentos").text = str(intentos)
