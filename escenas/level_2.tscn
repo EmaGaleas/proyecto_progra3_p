@@ -45,10 +45,10 @@ sources/1 = SubResource("TileSetAtlasSource_s8ojd")
 script = ExtResource("1_pcpio")
 
 [node name="drone_security" parent="." instance=ExtResource("23_x13mp")]
-position = Vector2(250, 201)
+position = Vector2(251, 178)
 
 [node name="drone_security2" parent="." instance=ExtResource("23_x13mp")]
-position = Vector2(456, 180)
+position = Vector2(498, 166)
 
 [node name="delorianS" parent="." instance=ExtResource("2_ta414")]
 position = Vector2(16860, 78)

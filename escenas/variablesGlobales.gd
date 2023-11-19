@@ -6,6 +6,7 @@ var videoAhorcado=0
 var toquePong=false
 var estadoPong=false
 var fondoFinal=false
+var videoStory34=0
 
 var enFinal=false
 

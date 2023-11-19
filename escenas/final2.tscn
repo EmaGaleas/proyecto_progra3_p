@@ -33,7 +33,8 @@ func _on_area_player_body_entered(body):
 	if puntosPC>=7:
 		VariablesGlobales.final()
 		VariablesGlobales.finalVista()
-		get_tree().change_scene_to_file(\"res://escenas/finalOpciones.tscn\")
+		VariablesGlobales.videoStory34=3
+		get_tree().change_scene_to_file(\"res://escenas/storyLine_3y4.tscn\")
 
 
 
@@ -48,8 +49,8 @@ func _on_area_pc_body_entered(body):
 		VariablesGlobales.tocado()
 	if puntosPlayer>=7:
 		VariablesGlobales.final()
-		VariablesGlobales.finalVista()
-		get_tree().change_scene_to_file(\"res://escenas/finalOpciones.tscn\")
+		VariablesGlobales.videoStory34=3
+		get_tree().change_scene_to_file(\"res://escenas/storyLine_3y4.tscn\")
 
 
 func _on_area_player_body_exited(body):
@@ -63,13 +64,13 @@ func _on_area_pc_body_exited(body):
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1l5g"]
-size = Vector2(24, 936)
+size = Vector2(31.25, 936)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clxbh"]
-size = Vector2(17, 922)
+size = Vector2(20, 922)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffl6h"]
-size = Vector2(20, 930)
+size = Vector2(26, 930)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbh8d"]
 size = Vector2(1425, 20)
@@ -83,7 +84,7 @@ scale = Vector2(1.09453, 1.25)
 texture = ExtResource("1_70dsa")
 
 [node name="barra" parent="." instance=ExtResource("1_2kguw")]
-position = Vector2(51, 451)
+position = Vector2(32, 451)
 
 [node name="ball" parent="." instance=ExtResource("3_upguy")]
 collision_layer = 3
@@ -96,7 +97,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticPuntos/AreaPlayer"]
-position = Vector2(-4.5, 442)
+position = Vector2(-2.25, 442)
 shape = SubResource("RectangleShape2D_m1l5g")
 
 [node name="AreaPC" type="Area2D" parent="StaticPuntos"]
@@ -104,15 +105,15 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPuntos/AreaPC"]
-position = Vector2(1403, 453)
+position = Vector2(1401.63, 453)
 shape = SubResource("RectangleShape2D_m1l5g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticPuntos"]
-position = Vector2(-1.5, 451)
+position = Vector2(0, 451)
 shape = SubResource("RectangleShape2D_clxbh")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticPuntos"]
-position = Vector2(1404, 455)
+position = Vector2(1401, 455)
 shape = SubResource("RectangleShape2D_ffl6h")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
@@ -126,7 +127,7 @@ position = Vector2(702, 900)
 shape = SubResource("RectangleShape2D_lbh8d")
 
 [node name="barraComputer" parent="." instance=ExtResource("4_x1l3l")]
-position = Vector2(1349, 450)
+position = Vector2(1370, 450)
 
 [node name="Label" type="Label" parent="."]
 offset_left = 24.0

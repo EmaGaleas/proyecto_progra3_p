@@ -1,3 +1,89 @@
-[gd_scene format=3 uid="uid://cxlcx38yu7aiy"]
+[gd_scene load_steps=11 format=3 uid="uid://cxlcx38yu7aiy"]
+
+[ext_resource type="Script" path="res://escenas/storyLine_3y4.gd" id="1_30n8p"]
+[ext_resource type="Texture2D" uid="uid://buh4mnyuyocpi" path="res://rec/musica/final.jpeg" id="2_tlg0b"]
+[ext_resource type="Texture2D" uid="uid://byvd0uyhsjgxy" path="res://rec/FONDO.png" id="2_vo5ww"]
+[ext_resource type="FontFile" uid="uid://0vo8rbultw43" path="res://rec/inconsolata_tipografia/Inconsolata-Regular.ttf" id="3_66xcp"]
+[ext_resource type="VideoStream" path="res://rec/musica/shooterVive.ogv" id="3_rgsvq"]
+[ext_resource type="VideoStream" path="res://rec/musica/shooterMuere.ogv" id="4_jlr58"]
+[ext_resource type="FontFile" uid="uid://bd4lsheapt1xh" path="res://rec/game_set_tipografia/GameSetDemoRegular.ttf" id="4_o0bpq"]
+[ext_resource type="VideoStream" path="res://rec/musica/historiaPong.ogv" id="5_pfoph"]
+[ext_resource type="AudioStream" uid="uid://dy23rqxnvosrx" path="res://rec/musica/suspenso.mp3" id="9_6i636"]
+
+[sub_resource type="GDScript" id="GDScript_cndul"]
+script/source = "extends VideoStreamPlayer
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+		
+
+"
 
 [node name="storyLine_3y4" type="Node2D"]
+script = ExtResource("1_30n8p")
+
+[node name="Final" type="Sprite2D" parent="."]
+position = Vector2(657.5, 413.5)
+scale = Vector2(1.45801, 0.956055)
+texture = ExtResource("2_tlg0b")
+
+[node name="ganaShoot" type="VideoStreamPlayer" parent="."]
+offset_right = 1408.0
+offset_bottom = 752.0
+stream = ExtResource("3_rgsvq")
+expand = true
+script = SubResource("GDScript_cndul")
+
+[node name="pierdeShoot" type="VideoStreamPlayer" parent="."]
+offset_right = 1408.0
+offset_bottom = 752.0
+stream = ExtResource("4_jlr58")
+expand = true
+script = SubResource("GDScript_cndul")
+
+[node name="flappyStory" type="VideoStreamPlayer" parent="."]
+offset_right = 1408.0
+offset_bottom = 752.0
+stream = ExtResource("5_pfoph")
+expand = true
+script = SubResource("GDScript_cndul")
+
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(450.5, 1106)
+scale = Vector2(0.711719, 0.991667)
+texture = ExtResource("2_vo5ww")
+
+[node name="sms" type="Label" parent="."]
+offset_left = 14.0
+offset_top = 756.0
+offset_right = 891.0
+offset_bottom = 891.0
+theme_override_fonts/font = ExtResource("3_66xcp")
+theme_override_font_sizes/font_size = 26
+text = "¡TE ATRAPARON!\\n
+Los drones te han alcanzado.\\n
+Intentalo de nuevo."
+vertical_alignment = 1
+
+[node name="btn" type="Button" parent="."]
+offset_left = 905.0
+offset_top = 749.0
+offset_right = 1398.0
+offset_bottom = 900.0
+theme_override_colors/font_pressed_color = Color(0.831373, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.666667, 0.886275, 0, 1)
+theme_override_colors/font_focus_color = Color(0.831373, 1, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.831373, 1, 0, 1)
+theme_override_fonts/font = ExtResource("4_o0bpq")
+theme_override_font_sizes/font_size = 90
+text = "A SOBREVIVIR"
+
+[node name="audioSuspenso" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_6i636")
+autoplay = true
+
+[connection signal="finished" from="ganaShoot" to="." method="_on_gana_shoot_finished"]
+[connection signal="finished" from="pierdeShoot" to="." method="_on_pierde_shoot_finished"]
+[connection signal="finished" from="flappyStory" to="." method="_on_flappy_story_finished"]
+[connection signal="pressed" from="btn" to="." method="_on_btn_pressed"]
