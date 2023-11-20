@@ -200,22 +200,21 @@ libraries = {
 position = Vector2(-0.999998, -2.98023e-06)
 scale = Vector2(4.47059, 4)
 stream = ExtResource("23_37qu6")
-volume_db = -10.0
+volume_db = -9.0
+pitch_scale = 0.8
 
 [node name="saltar" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-0.999998, -2.98023e-06)
 scale = Vector2(4.47059, 4)
 stream = ExtResource("24_vblh3")
-volume_db = 8.0
+volume_db = 12.0
 
 [node name="default" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("25_hny1w")
 volume_db = 1.0
-autoplay = true
 
 [node name="muere" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("26_jfv35")
-pitch_scale = 2.11
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -225,8 +224,11 @@ offset_left = -680.0
 offset_top = -440.0
 offset_right = -382.0
 offset_bottom = -335.0
+theme_override_colors/font_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 50
-value = 100.0
+max_value = 4.0
+value = 4.0
+fill_mode = 3
 
 [node name="Area2D" type="Area2D" parent="."]
 light_mask = 5
@@ -246,5 +248,16 @@ stream = ExtResource("25_2tqgv")
 volume_db = -15.0
 autoplay = true
 
+[node name="Label" type="Label" parent="."]
+offset_left = -680.0
+offset_top = -440.0
+offset_right = -383.0
+offset_bottom = -338.0
+theme_override_font_sizes/font_size = 40
+text = "Toques: 4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="finished" from="correr" to="." method="_on_correr_finished"]
 [connection signal="finished" from="default" to="." method="_on_default_finished"]
 [connection signal="finished" from="fondo2_0" to="." method="_on_fondo_2_0_finished"]

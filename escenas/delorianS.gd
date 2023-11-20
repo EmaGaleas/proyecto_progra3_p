@@ -11,5 +11,7 @@ func _on_del_animation_finished():
 
 
 func _on_body_entered(body):
+	body.hide()
 	$del.play("default")
 	$sdd.play()
+	

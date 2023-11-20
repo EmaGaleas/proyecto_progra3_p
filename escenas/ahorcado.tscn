@@ -40,7 +40,7 @@ autoplay = true
 
 [node name="audioMusicadeFondo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_kg57e")
-volume_db = 1.0
+volume_db = 3.0
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

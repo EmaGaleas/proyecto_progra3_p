@@ -1,6 +1,6 @@
 extends Node
 
-var salud=100
+var salud=4
 var videoLVL2=1
 var videoAhorcado=0
 var toquePong=false
@@ -11,7 +11,7 @@ var videoStory34=0
 var enFinal=false
 
 func menosVida():
-	salud-=25
+	salud-=1
 	
 func tocado():
 	toquePong=true

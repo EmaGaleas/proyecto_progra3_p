@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dteoevfxs2gnb" path="res://rec/fondos_sprites/lvl2/6 (2).png" id="10_on0n2"]
 [ext_resource type="Texture2D" uid="uid://drwf27jlnffpq" path="res://rec/fondos_sprites/lvl2/6 (1).png" id="11_jr5gr"]
 [ext_resource type="Texture2D" uid="uid://d4jo5m8j6aiig" path="res://rec/fondos_sprites/lvl2/7 (2).png" id="12_sl4u7"]
-[ext_resource type="Texture2D" uid="uid://doqfgqul03nq7" path="res://rec/fondos_sprites/city 2/6.png" id="16_vtbuu"]
+[ext_resource type="Texture2D" uid="uid://ci7na5fv11wcf" path="res://rec/fondos_sprites/lvl2/abajo.png" id="21_wwqyo"]
 [ext_resource type="PackedScene" uid="uid://om1w5lstlntq" path="res://escenas/drone_security.tscn" id="23_x13mp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_efmwn"]
@@ -66,7 +66,7 @@ layer_0/tile_data = PackedInt32Array(4390712, 0, 0, 4390713, 0, 0, 4390714, 0, 0
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="azul2" type="Sprite2D" parent="ParallaxBackground"]
-position = Vector2(6698, 1230)
+position = Vector2(6828, 1212)
 scale = Vector2(32.4165, 10.6832)
 texture = ExtResource("4_dfvn0")
 
@@ -189,24 +189,24 @@ scale = Vector2(1.62847, 1.66358)
 texture = ExtResource("12_sl4u7")
 
 [node name="pequeños" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(724, 625.5)
-scale = Vector2(5.46528, 2.63889)
-texture = ExtResource("16_vtbuu")
+position = Vector2(724, 526.5)
+scale = Vector2(5.46528, 3.25)
+texture = ExtResource("21_wwqyo")
 
 [node name="pequeños2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(3129.5, 566.5)
 scale = Vector2(3.17188, 3.00309)
-texture = ExtResource("16_vtbuu")
+texture = ExtResource("21_wwqyo")
 
 [node name="pequeños4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(-1650.25, 565.188)
-scale = Vector2(5.39149, 3.02353)
-texture = ExtResource("16_vtbuu")
+position = Vector2(-1650.25, 190.5)
+scale = Vector2(5.39149, 5.33642)
+texture = ExtResource("21_wwqyo")
 
 [node name="pequeños3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(5525.5, 564.875)
-scale = Vector2(6.24826, 3.01929)
-texture = ExtResource("16_vtbuu")
+position = Vector2(5525.5, 522.5)
+scale = Vector2(6.24826, 3.28086)
+texture = ExtResource("21_wwqyo")
 
 [node name="drone_security3" parent="." instance=ExtResource("23_x13mp")]
 position = Vector2(1972, 279)
@@ -246,3 +246,8 @@ position = Vector2(9638, -12)
 
 [node name="drone_security15" parent="." instance=ExtResource("23_x13mp")]
 position = Vector2(11895, 148)
+
+[node name="Abajo" type="Sprite2D" parent="."]
+position = Vector2(6772.75, 272.25)
+scale = Vector2(3.15017, 4.70216)
+texture = ExtResource("21_wwqyo")
