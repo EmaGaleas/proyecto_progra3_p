@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmypkdk5krodm"]
+[gd_scene load_steps=12 format=3 uid="uid://cmypkdk5krodm"]
 
 [ext_resource type="PackedScene" uid="uid://cjiatcdoiiw1f" path="res://escenas/barra_player.tscn" id="1_2kguw"]
 [ext_resource type="Texture2D" uid="uid://cvo12cbejqsw1" path="res://rec/Assets/Assets/background.png" id="1_70dsa"]
 [ext_resource type="PackedScene" uid="uid://bqsprha6tx3j5" path="res://escenas/ball.tscn" id="3_upguy"]
 [ext_resource type="PackedScene" uid="uid://dgc6nrwo4bk5x" path="res://escenas/barraComputer.tscn" id="4_x1l3l"]
+[ext_resource type="AudioStream" uid="uid://sfo1j2bdboc6" path="res://rec/Assets/Assets/ScorePoint.wav" id="5_lmor5"]
+[ext_resource type="AudioStream" uid="uid://dvuu4hte8f2j4" path="res://rec/Assets/Assets/audio_juego.mp3" id="6_jdw8u"]
 
 [sub_resource type="GDScript" id="GDScript_f7cva"]
 script/source = "extends Node
@@ -27,14 +29,16 @@ func _on_area_player_body_entered(body):
 		puntosPC=0
 		time=false
 	puntosPC+=1
+	$puntoP.play()
 	get_node(\"puntosPc\").text = str(puntosPC)
 	if puntosPC>0:
 		VariablesGlobales.tocado()
 	if puntosPC>=7:
+		$seguir.dialog_text=\"Has perdido ante\\nla computadora\"
+		$seguir.visible=true
 		VariablesGlobales.final()
 		VariablesGlobales.finalVista()
 		VariablesGlobales.videoStory34=3
-		get_tree().change_scene_to_file(\"res://escenas/storyLine_3y4.tscn\")
 
 
 
@@ -44,13 +48,18 @@ func _on_area_pc_body_entered(body):
 		puntosPlayer=0
 		time=false
 	puntosPlayer+=1
+	$puntoP.play()
 	get_node(\"puntosPlayer\").text = str(puntosPlayer)
 	if puntosPlayer>0:
 		VariablesGlobales.tocado()
 	if puntosPlayer>=7:
+		$seguir.dialog_text=\"Has ganado\"
+		$seguir.visible=true
 		VariablesGlobales.final()
+		VariablesGlobales.finalVista()
 		VariablesGlobales.videoStory34=3
-		get_tree().change_scene_to_file(\"res://escenas/storyLine_3y4.tscn\")
+		
+		
 
 
 func _on_area_player_body_exited(body):
@@ -61,6 +70,14 @@ func _on_area_player_body_exited(body):
 func _on_area_pc_body_exited(body):
 	if puntosPlayer>0:
 		VariablesGlobales.destocado()
+
+
+func _on_seguir_confirmed():
+	get_tree().change_scene_to_file(\"res://escenas/storyLine_3y4.tscn\")
+
+
+func _on_seguir_canceled():
+	get_tree().change_scene_to_file(\"res://escenas/storyLine_3y4.tscn\")
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1l5g"]
@@ -141,6 +158,7 @@ offset_left = 550.0
 offset_top = 1.0
 offset_right = 659.0
 offset_bottom = 141.0
+theme_override_colors/font_color = Color(1, 0.980392, 1, 1)
 theme_override_font_sizes/font_size = 100
 text = "0"
 horizontal_alignment = 1
@@ -149,11 +167,28 @@ horizontal_alignment = 1
 offset_left = 748.0
 offset_right = 857.0
 offset_bottom = 140.0
+theme_override_colors/font_color = Color(0.980392, 0.980392, 0.956863, 1)
 theme_override_font_sizes/font_size = 100
 text = "0"
 horizontal_alignment = 1
+
+[node name="puntoP" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_lmor5")
+volume_db = 2.0
+pitch_scale = 2.0
+
+[node name="fondo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_jdw8u")
+autoplay = true
+
+[node name="seguir" type="AcceptDialog" parent="."]
+title = "CONTINUAR "
+position = Vector2i(623, 420)
+size = Vector2i(150, 100)
 
 [connection signal="body_entered" from="StaticPuntos/AreaPlayer" to="." method="_on_area_player_body_entered"]
 [connection signal="body_exited" from="StaticPuntos/AreaPlayer" to="." method="_on_area_player_body_exited"]
 [connection signal="body_entered" from="StaticPuntos/AreaPC" to="." method="_on_area_pc_body_entered"]
 [connection signal="body_exited" from="StaticPuntos/AreaPC" to="." method="_on_area_pc_body_exited"]
+[connection signal="canceled" from="seguir" to="." method="_on_seguir_canceled"]
+[connection signal="confirmed" from="seguir" to="." method="_on_seguir_confirmed"]

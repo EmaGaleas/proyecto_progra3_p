@@ -1,79 +1,102 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpgdoaacrd3b3"]
+[gd_scene load_steps=7 format=3 uid="uid://dpgdoaacrd3b3"]
 
 [ext_resource type="PackedScene" uid="uid://dh3e2hoso8fli" path="res://escenas/fondoMenu.tscn" id="1_8m5p0"]
-[ext_resource type="Texture2D" uid="uid://dmcjfw0n8uy0v" path="res://rec/Assets/Assets/Ball.png" id="2_uv2lr"]
+[ext_resource type="Texture2D" uid="uid://cnie1evbfm1it" path="res://rec/Assets/ahorcado.png" id="2_ld0uc"]
+[ext_resource type="AudioStream" uid="uid://c2kfs42wk3yym" path="res://rec/musica/Super Bowl.mp3" id="3_16ond"]
+[ext_resource type="Texture2D" uid="uid://bgwm2s5gw8fqy" path="res://rec/Assets/runner.png" id="3_urcw8"]
+[ext_resource type="Texture2D" uid="uid://b6nx11vm4pqgd" path="res://rec/Assets/pong.png" id="4_ccmjs"]
+[ext_resource type="Texture2D" uid="uid://dg4f64ume626r" path="res://rec/Assets/menu.png" id="5_g2dou"]
 
 [node name="finalOpciones" type="Node2D"]
 
 [node name="fondo_menu" parent="." instance=ExtResource("1_8m5p0")]
 
 [node name="Button" type="Button" parent="."]
-offset_left = 100.0
-offset_top = 141.0
-offset_right = 308.0
-offset_bottom = 403.0
+offset_left = 45.0
+offset_top = 140.0
+offset_right = 290.0
+offset_bottom = 424.0
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.745098, 0.827451, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.894118, 0.47451, 0, 1)
 theme_override_font_sizes/font_size = 45
 text = "Cypher"
-icon = ExtResource("2_uv2lr")
+icon = ExtResource("2_ld0uc")
 icon_alignment = 1
 vertical_icon_alignment = 0
 
 [node name="Button2" type="Button" parent="."]
-offset_left = 350.0
-offset_top = 141.0
-offset_right = 558.0
-offset_bottom = 403.0
+offset_left = 316.0
+offset_top = 140.0
+offset_right = 561.0
+offset_bottom = 424.0
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.745098, 0.827451, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.894118, 0.47451, 0, 1)
 theme_override_font_sizes/font_size = 45
 text = "Runner"
-icon = ExtResource("2_uv2lr")
+icon = ExtResource("3_urcw8")
 icon_alignment = 1
 vertical_icon_alignment = 0
 
 [node name="Button3" type="Button" parent="."]
-offset_left = 599.0
-offset_top = 141.0
-offset_right = 807.0
-offset_bottom = 403.0
+offset_left = 578.0
+offset_top = 140.0
+offset_right = 823.0
+offset_bottom = 424.0
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.745098, 0.827451, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.894118, 0.47451, 0, 1)
 theme_override_font_sizes/font_size = 45
 text = "Shooting
 "
-icon = ExtResource("2_uv2lr")
+icon = ExtResource("2_ld0uc")
 icon_alignment = 1
 vertical_icon_alignment = 0
 
 [node name="Button4" type="Button" parent="."]
-offset_left = 1100.0
-offset_top = 144.0
-offset_right = 1308.0
-offset_bottom = 406.0
+offset_left = 1110.0
+offset_top = 140.0
+offset_right = 1355.0
+offset_bottom = 424.0
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.745098, 0.827451, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.894118, 0.47451, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.894118, 0.47451, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.894118, 0.47451, 0, 1)
+theme_override_colors/icon_focus_color = Color(0.894118, 0.47451, 0, 1)
 theme_override_font_sizes/font_size = 45
 text = "Flyer"
-icon = ExtResource("2_uv2lr")
+icon = ExtResource("2_ld0uc")
 icon_alignment = 1
 vertical_icon_alignment = 0
 
 [node name="Button5" type="Button" parent="."]
-offset_left = 847.0
-offset_top = 142.0
-offset_right = 1055.0
-offset_bottom = 404.0
+offset_left = 840.0
+offset_top = 140.0
+offset_right = 1085.0
+offset_bottom = 424.0
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.745098, 0.827451, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.894118, 0.47451, 0, 1)
 theme_override_font_sizes/font_size = 45
 text = "Pong"
-icon = ExtResource("2_uv2lr")
+icon = ExtResource("4_ccmjs")
 icon_alignment = 1
 vertical_icon_alignment = 0
 
 [node name="Button6" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0.960784)
-offset_left = 1257.0
-offset_top = 789.0
-offset_right = 1394.0
-offset_bottom = 895.0
+offset_left = 1177.0
+offset_top = 743.0
+offset_right = 1387.0
+offset_bottom = 881.0
 theme_override_colors/font_pressed_color = Color(0.768627, 0.529412, 0.439216, 1)
 theme_override_colors/font_hover_color = Color(0.894118, 0.47451, 0, 1)
 theme_override_colors/font_focus_color = Color(0.768627, 0.529412, 0.439216, 1)
+theme_override_colors/icon_pressed_color = Color(0.788235, 0.533333, 0, 1)
 theme_override_font_sizes/font_size = 35
-text = "MENU"
+icon = ExtResource("5_g2dou")
 icon_alignment = 1
 vertical_icon_alignment = 0
 
@@ -85,6 +108,12 @@ offset_bottom = 108.0
 theme_override_font_sizes/font_size = 40
 text = "Haz llegado al final, juega el que desees de nuevo  o vuelve al menu."
 horizontal_alignment = 1
+
+[node name="audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_16ond")
+volume_db = -10.0
+pitch_scale = 0.95
+autoplay = true
 
 [connection signal="pressed" from="Button" to="fondo_menu" method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="fondo_menu" method="_on_button_2_pressed"]

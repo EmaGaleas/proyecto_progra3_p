@@ -25,5 +25,6 @@ func _physics_process(delta):
 		velocity.y = y_direction[randi() % 2]
 	var collide = move_and_collide(velocity * speed *delta)
 	if collide:
+		$rebote.play()
 		velocity = velocity.bounce(collide.get_normal())
 

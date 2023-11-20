@@ -227,7 +227,6 @@ offset_bottom = -335.0
 theme_override_colors/font_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 50
 max_value = 4.0
-value = 4.0
 fill_mode = 3
 
 [node name="Area2D" type="Area2D" parent="."]

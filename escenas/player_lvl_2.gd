@@ -75,6 +75,7 @@ func barraDevida():
 		$Spriteidle.play("lastimado")
 		mu.pitch_scale=3
 		mu.play()
+		VariablesGlobales.salud=4
 		VariablesGlobales.videoLVL2=1
 		get_tree().change_scene_to_file("res://escenas/story_lvl2.tscn")
 		

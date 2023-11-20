@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dgc6nrwo4bk5x"]
 
 [ext_resource type="Script" path="res://escenas/barraComputer.gd" id="1_cyf0n"]
-[ext_resource type="Texture2D" uid="uid://bj7lmi07ake3f" path="res://rec/Assets/Assets/ComputerPlayer.png" id="2_c05h3"]
+[ext_resource type="Texture2D" uid="uid://b7disq64k3v5g" path="res://rec/Assets/Assets/red.jpg" id="2_i374c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cylod"]
 size = Vector2(26, 166)
@@ -13,8 +13,9 @@ radius = 1199.0
 script = ExtResource("1_cyf0n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
-texture = ExtResource("2_c05h3")
+position = Vector2(-1, -1.5)
+scale = Vector2(0.0325, 0.120253)
+texture = ExtResource("2_i374c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -1)
@@ -22,6 +23,7 @@ shape = SubResource("RectangleShape2D_cylod")
 debug_color = Color(0, 0.6, 0.701961, 0.258824)
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 

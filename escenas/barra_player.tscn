@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cjiatcdoiiw1f"]
 
 [ext_resource type="Script" path="res://escenas/barraPlayer.gd" id="1_0a7om"]
-[ext_resource type="Texture2D" uid="uid://b2hpcap8u8oi1" path="res://rec/Assets/Assets/Player.png" id="1_hajyi"]
+[ext_resource type="Texture2D" uid="uid://dx45tg40puwv2" path="res://rec/Assets/Assets/blue.jpg" id="2_njcii"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ibv4p"]
 size = Vector2(13, 83)
@@ -10,8 +10,9 @@ size = Vector2(13, 83)
 script = ExtResource("1_0a7om")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2, 2)
-texture = ExtResource("1_hajyi")
+position = Vector2(-0.502016, -0.507812)
+scale = Vector2(0.0124726, 0.0446315)
+texture = ExtResource("2_njcii")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -0.5)

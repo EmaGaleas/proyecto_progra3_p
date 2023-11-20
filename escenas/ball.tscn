@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqsprha6tx3j5"]
+[gd_scene load_steps=5 format=3 uid="uid://bqsprha6tx3j5"]
 
 [ext_resource type="Script" path="res://escenas/ball.gd" id="1_cd8dn"]
 [ext_resource type="Texture2D" uid="uid://dmcjfw0n8uy0v" path="res://rec/Assets/Assets/Ball.png" id="1_w3kqi"]
+[ext_resource type="AudioStream" uid="uid://co4ch2ws3rxy3" path="res://rec/Assets/Assets/BallSound.wav" id="3_uanik"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w08je"]
 radius = 56.0
@@ -12,9 +13,15 @@ scale = Vector2(0.4, 0.4)
 script = ExtResource("1_cd8dn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.4, 1.7)
+scale = Vector2(0.4, 0.4025)
 texture = ExtResource("1_w3kqi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 6
 visibility_layer = 6
 shape = SubResource("CircleShape2D_w08je")
+
+[node name="rebote" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_uanik")
+volume_db = 2.0
