@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://dfm2h6do88vlc"]
+
+[ext_resource type="Script" path="res://escenas/final_alternativo_dlrn.gd" id="1_vaevh"]
+[ext_resource type="PackedScene" uid="uid://d1we5b5j4wq58" path="res://escenas/pipes.tscn" id="2_oees6"]
+[ext_resource type="Texture2D" uid="uid://cijfvpxemsboh" path="res://rec/fondos_sprites/city 2/10.png" id="3_4lggv"]
+[ext_resource type="PackedScene" uid="uid://b3h0an6hhs6j0" path="res://escenas/delorian_fly.tscn" id="4_0sgbd"]
+[ext_resource type="PackedScene" uid="uid://e56gdbmhn4e7" path="res://escenas/game_over.tscn" id="5_5pq06"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lujja"]
+size = Vector2(1532, 55)
+
+[node name="FinalAlternativoDLRN" type="Node2D"]
+script = ExtResource("1_vaevh")
+pipes_scene = ExtResource("2_oees6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(703, 452)
+scale = Vector2(0.608507, 0.694444)
+texture = ExtResource("3_4lggv")
+region_filter_clip_enabled = true
+
+[node name="DelorianFly" parent="." instance=ExtResource("4_0sgbd")]
+position = Vector2(-16, 374)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(0, 857)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(697, 0)
+shape = SubResource("RectangleShape2D_lujja")
+
+[node name="PipesHolder" type="Node" parent="."]
+
+[node name="SpawnU" type="Marker2D" parent="."]
+position = Vector2(1450, 340)
+
+[node name="SpawnL" type="Marker2D" parent="."]
+position = Vector2(1450, 580)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 1.2
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource("5_5pq06")]
+visible = false
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

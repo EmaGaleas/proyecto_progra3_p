@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1we5b5j4wq58"]
+
+[ext_resource type="PackedScene" uid="uid://6l5l12exwptc" path="res://escenas/pipe.tscn" id="1_a67me"]
+[ext_resource type="Script" path="res://escenas/pipes.gd" id="1_qw6eg"]
+[ext_resource type="PackedScene" uid="uid://cqivfdxpmst0p" path="res://escenas/laser.tscn" id="2_kk6cw"]
+
+[node name="Pipes" type="Node2D"]
+script = ExtResource("1_qw6eg")
+
+[node name="Upper" parent="." instance=ExtResource("1_a67me")]
+position = Vector2(0, -80)
+rotation = -3.14159
+
+[node name="Lower" parent="." instance=ExtResource("1_a67me")]
+position = Vector2(0, 80)
+
+[node name="laser" parent="." instance=ExtResource("2_kk6cw")]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(98, 0)
+
+[connection signal="body_entered" from="Upper" to="." method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="Lower" to="." method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="laser" to="." method="_on_laser_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]
