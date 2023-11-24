@@ -29,6 +29,8 @@ func _fly() -> void:
 func die() -> void:
 	if _dead == true:
 		return
+	$crasch.play()
+	VariablesGlobales.crash=true
 	_dead = true
 	animated_sprite.stop()
 	animated_sprite2.stop()

@@ -6,7 +6,6 @@ extends Node2D
 @onready var spawn_u = $SpawnU
 @onready var spawn_l = $SpawnL
 @onready var spawn_timer = $SpawnTimer
-@onready var fin = $fin
 @onready var score = $CanvasLayer/Score
 
 # Called when the node enters the scene tree for the first time.
@@ -15,10 +14,8 @@ func _ready():
 	GameManager.on_score_updated.connect(on_score_updated)
 	spawn_pipes()
 	score.text = str(GameManager.score)
+	VariablesGlobales.flyer=true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func spawn_pipes() -> void:
 	var y_pos = randf_range(spawn_u.position.y, spawn_l.position.y)
@@ -39,15 +36,12 @@ func on_score_updated()->void:
 	score.text = str(GameManager.get_score())
 
 func on_game_over():
-	if GameManager.score < 10:
-		stop_pipes()
-		fin.show()
-		fin.dialog_text = "Has perdido!! Mejor suerte a la proxima."
-	elif GameManager.score >=10 :
-		stop_pipes()
-		fin.show()
-		fin.dialog_text = "Ganaste! Terimnaste el juego."                   
+	stop_pipes()            
 
 
 func _on_plane_died():
 	GameManager.load_menu_scene()  
+
+
+func _on_fondo_alt_2_finished():
+	$fondo.play()

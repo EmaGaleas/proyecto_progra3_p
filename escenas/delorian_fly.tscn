@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3h0an6hhs6j0"]
+[gd_scene load_steps=10 format=3 uid="uid://b3h0an6hhs6j0"]
 
 [ext_resource type="Texture2D" uid="uid://dkndkt0sxicd5" path="res://rec/personaje/delorian/6_d.png" id="1_ei3gb"]
 [ext_resource type="Script" path="res://escenas/delorian_fly.gd" id="1_quo3h"]
 [ext_resource type="Texture2D" uid="uid://b7q51xisry203" path="res://rec/personaje/delorian/7_d.png" id="2_6pedc"]
+[ext_resource type="AudioStream" uid="uid://dmqacpi5c4xp3" path="res://rec/musica/errorXP.mp3" id="4_iwev4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ydre3"]
 size = Vector2(102, 36)
@@ -84,3 +85,7 @@ autoplay = "fly"
 libraries = {
 "": SubResource("AnimationLibrary_l1mfv")
 }
+
+[node name="crasch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_iwev4")
+pitch_scale = 1.5

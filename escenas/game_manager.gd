@@ -7,6 +7,7 @@ const grupo_delorian: String = "del"
 
 var menu_scene : PackedScene = preload("res://escenas/menu.tscn")
 var game_scene : PackedScene = preload("res://escenas/final_alternativo_dlrn.tscn")
+var story_line : PackedScene = preload("res://escenas/storyLine_3y4.tscn")
 var score:int = 0
 var high_score:int =0
 
@@ -31,4 +32,6 @@ func load_game_scene() -> void:
 	get_tree().change_scene_to_packed(game_scene)
 
 func load_menu_scene() -> void:
-	get_tree().change_scene_to_packed(menu_scene)
+	VariablesGlobales.videoStory34=2
+	VariablesGlobales.flyer=false
+	get_tree().change_scene_to_packed(story_line)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfm2h6do88vlc"]
+[gd_scene load_steps=10 format=3 uid="uid://dfm2h6do88vlc"]
 
 [ext_resource type="Script" path="res://escenas/final_alternativo_dlrn.gd" id="1_vaevh"]
 [ext_resource type="PackedScene" uid="uid://d1we5b5j4wq58" path="res://escenas/pipes.tscn" id="2_oees6"]
-[ext_resource type="Texture2D" uid="uid://cijfvpxemsboh" path="res://rec/fondos_sprites/city 2/10.png" id="3_4lggv"]
 [ext_resource type="PackedScene" uid="uid://b3h0an6hhs6j0" path="res://escenas/delorian_fly.tscn" id="4_0sgbd"]
+[ext_resource type="PackedScene" uid="uid://dh3e2hoso8fli" path="res://escenas/fondoMenu.tscn" id="5_2r3v8"]
 [ext_resource type="PackedScene" uid="uid://e56gdbmhn4e7" path="res://escenas/game_over.tscn" id="5_5pq06"]
+[ext_resource type="AudioStream" uid="uid://dvuu4hte8f2j4" path="res://rec/Assets/Assets/audio_juego.mp3" id="6_utasr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lujja"]
 size = Vector2(1532, 55)
@@ -2870,7 +2871,7 @@ cache/0/66/0/kerning_overrides/66/0 = Vector2(0, 0)
 [sub_resource type="LabelSettings" id="LabelSettings_vj5xe"]
 font = SubResource("FontFile_yl43a")
 font_size = 66
-font_color = Color(0.121569, 0, 0.490196, 1)
+font_color = Color(0.996078, 0.996078, 1, 1)
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
@@ -2878,14 +2879,8 @@ outline_color = Color(0, 0, 0, 1)
 script = ExtResource("1_vaevh")
 pipes_scene = ExtResource("2_oees6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(703, 452)
-scale = Vector2(0.608507, 0.694444)
-texture = ExtResource("3_4lggv")
-region_filter_clip_enabled = true
-
 [node name="DelorianFly" parent="." instance=ExtResource("4_0sgbd")]
-position = Vector2(-16, 374)
+position = Vector2(-16, 306)
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(0, 857)
@@ -2914,11 +2909,16 @@ visible = false
 [node name="Score" type="Label" parent="CanvasLayer"]
 offset_right = 1396.0
 offset_bottom = 87.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "000"
 label_settings = SubResource("LabelSettings_vj5xe")
 horizontal_alignment = 1
 
-[node name="fin" type="AcceptDialog" parent="."]
-initial_position = 2
+[node name="fondo_menu" parent="." instance=ExtResource("5_2r3v8")]
+
+[node name="fondo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_utasr")
+autoplay = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="finished" from="fondo" to="." method="_on_fondo_alt_2_finished"]
