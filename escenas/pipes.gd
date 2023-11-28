@@ -1,6 +1,6 @@
 extends Node2D
 
-const scroll_speed: float = 200.0
+const scroll_speed: float = 250.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

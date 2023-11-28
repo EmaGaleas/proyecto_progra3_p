@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3h0an6hhs6j0"]
+[gd_scene load_steps=11 format=3 uid="uid://b3h0an6hhs6j0"]
 
 [ext_resource type="Texture2D" uid="uid://dkndkt0sxicd5" path="res://rec/personaje/delorian/6_d.png" id="1_ei3gb"]
 [ext_resource type="Script" path="res://escenas/delorian_fly.gd" id="1_quo3h"]
 [ext_resource type="Texture2D" uid="uid://b7q51xisry203" path="res://rec/personaje/delorian/7_d.png" id="2_6pedc"]
-[ext_resource type="AudioStream" uid="uid://dmqacpi5c4xp3" path="res://rec/musica/errorXP.mp3" id="4_iwev4"]
+[ext_resource type="AudioStream" uid="uid://we5p5n2w38rr" path="res://rec/musica/carCrash.mp3" id="4_1n6fs"]
+[ext_resource type="AudioStream" uid="uid://c46wjjdte7ghc" path="res://rec/musica/deloreanAudio.mp3" id="5_4fjyu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ydre3"]
 size = Vector2(102, 36)
@@ -63,8 +64,8 @@ position = Vector2(198, 26)
 shape = SubResource("RectangleShape2D_ydre3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(196, 10)
-scale = Vector2(1.01839, 1.08333)
+position = Vector2(201.07, 10)
+scale = Vector2(0.936614, 1.08333)
 sprite_frames = SubResource("SpriteFrames_yg8ha")
 animation = &"fly"
 autoplay = "fly"
@@ -87,5 +88,10 @@ libraries = {
 }
 
 [node name="crasch" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_iwev4")
-pitch_scale = 1.5
+stream = ExtResource("4_1n6fs")
+pitch_scale = 2.0
+
+[node name="start" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_4fjyu")
+volume_db = 3.0
+autoplay = true

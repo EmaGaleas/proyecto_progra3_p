@@ -15,29 +15,32 @@ var audio=true
 var h=1
 
 
+
+
 func _physics_process(delta):
+	var anime=VariablesGlobales.dash
 	barraDevida()
-	if not is_on_floor() and !muere:
+	if not is_on_floor() and !muere and !anime:
 		velocity.y += gravity * delta
 		is_jumping = true
 		$Spriteidle.play("saltar")
 	elif !muere:
 		is_jumping=false
-	if position.y >= 780 and !muere:
+	if position.y >= 780 and !muere and !anime:
 		muere=true
 		mu.play()
 		$Spriteidle.play("muere")
 	if position.y >= 1000:
 		VariablesGlobales.videoLVL2=2
 		get_tree().change_scene_to_file("res://escenas/story_lvl2.tscn")
-	if Input.is_action_just_pressed("move_up") and is_on_floor() and !muere:
+	if Input.is_action_just_pressed("move_up") and is_on_floor() and !muere and !anime:
 		velocity.y = JUMP_VELOCITY
 		$Spriteidle.play("saltar")
 		audioSalto.pitch_scale=2#aumenta vel audio
 		audioSalto.play() 
 	var direction = Input.get_axis("move_left", "move_right")
 	
-	if direction and !muere:
+	if direction and !muere and !anime:
 		if direction>0 and !muere and !is_jumping:
 			$Spriteidle.play("correr")
 			$Spriteidle.flip_h=false
@@ -53,16 +56,22 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 		
 	else:
-		if not Input.is_action_pressed("move_up") and is_on_floor() and !muere:
+		if not Input.is_action_pressed("move_up") and is_on_floor() and !muere and !anime:
 			$Spriteidle.play("default")
 			#audioCorrer.stop()
-		elif !muere and position.y <790:
+		elif !muere and position.y <790 and !anime:
 			$Spriteidle.play("saltar")
 			audioSalto.play()
+		elif anime:
+			$Spriteidle.play("dash")
+			VariablesGlobales.dash=false
+			
 			
 	
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
+
+
 
 func _on_default_finished():
 	audioDefault.play() # Replace with function body.
@@ -81,7 +90,7 @@ func barraDevida():
 		
 		
 		
-
+		
 
 
 func _on_fondo_2_0_finished():
@@ -90,3 +99,7 @@ func _on_fondo_2_0_finished():
 
 func _on_correr_finished():
 	$correr.play()
+
+
+
+

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b3h0an6hhs6j0" path="res://escenas/delorian_fly.tscn" id="4_0sgbd"]
 [ext_resource type="PackedScene" uid="uid://dh3e2hoso8fli" path="res://escenas/fondoMenu.tscn" id="5_2r3v8"]
 [ext_resource type="PackedScene" uid="uid://e56gdbmhn4e7" path="res://escenas/game_over.tscn" id="5_5pq06"]
-[ext_resource type="AudioStream" uid="uid://dvuu4hte8f2j4" path="res://rec/Assets/Assets/audio_juego.mp3" id="6_utasr"]
+[ext_resource type="AudioStream" uid="uid://d0ynvctd5p6y6" path="res://rec/musica/BGoode.mp3" id="6_xpcm4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lujja"]
 size = Vector2(1532, 55)
@@ -2871,7 +2871,7 @@ cache/0/66/0/kerning_overrides/66/0 = Vector2(0, 0)
 [sub_resource type="LabelSettings" id="LabelSettings_vj5xe"]
 font = SubResource("FontFile_yl43a")
 font_size = 66
-font_color = Color(0.996078, 0.996078, 1, 1)
+font_color = Color(0.968627, 0.968627, 0.964706, 1)
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
@@ -2917,7 +2917,7 @@ horizontal_alignment = 1
 [node name="fondo_menu" parent="." instance=ExtResource("5_2r3v8")]
 
 [node name="fondo" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_utasr")
+stream = ExtResource("6_xpcm4")
 autoplay = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
