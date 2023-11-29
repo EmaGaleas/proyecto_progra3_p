@@ -8,7 +8,7 @@ size = Vector2(70, 593)
 [node name="Pipe" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0.956863, 0.737255, 1, 1)
+self_modulate = Color(0.552941, 0.839216, 1, 1)
 texture = ExtResource("1_ymhp2")
 centered = false
 offset = Vector2(-35, 0)
