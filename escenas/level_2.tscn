@@ -149,6 +149,7 @@ scale = Vector2(1.72569, 2.25309)
 texture = ExtResource("5_qnjnb")
 
 [node name="ed4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color(0.72549, 0.815686, 1, 1)
 position = Vector2(1399, 665.125)
 scale = Vector2(1.64931, 1.89429)
 texture = ExtResource("6_0ac4k")
