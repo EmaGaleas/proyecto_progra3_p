@@ -10,9 +10,9 @@ var bar=false
 func _physics_process(delta):
 	if Input.is_action_just_pressed("Aumentar_Velocidad"):
 		bar=true
-		VariablesGlobales.dash=true
 	else:
 		bar=false
+		
 	if !im:
 		$time.visible=false
 	if playerchase and bar==false:

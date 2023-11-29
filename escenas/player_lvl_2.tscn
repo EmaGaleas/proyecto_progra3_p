@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://n60anile6b8w"]
+[gd_scene load_steps=36 format=3 uid="uid://n60anile6b8w"]
 
 [ext_resource type="Script" path="res://escenas/player_lvl_2.gd" id="1_1rrvx"]
 [ext_resource type="Texture2D" uid="uid://7cgrtr61ojxu" path="res://rec/personaje/Punk/saltar_caer/1_caer.png" id="1_c5w2y"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://cjxxq5hvhthl8" path="res://rec/personaje/Punk/correr/4_run.png" id="6_gsp7u"]
 [ext_resource type="Texture2D" uid="uid://cagw3gk2kq061" path="res://rec/personaje/Punk/correr/5_run.png" id="7_btau2"]
 [ext_resource type="Texture2D" uid="uid://c3mvgrvhxuwup" path="res://rec/personaje/Punk/correr/6_run.png" id="8_qnjqd"]
-[ext_resource type="Texture2D" uid="uid://c86bh8bttktwv" path="res://rec/personaje/Punk/dash.png" id="8_qtchi"]
 [ext_resource type="Texture2D" uid="uid://740kvhin077y" path="res://rec/personaje/Punk/default/1_idle.png" id="9_qljbm"]
 [ext_resource type="Texture2D" uid="uid://dx5arbjmo0ve7" path="res://rec/personaje/Punk/default/2_idle.png" id="10_n8o4q"]
 [ext_resource type="Texture2D" uid="uid://t4de3n2owfyy" path="res://rec/personaje/Punk/default/3_idle.png" id="11_n72gp"]
@@ -26,30 +25,6 @@
 [ext_resource type="AudioStream" uid="uid://dy23rqxnvosrx" path="res://rec/musica/suspenso.mp3" id="25_2tqgv"]
 [ext_resource type="AudioStream" uid="uid://b201anejvhy2e" path="res://rec/musica/sonidoViento.mp3" id="25_hny1w"]
 [ext_resource type="AudioStream" uid="uid://xdcnqvs02o78" path="res://rec/musica/deadAudio.mp3" id="26_jfv35"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fr0ne"]
-atlas = ExtResource("8_qtchi")
-region = Rect2(220, 0, 55, 34)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_na12u"]
-atlas = ExtResource("8_qtchi")
-region = Rect2(165, 0, 55, 34)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rw0i0"]
-atlas = ExtResource("8_qtchi")
-region = Rect2(55, 0, 55, 34)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lnbxq"]
-atlas = ExtResource("8_qtchi")
-region = Rect2(110, 0, 55, 34)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kewbi"]
-atlas = ExtResource("8_qtchi")
-region = Rect2(275, 0, 55, 34)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nnmio"]
-atlas = ExtResource("8_qtchi")
-region = Rect2(0, 0, 55, 34)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uikl8"]
 animations = [{
@@ -75,29 +50,6 @@ animations = [{
 "loop": true,
 "name": &"correr",
 "speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fr0ne")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_na12u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rw0i0")
-}, {
-"duration": 3.3,
-"texture": SubResource("AtlasTexture_lnbxq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kewbi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nnmio")
-}],
-"loop": false,
-"name": &"dash",
-"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -225,11 +177,10 @@ collision_layer = 7
 script = ExtResource("1_1rrvx")
 
 [node name="Spriteidle" type="AnimatedSprite2D" parent="."]
-modulate = Color(1, 0.866667, 1, 1)
 position = Vector2(-2.38419e-07, -1)
 scale = Vector2(3.23529, 2.80882)
 sprite_frames = SubResource("SpriteFrames_uikl8")
-animation = &"dash"
+animation = &"lastimado"
 autoplay = "default"
 frame = 1
 flip_h = true
@@ -305,13 +256,6 @@ theme_override_font_sizes/font_size = 40
 text = "Toques: 4"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="dash" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0.247059)
-position = Vector2(590.25, -382.75)
-scale = Vector2(2.65789, 2.59091)
-texture = ExtResource("3_t3t5b")
 
 [connection signal="finished" from="correr" to="." method="_on_correr_finished"]
 [connection signal="finished" from="default" to="." method="_on_default_finished"]

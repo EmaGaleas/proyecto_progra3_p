@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://b1yt07knn5r5w"]
+[gd_scene load_steps=12 format=3 uid="uid://b1yt07knn5r5w"]
 
 [ext_resource type="Script" path="res://escenas/ahorcado.gd" id="1_o05od"]
 [ext_resource type="Texture2D" uid="uid://vv7y1hksc5mx" path="res://rec/fondo_lvl1.png" id="2_vfyye"]
 [ext_resource type="AudioStream" uid="uid://db8huk2pbcmfo" path="res://rec/musica/timer_ahorcado.mp3" id="3_fe015"]
 [ext_resource type="AudioStream" uid="uid://c2kfs42wk3yym" path="res://rec/musica/Super Bowl.mp3" id="4_kg57e"]
 [ext_resource type="FontFile" uid="uid://hn41tvtbb0bj" path="res://rec/inconsolata_tipografia/Inconsolata-Bold.ttf" id="4_lb1uf"]
-[ext_resource type="Texture2D" uid="uid://fhf5etom73s7" path="res://rec/cuadroAhorcado.png" id="5_m3du8"]
 [ext_resource type="FontFile" uid="uid://0vo8rbultw43" path="res://rec/inconsolata_tipografia/Inconsolata-Regular.ttf" id="5_pvhnb"]
 [ext_resource type="AudioStream" uid="uid://dy23rqxnvosrx" path="res://rec/musica/suspenso.mp3" id="7_n3ma2"]
 [ext_resource type="AudioStream" uid="uid://dmqacpi5c4xp3" path="res://rec/musica/errorXP.mp3" id="8_u4xi4"]
@@ -46,12 +45,6 @@ volume_db = 3.0
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[node name="CuadroAhorcado" type="Sprite2D" parent="."]
-modulate = Color(0.831373, 0.32549, 0, 1)
-position = Vector2(1119.5, 781.75)
-scale = Vector2(0.342708, 0.299306)
-texture = ExtResource("5_m3du8")
-
 [node name="timer_mostrar" type="Label" parent="."]
 offset_left = 963.0
 offset_top = 78.0
@@ -64,11 +57,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="label_pista" type="Label" parent="."]
-offset_left = 997.0
-offset_top = 722.0
-offset_right = 1269.0
-offset_bottom = 851.0
-theme_override_colors/font_color = Color(0.827451, 1, 1, 1)
+offset_left = 966.0
+offset_top = 721.0
+offset_right = 1247.0
+offset_bottom = 883.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_pvhnb")
 theme_override_font_sizes/font_size = 30
 text = "PISTA: 

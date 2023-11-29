@@ -34,7 +34,6 @@ func _on_area_player_body_entered(body):
 	if puntosPC>0:
 		VariablesGlobales.tocado()
 	if puntosPC>=7:
-		VariablesGlobales.estadoPong=true
 		$seguir.dialog_text=\"Has perdido ante\\nla computadora\"
 		$seguir.visible=true
 		VariablesGlobales.final()
@@ -54,7 +53,6 @@ func _on_area_pc_body_entered(body):
 	if puntosPlayer>0:
 		VariablesGlobales.tocado()
 	if puntosPlayer>=7:
-		VariablesGlobales.estadoPong=true
 		$seguir.dialog_text=\"Has ganado\"
 		$seguir.visible=true
 		VariablesGlobales.final()
@@ -75,12 +73,10 @@ func _on_area_pc_body_exited(body):
 
 
 func _on_seguir_confirmed():
-	VariablesGlobales.estadoPong=false
 	get_tree().change_scene_to_file(\"res://escenas/storyLine_3y4.tscn\")
 
 
 func _on_seguir_canceled():
-	VariablesGlobales.estadoPong=false
 	get_tree().change_scene_to_file(\"res://escenas/storyLine_3y4.tscn\")
 "
 
@@ -99,13 +95,13 @@ size = Vector2(1425, 20)
 [sub_resource type="LabelSettings" id="LabelSettings_lttym"]
 font_size = 100
 outline_size = 10
-outline_color = Color(0.639216, 0.592157, 0.564706, 1)
+outline_color = Color(0.639216, 0.815686, 0.564706, 1)
 shadow_color = Color(0, 0, 0.243137, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_k23it"]
 font_size = 100
 outline_size = 10
-outline_color = Color(0.639216, 0.592157, 0.564706, 1)
+outline_color = Color(0.639216, 0.815686, 0.564706, 1)
 
 [node name="pong" type="Node"]
 script = SubResource("GDScript_f7cva")

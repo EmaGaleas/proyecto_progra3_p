@@ -1,9 +1,5 @@
 extends Node
 
-const gravity: float = 1900.0
-const power: float = -400.0
-var _dead: bool = false
-
 signal on_game_over
 signal on_score_updated
 
@@ -26,14 +22,6 @@ func set_score(v:int)->void:
 	if score > high_score:
 		high_score = score
 	on_score_updated.emit()
-	if score>=50:
-		if _dead == true:
-			return
-		#$crasch.play() 
-		VariablesGlobales.crash=true
-		_dead = true
-		GameManager.on_game_over.emit()
-		set_physics_process(false)
 	print("sc:%s hs:%s" % [score, high_score])
 
 
@@ -46,5 +34,4 @@ func load_game_scene() -> void:
 func load_menu_scene() -> void:
 	VariablesGlobales.videoStory34=2
 	VariablesGlobales.flyer=false
-	set_score(0)
 	get_tree().change_scene_to_packed(story_line)

@@ -3,7 +3,6 @@ extends Control
 @onready var game_over = $GameOverL
 @onready var press_space = $PressSpaceL
 @onready var timer = $Timer
-@onready var end = $End
 
 var can_press_space: bool = false
 
@@ -25,7 +24,6 @@ func on_game_over()->void:
 
 func run_sequence() -> void:
 	game_over.hide()
-	end.hide()
 	press_space.show()
 	can_press_space = true
 

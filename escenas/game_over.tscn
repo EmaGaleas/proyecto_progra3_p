@@ -41,15 +41,4 @@ label_settings = SubResource("LabelSettings_elsgq")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 
-[node name="End" type="Label" parent="."]
-visible = false
-offset_left = 3.0
-offset_top = 364.0
-offset_right = 1398.0
-offset_bottom = 514.0
-text = "FINAL ALCANZADO"
-label_settings = SubResource("LabelSettings_elsgq")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
