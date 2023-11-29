@@ -42,7 +42,7 @@ func _on_flappy_story_finished():
 
 func _on_btn_pressed():
 	if VariablesGlobales.videoStory34==0:
-		get_tree().change_scene_to_file("res://escenas/final_alternativo_dlrn.tscn")
+		pass
 	elif VariablesGlobales.videoStory34==1:
 		get_tree().change_scene_to_file("res://escenas/menu.tscn")
 	elif VariablesGlobales.videoStory34==2:
