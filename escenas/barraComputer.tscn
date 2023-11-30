@@ -1,7 +1,40 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgc6nrwo4bk5x"]
+[gd_scene load_steps=10 format=3 uid="uid://dgc6nrwo4bk5x"]
 
 [ext_resource type="Script" path="res://escenas/barraComputer.gd" id="1_cyf0n"]
 [ext_resource type="Texture2D" uid="uid://b7disq64k3v5g" path="res://rec/Assets/Assets/red.jpg" id="2_i374c"]
+[ext_resource type="Texture2D" uid="uid://be1xfnrgfnc6k" path="res://rec/Assets/Assets/barra roja.png" id="2_mndfc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfas3"]
+atlas = ExtResource("2_mndfc")
+region = Rect2(0, 0, 117, 374)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwdew"]
+atlas = ExtResource("2_mndfc")
+region = Rect2(117, 0, 117, 374)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w37pd"]
+atlas = ExtResource("2_mndfc")
+region = Rect2(234, 0, 117, 374)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yxyms"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfas3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwdew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w37pd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwdew")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cylod"]
 size = Vector2(26, 166)
@@ -12,7 +45,17 @@ radius = 1199.0
 [node name="barraComputer" type="CharacterBody2D"]
 script = ExtResource("1_cyf0n")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0.670588, 0.670588, 1)
+position = Vector2(8.25, -3)
+scale = Vector2(1.02137, 1.06952)
+sprite_frames = SubResource("SpriteFrames_yxyms")
+autoplay = "default"
+frame = 2
+frame_progress = 0.827682
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-1, -1.5)
 scale = Vector2(0.0325, 0.120253)
 texture = ExtResource("2_i374c")

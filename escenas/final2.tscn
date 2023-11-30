@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://cmypkdk5krodm"]
 
 [ext_resource type="PackedScene" uid="uid://cjiatcdoiiw1f" path="res://escenas/barra_player.tscn" id="1_2kguw"]
-[ext_resource type="Texture2D" uid="uid://cvo12cbejqsw1" path="res://rec/Assets/Assets/background.png" id="1_70dsa"]
+[ext_resource type="Texture2D" uid="uid://fyn5kg1bnabm" path="res://rec/Assets/Assets/ping pong.png" id="1_lljy6"]
 [ext_resource type="PackedScene" uid="uid://bqsprha6tx3j5" path="res://escenas/ball.tscn" id="3_upguy"]
 [ext_resource type="PackedScene" uid="uid://dgc6nrwo4bk5x" path="res://escenas/barraComputer.tscn" id="4_x1l3l"]
 [ext_resource type="AudioStream" uid="uid://sfo1j2bdboc6" path="res://rec/Assets/Assets/ScorePoint.wav" id="5_lmor5"]
@@ -78,6 +78,10 @@ func _on_seguir_confirmed():
 
 func _on_seguir_canceled():
 	get_tree().change_scene_to_file(\"res://escenas/storyLine_3y4.tscn\")
+
+
+func _on_fondo_finished():
+	$fondo.play()
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1l5g"]
@@ -90,16 +94,16 @@ size = Vector2(20, 922)
 size = Vector2(26, 930)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbh8d"]
-size = Vector2(1425, 20)
+size = Vector2(1425, 117.5)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lttym"]
-font_size = 100
+font_size = 80
 outline_size = 10
 outline_color = Color(0.639216, 0.815686, 0.564706, 1)
 shadow_color = Color(0, 0, 0.243137, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_k23it"]
-font_size = 100
+font_size = 80
 outline_size = 10
 outline_color = Color(0.639216, 0.815686, 0.564706, 1)
 
@@ -107,11 +111,13 @@ outline_color = Color(0.639216, 0.815686, 0.564706, 1)
 script = SubResource("GDScript_f7cva")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(700.5, 450)
-scale = Vector2(1.09453, 1.25)
-texture = ExtResource("1_70dsa")
+modulate = Color(0.356863, 0.980392, 1, 1)
+position = Vector2(699.5, 448)
+scale = Vector2(0.771354, 0.837037)
+texture = ExtResource("1_lljy6")
 
 [node name="barra" parent="." instance=ExtResource("1_2kguw")]
+modulate = Color(0.184314, 0.0509804, 1, 1)
 position = Vector2(32, 451)
 
 [node name="ball" parent="." instance=ExtResource("3_upguy")]
@@ -147,28 +153,21 @@ shape = SubResource("RectangleShape2D_ffl6h")
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(702.5, 0)
+position = Vector2(702.5, 33.25)
 shape = SubResource("RectangleShape2D_lbh8d")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(702, 900)
+position = Vector2(702, 884.5)
 shape = SubResource("RectangleShape2D_lbh8d")
 
 [node name="barraComputer" parent="." instance=ExtResource("4_x1l3l")]
 position = Vector2(1370, 450)
 
-[node name="Label" type="Label" parent="."]
-offset_left = 24.0
-offset_top = 866.0
-offset_right = 636.0
-offset_bottom = 899.0
-text = "[E] : Aumentar Velocidad 		      	 [R]: Reducir Velocidad           [T]: Posicionar RESET"
-
 [node name="puntosPlayer" type="Label" parent="."]
-offset_left = 550.0
-offset_top = 1.0
-offset_right = 659.0
-offset_bottom = 141.0
+offset_left = 497.0
+offset_top = -16.0
+offset_right = 543.0
+offset_bottom = 97.0
 theme_override_colors/font_color = Color(1, 0.980392, 1, 1)
 theme_override_font_sizes/font_size = 100
 text = "0"
@@ -176,11 +175,12 @@ label_settings = SubResource("LabelSettings_lttym")
 horizontal_alignment = 1
 
 [node name="puntosPc" type="Label" parent="."]
-offset_left = 748.0
-offset_right = 857.0
-offset_bottom = 140.0
+offset_left = 850.0
+offset_top = -16.0
+offset_right = 897.0
+offset_bottom = 124.0
 theme_override_colors/font_color = Color(0.980392, 0.980392, 0.956863, 1)
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 70
 text = "0"
 label_settings = SubResource("LabelSettings_k23it")
 horizontal_alignment = 1
@@ -203,5 +203,6 @@ size = Vector2i(150, 100)
 [connection signal="body_exited" from="StaticPuntos/AreaPlayer" to="." method="_on_area_player_body_exited"]
 [connection signal="body_entered" from="StaticPuntos/AreaPC" to="." method="_on_area_pc_body_entered"]
 [connection signal="body_exited" from="StaticPuntos/AreaPC" to="." method="_on_area_pc_body_exited"]
+[connection signal="finished" from="fondo" to="." method="_on_fondo_finished"]
 [connection signal="canceled" from="seguir" to="." method="_on_seguir_canceled"]
 [connection signal="confirmed" from="seguir" to="." method="_on_seguir_confirmed"]
