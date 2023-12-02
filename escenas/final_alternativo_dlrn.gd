@@ -7,7 +7,8 @@ extends Node2D
 @onready var spawn_l = $SpawnL
 @onready var spawn_timer = $SpawnTimer
 @onready var score = $CanvasLayer/Score
-
+@onready var sonido_fondo = $fondo
+@onready var carCrash = $CarCrash
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameManager.on_game_over.connect(on_game_over)
@@ -15,6 +16,7 @@ func _ready():
 	spawn_pipes()
 	score.text = str(GameManager.score)
 	VariablesGlobales.flyer=true
+	sonido_fondo.play()
 
 
 func spawn_pipes() -> void:
@@ -36,12 +38,13 @@ func on_score_updated()->void:
 	score.text = str(GameManager.get_score())
 
 func on_game_over():
-	stop_pipes()            
+	stop_pipes()    
+	sonido_fondo.stop() 
+	carCrash.play()
+	score.text = str(0)
+	GameManager.set_score(0)
 
 
 func _on_plane_died():
 	GameManager.load_menu_scene()  
 
-
-func _on_fondo_alt_2_finished():
-	$fondo.play()
