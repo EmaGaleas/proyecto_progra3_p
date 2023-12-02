@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b1yt07knn5r5w"]
+[gd_scene load_steps=14 format=3 uid="uid://b1yt07knn5r5w"]
 
 [ext_resource type="Script" path="res://escenas/ahorcado.gd" id="1_o05od"]
 [ext_resource type="Texture2D" uid="uid://vv7y1hksc5mx" path="res://rec/fondo_lvl1.png" id="2_vfyye"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://0vo8rbultw43" path="res://rec/inconsolata_tipografia/Inconsolata-Regular.ttf" id="5_pvhnb"]
 [ext_resource type="AudioStream" uid="uid://dy23rqxnvosrx" path="res://rec/musica/suspenso.mp3" id="7_n3ma2"]
 [ext_resource type="AudioStream" uid="uid://dmqacpi5c4xp3" path="res://rec/musica/errorXP.mp3" id="8_u4xi4"]
+[ext_resource type="Texture2D" uid="uid://dl1tufo5xqp58" path="res://rec/paraRebeca/1/cuadroAhorcado.PNG" id="9_2y5i6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_soj8k"]
 font = ExtResource("5_pvhnb")
@@ -20,6 +21,9 @@ font_size = 31
 [sub_resource type="LabelSettings" id="LabelSettings_fu0tr"]
 font = ExtResource("4_lb1uf")
 font_size = 29
+
+[sub_resource type="LabelSettings" id="LabelSettings_e5gy6"]
+font_size = 23
 
 [node name="ahorcado" type="Node2D"]
 script = ExtResource("1_o05od")
@@ -55,17 +59,6 @@ theme_override_font_sizes/font_size = 40
 text = "00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="label_pista" type="Label" parent="."]
-offset_left = 966.0
-offset_top = 721.0
-offset_right = 1247.0
-offset_bottom = 883.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_pvhnb")
-theme_override_font_sizes/font_size = 30
-text = "PISTA: 
-"
 
 [node name="label_intentos" type="Label" parent="."]
 offset_left = 173.0
@@ -127,6 +120,20 @@ autoplay = true
 stream = ExtResource("8_u4xi4")
 volume_db = 1.0
 pitch_scale = 1.5
+
+[node name="CuadroAhorcado" type="Sprite2D" parent="."]
+position = Vector2(1102, 795)
+scale = Vector2(0.304688, 0.279167)
+texture = ExtResource("9_2y5i6")
+
+[node name="label_pista" type="Label" parent="."]
+offset_left = 989.0
+offset_top = 719.0
+offset_right = 1231.0
+offset_bottom = 883.0
+text = "PISTA:
+"
+label_settings = SubResource("LabelSettings_e5gy6")
 
 [connection signal="finished" from="audioTimer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
