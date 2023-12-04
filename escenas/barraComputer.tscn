@@ -33,7 +33,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cylod"]
@@ -46,13 +46,13 @@ radius = 1199.0
 script = ExtResource("1_cyf0n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-modulate = Color(1, 0.670588, 0.670588, 1)
+modulate = Color(1, 0.788235, 0.423529, 1)
 position = Vector2(8.25, -3)
 scale = Vector2(1.02137, 1.06952)
 sprite_frames = SubResource("SpriteFrames_yxyms")
 autoplay = "default"
 frame = 2
-frame_progress = 0.827682
+frame_progress = 0.190683
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
