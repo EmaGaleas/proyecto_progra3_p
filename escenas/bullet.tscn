@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cypjjkf5x1vod"]
+
+[ext_resource type="Texture2D" uid="uid://g3r6b73wn41r" path="res://rec/personaje/2 Punk/3_1.png" id="1_3yvdb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xaw3"]
+size = Vector2(49, 4)
+
+[node name="Bullet" type="RigidBody2D"]
+position = Vector2(516, 294)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(23.5, 0)
+shape = SubResource("RectangleShape2D_4xaw3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3yvdb")
+hframes = 3

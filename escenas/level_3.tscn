@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://bvy6vt7mtpfjq"]
+[gd_scene load_steps=5 format=3 uid="uid://bvy6vt7mtpfjq"]
+
+[ext_resource type="PackedScene" uid="uid://y7uj104p4144" path="res://escenas/player_lvl_3.tscn" id="1_bcxan"]
+[ext_resource type="Script" path="res://escenas/level_3.gd" id="1_mdxmk"]
+[ext_resource type="PackedScene" uid="uid://dh7fw7gtmsnlh" path="res://escenas/character_body_2d.tscn" id="3_bqnvx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujnom"]
+size = Vector2(1413, 75)
 
 [node name="Level_3" type="Node2D"]
+script = ExtResource("1_mdxmk")
+
+[node name="player_lvl_3" parent="." instance=ExtResource("1_bcxan")]
+position = Vector2(171, 802)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(702, 900.5)
+shape = SubResource("RectangleShape2D_ujnom")
+debug_color = Color(0, 0, 0.231373, 0.419608)
+
+[node name="cyber_personaje" parent="." instance=ExtResource("3_bqnvx")]
+position = Vector2(574, 755)

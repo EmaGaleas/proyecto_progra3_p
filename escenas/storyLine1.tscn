@@ -16,7 +16,7 @@ script/source = "extends Node2D
 func _ready():
 	var estado=VariablesGlobales.videoAhorcado
 	if estado==0:
-		get_node(\"sms\").text =\"Se te han dado ciertas pistas para robar informacion de la empresa\\n WHIZCO. Debes adivinar la clave para acceder a ella con lo que\\nte dieron. Tienes 2 minutos y 3 intentos ¡SUERTE!...o te atraparan\"
+		get_node(\"sms\").text =\"Se te han dado ciertas palabras como pistas para robar\\n informacion de la empresa WHIZCO. Debes adivinar la clave para\\n acceder a ella con lo quete dieron. Tienes 2 minutos y 3 intentos ¡SUERTE!...o te atraparan\"
 		get_node(\"ahorcado\").text=\"A JUGAR\"
 		$video1.play()
 	elif estado==1:
