@@ -1,11 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://y7uj104p4144"]
+[gd_scene load_steps=21 format=3 uid="uid://y7uj104p4144"]
 
 [ext_resource type="Script" path="res://escenas/player_lvl_3.gd" id="1_7vpbu"]
 [ext_resource type="Texture2D" uid="uid://dxloa4f3yxm5l" path="res://rec/personaje/2 Punk/Run1.png" id="1_unkeu"]
 [ext_resource type="Texture2D" uid="uid://tvlord33vvs4" path="res://rec/personaje/2 Punk/Idle1.png" id="2_km10x"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1mwk"]
-size = Vector2(68, 109)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oge34"]
 size = Vector2(49, 84)
@@ -134,12 +131,6 @@ position = Vector2(706, 474)
 script = ExtResource("1_7vpbu")
 metadata/_edit_group_ = true
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-9, 7.5)
-shape = SubResource("RectangleShape2D_l1mwk")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-7.5, 5)
 shape = SubResource("RectangleShape2D_oge34")
@@ -159,3 +150,5 @@ sprite_frames = SubResource("SpriteFrames_3lqdx")
 animation = &"idlle"
 autoplay = "idlle"
 frame_progress = 0.94539
+
+[node name="Camera2D" type="Camera2D" parent="."]
