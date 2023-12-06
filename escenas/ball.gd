@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 const speed = 800
 
+
 func _ready():
 	initializeBall()
 
@@ -14,7 +15,8 @@ func initializeBall():
 	velocity.y = y_direction[randi() % 2]
 
 func _physics_process(delta):
-	
+	if VariablesGlobales.pongFinished == true:
+		return
 	if Input.is_action_just_pressed("Resetear_Pong"):
 		position.y=450
 		position.x=700
