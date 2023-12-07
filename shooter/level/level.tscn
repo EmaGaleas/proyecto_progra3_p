@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlltol22foe8g"]
+
+[ext_resource type="Script" path="res://shooter/level/level.gd" id="1_mr3ba"]
+[ext_resource type="PackedScene" uid="uid://de824mps60be8" path="res://shooter/level_bg/level_bg.tscn" id="2_kwjc2"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_mr3ba")
+
+[node name="ParallaxBg" parent="." instance=ExtResource("2_kwjc2")]

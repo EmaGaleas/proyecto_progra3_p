@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 VariablesGlobales="*res://escenas/variablesGlobales.gd"
 GameManager="*res://escenas/game_manager.gd"
+game_manager="*res://shooter/singletons/game_manager.gd"
 
 [display]
 
