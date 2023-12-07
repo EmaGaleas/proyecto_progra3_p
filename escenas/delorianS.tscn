@@ -34,7 +34,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("8_dv86k")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 3.0
 }]
@@ -50,9 +50,8 @@ script = ExtResource("1_p2ly3")
 position = Vector2(-1.90735e-06, -1)
 scale = Vector2(1.71774, 1.5625)
 sprite_frames = SubResource("SpriteFrames_73dc1")
-autoplay = "default"
-frame = 6
-frame_progress = 1.0
+frame = 1
+frame_progress = 0.607859
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
