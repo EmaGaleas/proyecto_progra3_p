@@ -127,13 +127,14 @@ scale = Vector2(0.304688, 0.279167)
 texture = ExtResource("9_2y5i6")
 
 [node name="label_pista" type="Label" parent="."]
-offset_left = 989.0
-offset_top = 719.0
+offset_left = 974.0
+offset_top = 726.0
 offset_right = 1231.0
 offset_bottom = 883.0
 text = "PISTA:
 "
 label_settings = SubResource("LabelSettings_e5gy6")
+horizontal_alignment = 1
 
 [connection signal="finished" from="audioTimer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

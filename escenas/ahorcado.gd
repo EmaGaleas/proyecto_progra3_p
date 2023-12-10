@@ -22,21 +22,21 @@ func _palabraRandom():
 	
 func _pista():
 	if(palabraRandom == palabras[0]):
-		get_node("label_pista").text = "PISTA: "+hint[0]
+		get_node("label_pista").text = "* PISTAS *"+hint[0]
 	elif(palabraRandom == palabras[1]):
-		get_node("label_pista").text = "PISTA: "+hint[1]
+		get_node("label_pista").text = "* PISTAS *"+hint[1]
 	elif(palabraRandom == palabras[2]):
-		get_node("label_pista").text = "PISTA: "+hint[2]
+		get_node("label_pista").text = "* PISTAS *"+hint[2]
 	elif (palabraRandom == palabras[3]):
-		get_node("label_pista").text = "PISTA: "+hint[3]
+		get_node("label_pista").text = "* PISTAS *"+hint[3]
 	elif(palabraRandom == palabras[4]):
-		get_node("label_pista").text = "PISTA: "+hint[4]
+		get_node("label_pista").text = "* PISTAS *"+hint[4]
 	elif(palabraRandom == palabras[5]):
-		get_node("label_pista").text = "PISTA: "+hint[5]
+		get_node("label_pista").text = "* PISTAS *"+hint[5]
 	elif(palabraRandom == palabras[6]):
-		get_node("label_pista").text = "PISTA: "+hint[6]
+		get_node("label_pista").text = "* PISTAS *"+hint[6]
 	elif(palabraRandom == palabras[7]):
-		get_node("label_pista").text = "PISTA: "+hint[7]
+		get_node("label_pista").text = "* PISTAS *"+hint[7]
 #funciona mejor on aceptar pressed
 
 

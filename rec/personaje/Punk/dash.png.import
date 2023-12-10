@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce0smssjqakfs"
-path="res://.godot/imported/robot.png-915a9b3d114a2611700a63fa777febb6.ctex"
+uid="uid://c86bh8bttktwv"
+path="res://.godot/imported/dash.png-7034397918208b79d3c6dc4c2e093316.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://rec/Assets/Assets/robot.png"
-dest_files=["res://.godot/imported/robot.png-915a9b3d114a2611700a63fa777febb6.ctex"]
+source_file="res://rec/personaje/Punk/dash.png"
+dest_files=["res://.godot/imported/dash.png-7034397918208b79d3c6dc4c2e093316.ctex"]
 
 [params]
 

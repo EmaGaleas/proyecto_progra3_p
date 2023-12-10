@@ -13,14 +13,20 @@ var is_jumping = false
 var muere=false
 var audio=true
 var h=1
+var dash=false
 
 
 func _physics_process(delta):
 	barraDevida()
+	if Input.is_action_just_pressed("Aumentar_Velocidad"):
+		$Spriteidle.play("dash")
 	if not is_on_floor() and !muere:
 		velocity.y += gravity * delta
 		is_jumping = true
-		$Spriteidle.play("saltar")
+		if dash:
+			$Spriteidle.play("dash")
+		else:
+			$Spriteidle.play("saltar")
 	elif !muere:
 		is_jumping=false
 	if position.y >= 780 and !muere:
@@ -33,10 +39,9 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("move_up") and is_on_floor() and !muere:
 		velocity.y = JUMP_VELOCITY
 		$Spriteidle.play("saltar")
-		audioSalto.pitch_scale=2#aumenta vel audio
+		audioSalto.pitch_scale=2
 		audioSalto.play() 
 	var direction = Input.get_axis("move_left", "move_right")
-	
 	if direction and !muere:
 		if direction>0 and !muere and !is_jumping:
 			$Spriteidle.play("correr")
@@ -49,9 +54,7 @@ func _physics_process(delta):
 		elif is_jumping:
 			$Spriteidle.play("saltar")
 			#audioCorrer.stop()
-		
 		velocity.x = direction * SPEED
-		
 	else:
 		if not Input.is_action_pressed("move_up") and is_on_floor() and !muere:
 			$Spriteidle.play("default")
@@ -60,9 +63,11 @@ func _physics_process(delta):
 			$Spriteidle.play("saltar")
 			audioSalto.play()
 			
-	
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
 	move_and_slide()
+
+
 
 func _on_default_finished():
 	audioDefault.play() # Replace with function body.

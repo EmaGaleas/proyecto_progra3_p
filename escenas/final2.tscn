@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dgc6nrwo4bk5x" path="res://escenas/barraComputer.tscn" id="4_x1l3l"]
 [ext_resource type="AudioStream" uid="uid://sfo1j2bdboc6" path="res://rec/Assets/Assets/ScorePoint.wav" id="5_lmor5"]
 [ext_resource type="AudioStream" uid="uid://dvuu4hte8f2j4" path="res://rec/Assets/Assets/audio_juego.mp3" id="6_jdw8u"]
-[ext_resource type="PackedScene" uid="uid://dxj8jpw6vvcb8" path="res://escenas/miniRobPong.tscn" id="7_83t76"]
 
 [sub_resource type="GDScript" id="GDScript_f7cva"]
 script/source = "extends Node
@@ -36,9 +35,9 @@ func _on_area_player_body_entered(body):
 		VariablesGlobales.tocado()
 	if puntosPC>=7:
 		VariablesGlobales.pongFinished=true;
-		$seguir.dialog_text=\"Has perdido ante\\nla computadora\"
-		$seguir.visible=true
-		VariablesGlobales.final()
+		get_node(\"sms\").text = str(\"HAS PERDIDO ANTE LA PC\")
+		$sms.visible=true
+		$Button.visible=true
 		VariablesGlobales.finalVista()
 		VariablesGlobales.videoStory34=3
 
@@ -56,8 +55,9 @@ func _on_area_pc_body_entered(body):
 		VariablesGlobales.tocado()
 	if puntosPlayer>=7:
 		VariablesGlobales.pongFinished=true;
-		$seguir.dialog_text=\"Has ganado\"
-		$seguir.visible=true
+		get_node(\"sms\").text = str(\"HAS GANADO\")
+		$sms.visible=true
+		$Button.visible=true
 		VariablesGlobales.final()
 		VariablesGlobales.finalVista()
 		VariablesGlobales.videoStory34=3
@@ -75,18 +75,13 @@ func _on_area_pc_body_exited(body):
 		VariablesGlobales.destocado()
 
 
-func _on_seguir_confirmed():
-	VariablesGlobales.pongFinished=false;
-	get_tree().change_scene_to_file(\"res://escenas/storyLine_3y4.tscn\")
-
-
-func _on_seguir_canceled():
-	VariablesGlobales.pongFinished=false;
-	get_tree().change_scene_to_file(\"res://escenas/storyLine_3y4.tscn\")
-
-
 func _on_fondo_finished():
 	$fondo.play()
+
+
+func _on_button_pressed():
+	VariablesGlobales.pongFinished=false;
+	get_tree().change_scene_to_file(\"res://escenas/storyLine_3y4.tscn\")
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1l5g"]
@@ -111,6 +106,11 @@ shadow_color = Color(0, 0, 0.243137, 0)
 font_size = 80
 outline_size = 10
 outline_color = Color(0.639216, 0.815686, 0.564706, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qyaqf"]
+font_size = 100
+outline_size = 10
+outline_color = Color(0.54902, 0, 0, 1)
 
 [node name="pong" type="Node"]
 script = SubResource("GDScript_f7cva")
@@ -204,13 +204,28 @@ title = "CONTINUAR "
 position = Vector2i(623, 420)
 size = Vector2i(150, 100)
 
-[node name="miniRobPong" parent="." instance=ExtResource("7_83t76")]
-position = Vector2(1315, 748)
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_left = 412.0
+offset_top = 525.0
+offset_right = 991.0
+offset_bottom = 567.0
+theme_override_font_sizes/font_size = 20
+text = "Presiona para continuar"
+
+[node name="sms" type="Label" parent="."]
+visible = false
+offset_top = 388.0
+offset_right = 1393.0
+offset_bottom = 528.0
+text = "HAS GANADO"
+label_settings = SubResource("LabelSettings_qyaqf")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="StaticPuntos/AreaPlayer" to="." method="_on_area_player_body_entered"]
 [connection signal="body_exited" from="StaticPuntos/AreaPlayer" to="." method="_on_area_player_body_exited"]
 [connection signal="body_entered" from="StaticPuntos/AreaPC" to="." method="_on_area_pc_body_entered"]
 [connection signal="body_exited" from="StaticPuntos/AreaPC" to="." method="_on_area_pc_body_exited"]
 [connection signal="finished" from="fondo" to="." method="_on_fondo_finished"]
-[connection signal="canceled" from="seguir" to="." method="_on_seguir_canceled"]
-[connection signal="confirmed" from="seguir" to="." method="_on_seguir_confirmed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
