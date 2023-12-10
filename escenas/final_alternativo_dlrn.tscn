@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dfm2h6do88vlc"]
+[gd_scene load_steps=12 format=3 uid="uid://dfm2h6do88vlc"]
 
 [ext_resource type="Script" path="res://escenas/final_alternativo_dlrn.gd" id="1_vaevh"]
 [ext_resource type="PackedScene" uid="uid://d1we5b5j4wq58" path="res://escenas/pipes.tscn" id="2_oees6"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://e56gdbmhn4e7" path="res://escenas/game_over.tscn" id="5_5pq06"]
 [ext_resource type="AudioStream" uid="uid://b7q4uynslj2xe" path="res://rec/paraRebeca/carCrash.mp3" id="6_beow2"]
 [ext_resource type="AudioStream" uid="uid://dgrollk2x6o7x" path="res://rec/paraRebeca/BGoode.mp3" id="6_ja5hj"]
+[ext_resource type="AudioStream" uid="uid://c46wjjdte7ghc" path="res://rec/musica/deloreanAudio.mp3" id="7_px85r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lujja"]
 size = Vector2(1532, 55)
@@ -2921,8 +2922,14 @@ horizontal_alignment = 1
 stream = ExtResource("6_ja5hj")
 autoplay = true
 
+[node name="audioInicio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_px85r")
+autoplay = true
+
 [node name="CarCrash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_beow2")
+volume_db = -1.0
+pitch_scale = 1.5
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
-[connection signal="finished" from="fondo" to="." method="_on_fondo_alt_2_finished"]
+[connection signal="finished" from="fondo" to="." method="_on_fondo_finished"]

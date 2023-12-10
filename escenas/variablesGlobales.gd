@@ -10,7 +10,8 @@ var videoStory34=0
 var flyer=false
 var enFinal=false
 var crash=false
-var pongFinished=false;
+var pongFinished=false
+var dash=false
 
 func menosVida():
 	salud-=1

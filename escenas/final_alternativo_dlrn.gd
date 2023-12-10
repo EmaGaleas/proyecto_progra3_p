@@ -48,3 +48,5 @@ func on_game_over():
 func _on_plane_died():
 	GameManager.load_menu_scene()  
 
+func _on_fondo_finished():
+	$fondo.play()

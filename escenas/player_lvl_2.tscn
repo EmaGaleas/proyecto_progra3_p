@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://n60anile6b8w"]
+[gd_scene load_steps=43 format=3 uid="uid://n60anile6b8w"]
 
 [ext_resource type="Script" path="res://escenas/player_lvl_2.gd" id="1_1rrvx"]
 [ext_resource type="Texture2D" uid="uid://7cgrtr61ojxu" path="res://rec/personaje/Punk/saltar_caer/1_caer.png" id="1_c5w2y"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://biyw5efyqq8fw" path="res://rec/personaje/Punk/correr/3_run.png" id="5_6kc8c"]
 [ext_resource type="Texture2D" uid="uid://cjxxq5hvhthl8" path="res://rec/personaje/Punk/correr/4_run.png" id="6_gsp7u"]
 [ext_resource type="Texture2D" uid="uid://cagw3gk2kq061" path="res://rec/personaje/Punk/correr/5_run.png" id="7_btau2"]
-[ext_resource type="Texture2D" uid="uid://c81qbmyyrbqtl" path="res://rec/personaje/Kaboom.png" id="8_oufcd"]
+[ext_resource type="Texture2D" uid="uid://5mkaldym5p0w" path="res://rec/blurry.png" id="8_2m51r"]
 [ext_resource type="Texture2D" uid="uid://c3mvgrvhxuwup" path="res://rec/personaje/Punk/correr/6_run.png" id="8_qnjqd"]
 [ext_resource type="Texture2D" uid="uid://740kvhin077y" path="res://rec/personaje/Punk/default/1_idle.png" id="9_qljbm"]
 [ext_resource type="Texture2D" uid="uid://dx5arbjmo0ve7" path="res://rec/personaje/Punk/default/2_idle.png" id="10_n8o4q"]
@@ -27,25 +27,29 @@
 [ext_resource type="AudioStream" uid="uid://b201anejvhy2e" path="res://rec/musica/sonidoViento.mp3" id="25_hny1w"]
 [ext_resource type="AudioStream" uid="uid://xdcnqvs02o78" path="res://rec/musica/deadAudio.mp3" id="26_jfv35"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ppecf"]
-atlas = ExtResource("8_oufcd")
-region = Rect2(0, 3, 46, 73)
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wtwo"]
+atlas = ExtResource("8_2m51r")
+region = Rect2(80, 0, 80, 50)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u0cqp"]
-atlas = ExtResource("8_oufcd")
-region = Rect2(51, 3, 51, 73)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ce4n6"]
+atlas = ExtResource("8_2m51r")
+region = Rect2(160, 0, 80, 50)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qhmqg"]
-atlas = ExtResource("8_oufcd")
-region = Rect2(111, 3, 70, 73)
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rfmb"]
+atlas = ExtResource("8_2m51r")
+region = Rect2(240, 0, 80, 50)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ghd2h"]
-atlas = ExtResource("8_oufcd")
-region = Rect2(181, 3, 70, 73)
+[sub_resource type="AtlasTexture" id="AtlasTexture_khv4x"]
+atlas = ExtResource("8_2m51r")
+region = Rect2(320, 0, 80, 50)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6murq"]
-atlas = ExtResource("8_oufcd")
-region = Rect2(251, 3, 70, 73)
+[sub_resource type="AtlasTexture" id="AtlasTexture_7o04u"]
+atlas = ExtResource("8_2m51r")
+region = Rect2(400, 0, 80, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u518o"]
+atlas = ExtResource("8_2m51r")
+region = Rect2(480, 0, 80, 50)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uikl8"]
 animations = [{
@@ -74,19 +78,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ppecf")
+"texture": SubResource("AtlasTexture_8wtwo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u0cqp")
+"texture": SubResource("AtlasTexture_ce4n6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qhmqg")
+"texture": SubResource("AtlasTexture_7rfmb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ghd2h")
+"texture": SubResource("AtlasTexture_khv4x")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6murq")
+"texture": SubResource("AtlasTexture_7o04u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u518o")
 }],
 "loop": true,
 "name": &"dash",
@@ -285,7 +292,7 @@ shape = SubResource("RectangleShape2D_xr5ne")
 
 [node name="fondo2_0" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("25_2tqgv")
-volume_db = -15.0
+volume_db = -13.0
 autoplay = true
 
 [node name="Label" type="Label" parent="."]
@@ -298,6 +305,9 @@ text = "Toques: 4"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="timerBlurry" type="Timer" parent="."]
+
 [connection signal="finished" from="correr" to="." method="_on_correr_finished"]
 [connection signal="finished" from="default" to="." method="_on_default_finished"]
 [connection signal="finished" from="fondo2_0" to="." method="_on_fondo_2_0_finished"]
+[connection signal="timeout" from="timerBlurry" to="." method="_on_timer_blurry_timeout"]

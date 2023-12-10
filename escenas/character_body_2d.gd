@@ -19,6 +19,7 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("move_up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY*1.5
+	
 		$Spritecyber.play("saltar")
 		audioSalto.pitch_scale=2.5#aumenta vel audio
 		audioSalto.play() 

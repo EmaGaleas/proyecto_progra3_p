@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://om1w5lstlntq"]
+[gd_scene load_steps=24 format=3 uid="uid://om1w5lstlntq"]
 
 [ext_resource type="Texture2D" uid="uid://bm5gx8ry6yrf1" path="res://rec/personaje/drone/6.png" id="1_a6kiw"]
 [ext_resource type="Script" path="res://escenas/drone_security.gd" id="1_r6dk0"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dl544yhf4pbu8" path="res://rec/personaje/drone/7.png" id="5_whxdl"]
 [ext_resource type="Texture2D" uid="uid://f1b5ytfvug04" path="res://rec/personaje/drone/Capsule.png" id="6_6j1g8"]
 [ext_resource type="AudioStream" uid="uid://ciduqqgay6ndw" path="res://rec/musica/sonido_cyber.mp3" id="8_844i2"]
+[ext_resource type="AudioStream" uid="uid://yv2rwlgq8nnp" path="res://rec/musica/whoosh.mp3" id="9_qnrk0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v0xsl"]
 atlas = ExtResource("2_qc87i")
@@ -161,6 +162,13 @@ offset_bottom = -50.0
 theme_override_font_sizes/font_size = 30
 text = "0"
 horizontal_alignment = 1
+
+[node name="whoosh" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-0.999998, -2.98023e-06)
+scale = Vector2(4.47059, 4)
+stream = ExtResource("9_qnrk0")
+volume_db = -2.0
+pitch_scale = 1.5
 
 [connection signal="body_entered" from="detect" to="." method="_on_detect_body_entered"]
 [connection signal="body_exited" from="detect" to="." method="_on_detect_body_exited"]
