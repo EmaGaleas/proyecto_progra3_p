@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://dpgdoaacrd3b3"]
 
 [ext_resource type="PackedScene" uid="uid://dh3e2hoso8fli" path="res://escenas/fondoMenu.tscn" id="1_8m5p0"]
-[ext_resource type="Texture2D" uid="uid://cnie1evbfm1it" path="res://rec/Assets/ahorcado.png" id="2_ld0uc"]
+[ext_resource type="Texture2D" uid="uid://bvcb65owpgbw3" path="res://rec/Assets/ahorcado.png" id="2_ld0uc"]
 [ext_resource type="AudioStream" uid="uid://c2kfs42wk3yym" path="res://rec/musica/Super Bowl.mp3" id="3_16ond"]
-[ext_resource type="Texture2D" uid="uid://bgwm2s5gw8fqy" path="res://rec/Assets/runner.png" id="3_urcw8"]
-[ext_resource type="Texture2D" uid="uid://qs44h8vlb5nb" path="res://rec/Assets/flyer.png" id="4_43sgg"]
-[ext_resource type="Texture2D" uid="uid://b6nx11vm4pqgd" path="res://rec/Assets/pong.png" id="4_ccmjs"]
+[ext_resource type="Texture2D" uid="uid://b7rxtm0e2gi70" path="res://rec/Assets/runner.png" id="3_urcw8"]
+[ext_resource type="Texture2D" uid="uid://ci8nxyx012aya" path="res://rec/Assets/flyer.png" id="4_43sgg"]
+[ext_resource type="Texture2D" uid="uid://clw7l018jwpio" path="res://rec/Assets/pong.png" id="4_ccmjs"]
 [ext_resource type="Texture2D" uid="uid://dg4f64ume626r" path="res://rec/Assets/menu.png" id="5_g2dou"]
 
 [node name="finalOpciones" type="Node2D"]
@@ -17,13 +17,13 @@ metadata/_edit_horizontal_guides_ = []
 offset_left = 45.0
 offset_top = 140.0
 offset_right = 290.0
-offset_bottom = 424.0
+offset_bottom = 490.0
 theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
 theme_override_colors/font_hover_color = Color(0.745098, 0.827451, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0.894118, 0.47451, 0, 1)
 theme_override_font_sizes/font_size = 45
 text = "Cypher
-."
+"
 icon = ExtResource("2_ld0uc")
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -32,13 +32,13 @@ vertical_icon_alignment = 0
 offset_left = 316.0
 offset_top = 140.0
 offset_right = 561.0
-offset_bottom = 424.0
+offset_bottom = 489.0
 theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
 theme_override_colors/font_hover_color = Color(0.745098, 0.827451, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0.894118, 0.47451, 0, 1)
 theme_override_font_sizes/font_size = 45
 text = "Runner
-."
+"
 icon = ExtResource("3_urcw8")
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -63,7 +63,7 @@ vertical_icon_alignment = 0
 offset_left = 1110.0
 offset_top = 140.0
 offset_right = 1355.0
-offset_bottom = 424.0
+offset_bottom = 487.0
 theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
 theme_override_colors/font_hover_color = Color(0.745098, 0.827451, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0.894118, 0.47451, 0, 1)
@@ -72,7 +72,7 @@ theme_override_colors/icon_hover_pressed_color = Color(0.894118, 0.47451, 0, 1)
 theme_override_colors/icon_focus_color = Color(0.894118, 0.47451, 0, 1)
 theme_override_font_sizes/font_size = 45
 text = "Flyer
-."
+"
 icon = ExtResource("4_43sgg")
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -81,13 +81,13 @@ vertical_icon_alignment = 0
 offset_left = 840.0
 offset_top = 140.0
 offset_right = 1085.0
-offset_bottom = 424.0
+offset_bottom = 487.0
 theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
 theme_override_colors/font_hover_color = Color(0.745098, 0.827451, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0.894118, 0.47451, 0, 1)
 theme_override_font_sizes/font_size = 45
 text = "Pong
-."
+"
 icon = ExtResource("4_ccmjs")
 icon_alignment = 1
 vertical_icon_alignment = 0
