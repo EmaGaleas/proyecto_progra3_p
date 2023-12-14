@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyip3dbxpef5v"]
+
+[ext_resource type="Script" path="res://shooter/SaurcerManager/saurcer_manager.gd" id="1_svgsj"]
+
+[sub_resource type="Curve2D" id="Curve2D_8wu77"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -139, 120, 0, 0, 0, 0, 777, 120, 0, 0, 0, 0, 1544, 136)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_21ojr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -233, -266, -774.989, 11.3137, 774.989, -11.3137, 690, 260, 0, 0, 0, 0, 1422, -317, 0, 0, 0, 0, 1419, -314)
+}
+point_count = 4
+
+[node name="SaurcerManager" type="Node2D"]
+script = ExtResource("1_svgsj")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Paths" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_8wu77")
+
+[node name="Path2D2" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_21ojr")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
