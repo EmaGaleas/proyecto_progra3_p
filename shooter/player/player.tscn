@@ -1,12 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqoty6afq48mx"]
+[gd_scene load_steps=9 format=3 uid="uid://bqoty6afq48mx"]
 
 [ext_resource type="Texture2D" uid="uid://dcvgj3k8i5spq" path="res://shooter/assets_sht/ships/ships_human_1.png" id="1_smdn7"]
+[ext_resource type="Script" path="res://shooter/player/player.gd" id="1_w7lvi"]
+[ext_resource type="PackedScene" uid="uid://bw3r4xpbmpfkj" path="res://shooter/base_bullet/player_bullet.tscn" id="2_by23h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ap35x"]
-radius = 15.0333
+radius = 10.0778
 
 [sub_resource type="Animation" id="Animation_aoo60"]
-length = 0.001
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -61,7 +63,11 @@ _data = {
 "turn": SubResource("Animation_rf186")
 }
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="Area2D" groups=["player"]]
+position = Vector2(10, 0)
+scale = Vector2(2.8, 2.4)
+script = ExtResource("1_w7lvi")
+bullet_scene = ExtResource("2_by23h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_smdn7")

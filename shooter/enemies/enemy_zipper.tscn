@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb14n02eaa2b1"]
+
+[ext_resource type="PackedScene" uid="uid://c08b6c2jxnb17" path="res://shooter/enemies/enemy_basic.tscn" id="1_an7pm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yyu0g"]
+radius = 10.3448
+height = 41.0714
+
+[node name="EnemyZipper" instance=ExtResource("1_an7pm")]
+scale = Vector2(1.12, 1.16)
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+animation = &"zipper_1"
+frame_progress = 0.480243
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="2"]
+position = Vector2(-4.76837e-07, 1.72414)
+scale = Vector2(2.05357, 1.37931)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(2.69159e-09, 1.78571)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_yyu0g")
+
+[node name="Marker2D" type="Marker2D" parent="Booms" index="0"]
+scale = Vector2(3.10714, 2.44828)
+
+[node name="HealthBar" parent="." index="5"]
+offset_left = -12.5
+offset_top = -18.1034
+offset_right = 13.5
+offset_bottom = -16.1034

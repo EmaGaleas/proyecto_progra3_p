@@ -19,7 +19,11 @@ config/icon="res://icon.svg"
 
 VariablesGlobales="*res://escenas/variablesGlobales.gd"
 GameManager="*res://escenas/game_manager.gd"
+SoundManager="*res://shooter/singletons/sound_manager.gd"
+GameData="*res://shooter/singletons/game_data.gd"
+SignalManager="*res://shooter/singletons/signal_manager.gd"
 game_manager="*res://shooter/singletons/game_manager.gd"
+ObjectMaker="*res://shooter/singletons/object_maker.gd"
 
 [display]
 
@@ -84,6 +88,13 @@ shoot={
 , Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"canceled":false,"pressed":false,"double_click":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="enemy"
+2d_physics/layer_3="player_bullet"
+2d_physics/layer_4="enemy_bullet"
 
 [rendering]
 

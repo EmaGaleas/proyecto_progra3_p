@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://o2vm1d0dka6p"]
+
+[ext_resource type="Script" path="res://shooter/base_bullet/base_bullet.gd" id="1_halmn"]
+
+[node name="BaseBullet" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_halmn")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(4.76837e-07, 0)
+scale = Vector2(1.45, 1.4)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
