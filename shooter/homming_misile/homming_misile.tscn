@@ -7,8 +7,8 @@
 radius = 6.0
 height = 34.0
 
-[node name="HommingMisile" type="Area2D"]
-collision_layer = 8
+[node name="HommingMisile" type="Area2D" groups=["homming_misile"]]
+collision_layer = 24
 collision_mask = 5
 script = ExtResource("1_s5w3d")
 
@@ -38,3 +38,5 @@ tangential_accel_max = 3.0
 scale_amount_min = 0.6
 scale_amount_max = 1.4
 color = Color(0.956863, 0.992157, 0.054902, 1)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

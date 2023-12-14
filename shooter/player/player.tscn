@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqoty6afq48mx"]
+[gd_scene load_steps=10 format=3 uid="uid://bqoty6afq48mx"]
 
 [ext_resource type="Texture2D" uid="uid://dcvgj3k8i5spq" path="res://shooter/assets_sht/ships/ships_human_1.png" id="1_smdn7"]
 [ext_resource type="Script" path="res://shooter/player/player.gd" id="1_w7lvi"]
 [ext_resource type="PackedScene" uid="uid://bw3r4xpbmpfkj" path="res://shooter/base_bullet/player_bullet.tscn" id="2_by23h"]
+[ext_resource type="PackedScene" uid="uid://v53deb4h3jdd" path="res://shooter/shield/shield.tscn" id="4_3sksh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ap35x"]
 radius = 10.0778
@@ -66,6 +67,7 @@ _data = {
 [node name="Player" type="Area2D" groups=["player"]]
 position = Vector2(10, 0)
 scale = Vector2(2.8, 2.4)
+collision_mask = 28
 script = ExtResource("1_w7lvi")
 bullet_scene = ExtResource("2_by23h")
 
@@ -81,3 +83,7 @@ autoplay = "fly"
 libraries = {
 "": SubResource("AnimationLibrary_gu5hc")
 }
+
+[node name="Shield" parent="." instance=ExtResource("4_3sksh")]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

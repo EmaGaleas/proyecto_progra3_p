@@ -6,10 +6,13 @@ const SPEED: float = 200.0
 @onready var sound = $Sound
 @onready var sprite_2d = $Sprite2D
 
-var powerup_type: GameData.POWERUP_TYPE = GameData.POWERUP_TYPE.SHIELD
+var powerup_type: GameData.POWERUP_TYPE = GameData.POWERUP_TYPE.HEALTH
+
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	set_powerup_type(powerup_type)
+	sprite_2d.texture = GameData.POWER_UPS[powerup_type]
 	SoundManager.play_powerup_deploy_sound(sound)
 
 
@@ -19,7 +22,6 @@ func _process(delta):
 
 func set_powerup_type(pu: GameData.POWERUP_TYPE) -> void:
 	powerup_type = pu
-	sprite_2d.texture = GameData.POWERUP_UPS[powerup_type]
 
 
 func _on_area_entered(area):

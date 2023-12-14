@@ -1,28 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://b8aikatygiop0"]
+[gd_scene load_steps=17 format=3 uid="uid://b8aikatygiop0"]
 
 [ext_resource type="Script" path="res://shooter/enemies/saurcer.gd" id="1_qt5hq"]
 [ext_resource type="Texture2D" uid="uid://ddcc8c1x0ma40" path="res://shooter/assets_sht/ships/saucer_2.png" id="1_truea"]
 [ext_resource type="AudioStream" uid="uid://0d2abd4yklw6" path="res://shooter/assets_sht/sounds/misc/sci-fi-door.wav" id="3_a78fy"]
+[ext_resource type="PackedScene" uid="uid://bqvctmy52tqem" path="res://shooter/health_bar/health_bar.tscn" id="4_6o62r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3jh3o"]
 radius = 36.0139
-
-[sub_resource type="Animation" id="Animation_174i2"]
-resource_name = "spin"
-length = 6.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Area2D/Sprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 6.28319]
-}
 
 [sub_resource type="Animation" id="Animation_g541w"]
 length = 0.001
@@ -62,6 +46,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area2D/Sprite2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_e18vs"]
 resource_name = "shoot"
@@ -98,23 +94,83 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 2.6),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1.2, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [true],
 "method": &"set_shooting"
+}, {
+"args": [],
+"method": &"shoot"
 }, {
 "args": [false],
 "method": &"set_shooting"
 }]
 }
 
+[sub_resource type="Animation" id="Animation_174i2"]
+resource_name = "spin"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_m4ou8"]
+resource_name = "death"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Area2D/Sprite2D:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.756863, 0.192157, 0.596078, 1), Color(0.756863, 0.192157, 0.596078, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [false],
+"method": &"set_process"
+}, {
+"args": [],
+"method": &"make_booms"
+}, {
+"args": [],
+"method": &"died"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q3g3n"]
 _data = {
 "RESET": SubResource("Animation_g541w"),
+"death": SubResource("Animation_m4ou8"),
 "shoot": SubResource("Animation_e18vs"),
 "spin": SubResource("Animation_174i2")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oou0o"]
+animation = &"death"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_roses"]
 animation = &"shoot"
@@ -130,6 +186,8 @@ switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xaasw"]
+states/death/node = SubResource("AnimationNodeAnimation_oou0o")
+states/death/position = Vector2(781, 175)
 states/shoot/node = SubResource("AnimationNodeAnimation_roses")
 states/shoot/position = Vector2(615, 100)
 states/spin/node = SubResource("AnimationNodeAnimation_17grm")
@@ -140,7 +198,7 @@ transitions = ["Start", "spin", SubResource("AnimationNodeStateMachineTransition
 rotates = false
 script = ExtResource("1_qt5hq")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["saurcer"]]
 collision_layer = 2
 collision_mask = 5
 
@@ -181,3 +239,12 @@ stream = ExtResource("3_a78fy")
 tree_root = SubResource("AnimationNodeStateMachine_xaasw")
 anim_player = NodePath("../AnimationSpin")
 active = true
+
+[node name="HealthBar" parent="." instance=ExtResource("4_6o62r")]
+offset_left = -30.0
+offset_top = -45.0
+offset_right = 30.0
+offset_bottom = -42.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="died" from="HealthBar" to="." method="_on_health_bar_died"]

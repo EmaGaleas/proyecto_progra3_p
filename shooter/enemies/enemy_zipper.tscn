@@ -8,6 +8,7 @@ height = 41.0714
 
 [node name="EnemyZipper" instance=ExtResource("1_an7pm")]
 scale = Vector2(1.12, 1.16)
+damage_taken = 30
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 animation = &"zipper_1"

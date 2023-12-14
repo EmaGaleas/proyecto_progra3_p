@@ -2,7 +2,7 @@ extends Node2D
 
 var saurcer_scene: PackedScene = preload("res://shooter/enemies/saurcer.tscn")
 
-const WAIT_TIME: float = 8.0
+const WAIT_TIME: float = 9.0
 const WAIT_VAR: float = 1.0
 
 @onready var timer = $Timer

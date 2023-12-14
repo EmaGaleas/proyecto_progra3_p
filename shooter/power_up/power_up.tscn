@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c3fb350bwp4a5" path="res://shooter/assets_sht/misc/shield_gold.png" id="1_ecexo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wfdkk"]
-radius = 9.05539
+radius = 11.0454
 
 [node name="PowerUp" type="Area2D"]
 collision_layer = 0

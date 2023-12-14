@@ -13,6 +13,8 @@ aims_at_player = true
 bullet_scene = ExtResource("2_1dnrn")
 bullet_wait_time = 2.0
 bullet_wait_time_var = 0.2
+kill_me_score = 40
+damage_taken = 15
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 scale = Vector2(1.52, 1.52)

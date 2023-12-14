@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlltol22foe8g"]
+[gd_scene load_steps=7 format=3 uid="uid://dlltol22foe8g"]
 
 [ext_resource type="Script" path="res://shooter/level/level.gd" id="1_mr3ba"]
 [ext_resource type="PackedScene" uid="uid://de824mps60be8" path="res://shooter/level_bg/level_bg.tscn" id="2_kwjc2"]
 [ext_resource type="PackedScene" uid="uid://bqoty6afq48mx" path="res://shooter/player/player.tscn" id="3_n4dcf"]
 [ext_resource type="PackedScene" uid="uid://dyip3dbxpef5v" path="res://shooter/SaurcerManager/saurcer_manager.tscn" id="5_wu42k"]
+[ext_resource type="PackedScene" uid="uid://cpxdtufn51qpm" path="res://shooter/game_ui/game_ui.tscn" id="6_62acf"]
 [ext_resource type="PackedScene" uid="uid://c8cgwof42jpul" path="res://shooter/wavemanager/wave_manager.tscn" id="7_qa16o"]
 
 [node name="Level" type="Node2D"]
@@ -18,3 +19,7 @@ position = Vector2(749, 756)
 
 [node name="SaurcerManager" parent="." instance=ExtResource("5_wu42k")]
 position = Vector2(72, 347)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameUI" parent="CanvasLayer" instance=ExtResource("6_62acf")]

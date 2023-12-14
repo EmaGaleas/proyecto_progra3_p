@@ -25,10 +25,15 @@ func setup(pos: Vector2, dir: Vector2, sp: float, dm: int) -> void:
 
 
 func blowup(area:Node2D) -> void:
-	var net_position = global_position - area.global_position
-	ObjectMaker.create_explosion(net_position, area)
+	if area.is_in_group(GameData.GROUP_HOMMING_MISILE) == false:
+		var net_position = global_position - area.global_position
+		ObjectMaker.create_explosion(net_position, area)
 	set_process(false)
 	queue_free()
+
+func get_damage( )-> int:
+	return damage
+
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

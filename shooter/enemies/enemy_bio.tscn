@@ -13,6 +13,8 @@ shoots = true
 bullet_scene = ExtResource("2_scsht")
 bullet_wait_time = 0.5
 bullet_wait_time_var = 0.1
+kill_me_score = 20
+damage_taken = 20
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 animation = &"biomech_1"
