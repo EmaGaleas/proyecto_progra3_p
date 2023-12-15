@@ -4,12 +4,12 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var estado=VariablesGlobales.videoStory34
-	if estado==0:
+	if estado==0 :
 		get_node("sms").text ="Te has implantado el Bestandteil.\nA relajarse en el arcade pero primero debes pensar como llegar...\nManeja el Delorian por la ciudad y ten cuidado de chocar, recuerda \nque vuela arriba y abajo."
 		get_node("btn").text="FAHREN TIME"
 		$ganaShoot.play()
 		$Final.visible=false
-	elif estado==1:
+	elif estado==1 :
 		get_node("sms").text ="¡HAS MUERTO!\nTe robaron el Bestandteil.\nIntentalo de nuevo."
 		get_node("btn").text="VOLVER AL MENU"
 		$pierdeShoot.play()
@@ -41,11 +41,17 @@ func _on_flappy_story_finished():
 
 
 func _on_btn_pressed():
-	if VariablesGlobales.videoStory34==0:
+	if VariablesGlobales.videoStory34==0 and VariablesGlobales.enFinal==false:
 		pass
-	elif VariablesGlobales.videoStory34==1:
+	elif VariablesGlobales.videoStory34==1 and VariablesGlobales.enFinal==false:
 		get_tree().change_scene_to_file("res://escenas/menu.tscn")
-	elif VariablesGlobales.videoStory34==2:
+	elif VariablesGlobales.videoStory34==2 and VariablesGlobales.enFinal==false:
 		get_tree().change_scene_to_file("res://escenas/final2.tscn")
 	elif VariablesGlobales.videoStory34==3:
 		get_tree().change_scene_to_file("res://escenas/finalOpciones.tscn")
+	else:
+		VariablesGlobales.finalVista()
+		get_tree().change_scene_to_file("res://escenas/finalOpciones.tscn")
+		
+
+

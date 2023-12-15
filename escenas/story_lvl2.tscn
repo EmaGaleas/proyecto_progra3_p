@@ -93,4 +93,4 @@ autoplay = true
 [connection signal="finished" from="video1" to="." method="_on_video_1_finished"]
 [connection signal="finished" from="video2" to="." method="_on_video_2_finished"]
 [connection signal="finished" from="video3" to="." method="_on_video_3_finished"]
-[connection signal="pressed" from="btn" to="video1" method="_on_ahorcado_pressed"]
+[connection signal="pressed" from="btn" to="." method="_on_btn_pressed"]

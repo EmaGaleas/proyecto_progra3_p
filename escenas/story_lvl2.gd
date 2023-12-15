@@ -31,3 +31,17 @@ func _on_video_2_finished():
 func _on_video_3_finished():
 	if VariablesGlobales.videoLVL2==2:
 		$video3.play()
+
+
+func _on_btn_pressed():
+	var estado=VariablesGlobales.videoLVL2
+	if estado==0 and VariablesGlobales.enFinal==false:
+		get_tree().change_scene_to_file("res://escenas/final_alternativo_dlrn.tscn")
+	elif estado==1 and VariablesGlobales.enFinal==false:
+		get_tree().change_scene_to_file("res://escenas/menu.tscn")
+	elif estado==2 and VariablesGlobales.enFinal==false:
+		get_tree().change_scene_to_file("res://escenas/menu.tscn")
+	else:
+		VariablesGlobales.finalVista()
+		get_tree().change_scene_to_file("res://escenas/finalOpciones.tscn")
+
