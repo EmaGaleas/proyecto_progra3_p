@@ -33,7 +33,7 @@ func _on_area_player_body_entered(body):
 	get_node(\"puntosPc\").text = str(puntosPC)
 	if puntosPC>0:
 		VariablesGlobales.tocado()
-	if puntosPC>=7:
+	if puntosPC>=5:
 		VariablesGlobales.pongFinished=true;
 		get_node(\"sms\").text = str(\"HAS PERDIDO ANTE LA PC\")
 		$sms.visible=true
@@ -53,7 +53,7 @@ func _on_area_pc_body_entered(body):
 	get_node(\"puntosPlayer\").text = str(puntosPlayer)
 	if puntosPlayer>0:
 		VariablesGlobales.tocado()
-	if puntosPlayer>=7:
+	if puntosPlayer>=5:
 		VariablesGlobales.pongFinished=true;
 		get_node(\"sms\").text = str(\"HAS GANADO\")
 		$sms.visible=true

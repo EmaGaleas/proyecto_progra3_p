@@ -60,9 +60,8 @@ func make_booms()->void:
 		await get_tree().create_timer(BOOM_DELAY).timeout
 
 func _on_health_bar_died():
-	health_bar.disconnect("died", _on_health_bar_died)
 	animation_tree.travel("death")
 
 
 func _on_area_2d_area_entered(area):
-	health_bar.take_damage(HIT_DAMAGE)
+	pass

@@ -36,7 +36,6 @@ func turn(delta:float)-> void:
 func blowup() -> void:
 	ObjectMaker.create_explosion(global_position, get_tree().current_scene)
 	set_process(false)
-	ScoreManager.increment_score(SCORE)
 	queue_free()
 
 

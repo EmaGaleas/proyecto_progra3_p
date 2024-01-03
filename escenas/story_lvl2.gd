@@ -5,7 +5,7 @@ extends Node2D
 func _ready():
 	var estado=VariablesGlobales.videoLVL2
 	if estado==0:
-		get_node("sms").text ="Escapaste de seguridad pero no de los rumores. Un grupo se entero\nque tienes información importante y la quieren a toda costa.\nDEFIENDETE O MUERES."
+		get_tree().change_scene_to_file("res://escenas/final_alternativo_dlrn.tscn")
 		get_node("btn").text="A SOBREVIVIR"
 		$video1.play()
 	elif estado==1:

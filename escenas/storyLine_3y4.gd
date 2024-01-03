@@ -15,7 +15,7 @@ func _ready():
 		$pierdeShoot.play()
 		$Final.visible=false
 	elif estado==2:
-		get_node("sms").text ="GAME OVER...¿o no? Has llegado al ARCADE apesar de todo\nJugaras PONG contra la computadora.\nEl gandor es quien llegue a los 7 puntos primero."
+		get_node("sms").text ="GAME OVER...¿o no? Has llegado al ARCADE apesar de todo\nJugaras PONG contra la computadora.\nEl gandor es quien llegue a los 5 puntos primero."
 		get_node("btn").text="JUGAR"
 		$flappyStory.play()
 		$Final.visible=false
@@ -42,7 +42,7 @@ func _on_flappy_story_finished():
 
 func _on_btn_pressed():
 	if VariablesGlobales.videoStory34==0 and VariablesGlobales.enFinal==false:
-		pass
+		get_tree().change_scene_to_file("res://escenas/final_alternativo_dlrn.tscn")
 	elif VariablesGlobales.videoStory34==1 and VariablesGlobales.enFinal==false:
 		get_tree().change_scene_to_file("res://escenas/menu.tscn")
 	elif VariablesGlobales.videoStory34==2 and VariablesGlobales.enFinal==false:

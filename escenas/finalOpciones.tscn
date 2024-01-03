@@ -17,7 +17,7 @@ metadata/_edit_horizontal_guides_ = []
 offset_left = 45.0
 offset_top = 140.0
 offset_right = 290.0
-offset_bottom = 490.0
+offset_bottom = 449.0
 theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
 theme_override_colors/font_hover_color = Color(0.745098, 0.827451, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0.894118, 0.47451, 0, 1)
@@ -29,10 +29,10 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 
 [node name="Button2" type="Button" parent="."]
-offset_left = 316.0
+offset_left = 402.0
 offset_top = 140.0
-offset_right = 561.0
-offset_bottom = 489.0
+offset_right = 647.0
+offset_bottom = 450.0
 theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
 theme_override_colors/font_hover_color = Color(0.745098, 0.827451, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0.894118, 0.47451, 0, 1)
@@ -44,6 +44,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 
 [node name="Button3" type="Button" parent="."]
+visible = false
 offset_left = 578.0
 offset_top = 140.0
 offset_right = 823.0
@@ -63,7 +64,7 @@ vertical_icon_alignment = 0
 offset_left = 1110.0
 offset_top = 140.0
 offset_right = 1355.0
-offset_bottom = 487.0
+offset_bottom = 450.0
 theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
 theme_override_colors/font_hover_color = Color(0.745098, 0.827451, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0.894118, 0.47451, 0, 1)
@@ -78,10 +79,10 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 
 [node name="Button5" type="Button" parent="."]
-offset_left = 840.0
+offset_left = 764.0
 offset_top = 140.0
-offset_right = 1085.0
-offset_bottom = 487.0
+offset_right = 1009.0
+offset_bottom = 453.0
 theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
 theme_override_colors/font_hover_color = Color(0.745098, 0.827451, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0.894118, 0.47451, 0, 1)
